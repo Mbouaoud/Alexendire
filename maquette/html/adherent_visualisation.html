@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Visualisation d'un Adh&eacute;rent</title>
+		<title>Fiche Adh&eacute;rent</title>
 		<div class="col-xs-12">
-			<h1 class="col-xs-6 col-xs-offset-3">Visualisation d'un Adh&eacute;rent</h1>
+			<h1 class="col-xs-5 col-xs-offset-4">Fiche Adh&eacute;rent</h1>
 		</div>
 		
 		<script src="../js/jquery-2.1.4.js"></script>
@@ -11,85 +11,100 @@
   		<script src="../bootstrap/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
   		<script src="../js/underscore.js"></script>
   		<link rel="stylesheet" href="../css/style_headerfooter.css">
+  		<style>
+  			.up-down-space{
+  				margin-top:20px;
+  				margin-bottom:20px;
+  			}
+  			.padding15{
+  				padding:20px 20px 20px 20px;
+  			}
+  			.border-red{
+  				border:1px dashed red;
+  				border-radius:5px;
+  			}
+  		</style>
 	</head>
 	
 	<body>
-		<div class="container">	
-			<header >
-				<div class="navbar  navbar-default container-fluid ">
-					<div class="row">
-						<div class="col-xs-10">
-							<ul class="nav nav-pills nav-justified marge-top-menu ">
-					  			<li>
-					  				<a href="home.html">M&eacute;dia</a>
-					  			</li>
-					 			<li>
-					 				<a href="adherent_recherche.html" >Adh&eacute;rents</a>
-					 			</li>
-							</ul>
-						</div >
-						<div class="col-xs-2">
-					  		<a href="home.html" ><img class="img-responsive center-block"  src="../src/img/logo.png"/></a>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-xs-5 col-xs-offset-5">
-							<ul class="nav nav-pills nav-justified ">
-					  			<li>
-					  				<a href="adherent_recherche.html">Recherche</a>
-					  			</li>
-					 			<li>
-					 				<a href="adherent_creation.html" >Nouveau</a>
-					 			</li>
-							</ul>
-						</div>
-						<div class="col-xs-2  marge-top-deco" >
-							
-					 			<button class="btn btn-default" role="button"  href="login.html">D&eacute;connexion</button>
-					 		
-					 	</div>
-					 	
-					</div>
+		<header>
+			<div>
+				<div >
+					<nav>
+						<ul>
+				  			<li>
+				  				<a href="home.html">M&eacute;dia</a>
+				  			</li>
+				 			<li>
+				 				<a href="adherent_recherche.html">Adh&eacute;rents</a>
+				 			</li>
+						</ul>
+					</nav>
 				</div>
+				<div>
+						<ul>
+				  			<li>
+				  				<a href="home.html">Logo</a>
+				  			</li>
+				 			<li>
+				 				<a href="login.html">D&eacute;connection</a>
+				 			</li>
+						</ul>
+				</div>
+				<div>
+					<nav>
+						<ul>
+				  			<li>
+				  				<a href="adherent_recherche.html">Recherche</a>
+				  			</li>
+				 			<li>
+				 				<a href="adherent_creation.html">Nouveau</a>
+				 			</li>
+						</ul>
+					</nav>
+							
+				</div>
+			</div>
+			
 		</header>
 		
 		<div>
-			<div class="col-md-8 col-md-offset-2" style="border:1px red dashed;">
-				<div class="form-group col-md-12">
-					<label class="col-md-4">Nom & Pr&eacute;nom</label>
-					<p class="col-md-8">Ex_Nom & Ex_Pr&eacute;nom</p>
+			<div class="col-xs-8 col-xs-offset-2 padding15 up-down-space border-red">
+				<div class="form-group col-xs-12">
+					<label class="col-xs-4">Nom & Pr&eacute;nom</label>
+					<p class="col-xs-8">Ex_Nom & Ex_Pr&eacute;nom</p>
 				</div>
-				<div class="form-group col-md-12">
-					<label class="col-md-4">Date de Naissance</label>
-					<input class="col-md-4" type="date" value="1985-09-15" readonly>
+				<div class="form-group col-xs-12">
+					<label class="col-xs-4">Date de Naissance</label>
+					<p class="col-xs-8">Ex_Date_Naissance</p>
 				</div>
-				<div class="form-group col-md-12">
-					<label class="col-md-4">E-mail</label>
-					<p class="col-md-8">Ex_E-mail</p>
+				<div class="form-group col-xs-12">
+					<label class="col-xs-4">E-mail</label>
+					<p class="col-xs-8">Ex_E-mail</p>
 				</div>
-				<div class="form-group col-md-12">
-					<label class="col-md-4">Adresse</label>
-					<p class="col-md-8">Ex_Adresse</p>
+				<div class="form-group col-xs-12">
+					<label class="col-xs-4">Adresse</label>
+					<p class="col-xs-8">Ex_Adresse</p>
 				</div>
-				<div class="form-group col-md-12">
-					<label class="col-md-1 col-md-offset-1">CP & Ville</label>
-					<p class="col-md-8">Ex_Code_Postal & Ex_Ville</p>
+				<div class="form-group col-xs-12">
+					<label class="col-xs-4">Code Postal & Ville</label>
+					<p class="col-xs-8">Ex_Code_Postal & Ex_Ville</p>
 				</div>
-				<div class="form-group col-md-12">
-					<label class="col-md-4">Date de Paiement de la cotisation</label>
-					<input class="col-md-4" type="date" value="2016-08-15" readonly>
+				<div class="form-group col-xs-12">
+					<label class="col-xs-4">Date de Paiement de la cotisation</label>
+					<p class="col-xs-8">Ex_Date_Paiement_Cotisation</p>
 				</div>
-				<div class="form-group col-md-12">
-					<label class="col-md-4">Montant de la cotisation</label>
-					<p class="col-md-4">Ex_Montant_Cotisation</p>
-					<p class="col-md-1">&euro;</p>
+				<div class="form-group col-xs-12">
+					<label class="col-xs-4">Montant de la cotisation</label>
+					<p class="col-xs-4">Ex_Montant_Cotisation</p>
+					<p class="col-xs-1">&euro;</p>
 				</div>
 				
-				<div class="form-group col-md-10 col-md-offset-1">
+				<div class="form-group col-xs-10 col-xs-offset-1">
 					<label>Liste des m&eacute;dias emprunt&eacute;s</label>
 					<br>
-					<table class="bs-example col-md-12">
-						<thead>
+					<table class="table table-hover col-xs-12">
+						<thead class="bg-warning">
 							<tr>
 								<th>Titre
 								</th>
@@ -99,7 +114,7 @@
 								</th>
 							</tr>
 						</thead>
-						<tbody>
+						<tbody class="bg-danger">
 							<tr>
 								<td>Ex_Titre1</td>
 								<td>Ex_Auteur1</td>
@@ -124,35 +139,37 @@
 					</table>
 				</div>
 				
-				<div class="form-group col-md-12">
-					<label class="col-md-2">Nouvel Emprunt :</label>
+				<div class="form-group col-xs-12">
+					<label class="col-xs-2">Nouvel Emprunt :</label>
 				</div>
-				<div class="form-group col-md-12">
+				<div class="form-group col-xs-12">
 					<form action="#" method="GET">
-						<label class="col-md-2">Nom de l'Emprunteur</label>
-						<input type="text" class="col-md-2" value="Ex_Nom_Emprunteur" readonly>
-						<label class="col-md-2">Date</label>
-						<div class="col-md-2">
-							<input type="date" value="2016-09-15" readonly>
+						<label class="col-xs-1">Titre</label>
+						<input type="text" class="col-xs-2 bg-warning" value="Ex_Nom_Emprunteur" readonly>
+						<label class="col-xs-2">Date de l'emprunt</label>
+						<div class="col-xs-2">
+							<input type="date" class="bg-warning" value="2016-09-15" readonly>
 						</div>
-						<input class="active col-md-1 col-md-offset-1" type="submit" value="Ajouter" readonly>
+						<label class="col-xs-1">Type</label>
+						<select class="col-xs-1 bg-warning" readonly>
+							<option>Livre</option>
+							<option>CD</option>
+							<option>DVD</option>
+						</select>
+						<input class="col-xs-1 col-xs-offset-1 btn btn-warning" type="submit" value="Ajouter" readonly>
 					</form>
 				</div>
 			</div>
 			
-			<div class="col-md-2 col-md-offset-5">
+			<div class="col-xs-2 col-xs-offset-5 up-down-space">
 				<form action="#" method="GET">
-					<input class="active" type="submit" value="Modifier" readonly>
+					<input class="btn btn-warning" type="submit" value="Modifier" readonly>
 				</form>
 			</div>
 		</div>
 		
 		<footer>
-			 <div class="panel-footer pull-right label-primary">
-				Projet r&eacute;alis&eacute; par Aragon Romain, Bouaoud Medhi, Gaborit Jean-Marie et Themelin Mathieu
-				
-			</div>
+			<div></div>
 		</footer>
-		</div>
 	</body>
 </html>

@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Visualisation d'un M&eacute;dia</title>
+		<title>Fiche M&eacute;dia</title>
 		<div class="col-xs-12">
-			<h1 class="col-xs-6 col-xs-offset-3">Visualisation d'un M&eacute;dia</h1>
+			<h1 class="col-xs-5 col-xs-offset-4">Fiche M&eacute;dia</h1>
 		</div>
 		
 		<script src="../js/jquery-2.1.4.js"></script>
@@ -11,152 +11,64 @@
   		<script src="../bootstrap/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
   		<script src="../js/underscore.js"></script>
   		<link rel="stylesheet" href="../css/style_headerfooter.css">
+  		<style>
+  			.up-down-space{
+  				margin-top:20px;
+  				margin-bottom:20px;
+  			}
+  			.padding15{
+  				padding:20px 20px 20px 20px;
+  			}
+  			.border-red{
+  				border:1px dashed red;
+  				border-radius:5px;
+  			}
+  		</style>
 	</head>
 	
 	<body>
-		<div class="container">	
-			<header >
-					<div class="navbar  navbar-default container-fluid ">
-						<div class="row">
-							<div class="col-xs-10">
-								<ul class="nav nav-pills nav-justified marge-top-menu ">
-						  			<li class="bg-info">
-						  				<a href="home.html">M&eacute;dia</a>
-						  			</li>
-						 			<li>
-						 				<a href="adherent_recherche.html" >Adh&eacute;rents</a>
-						 			</li>
-								</ul>
-							</div >
-							<div class="col-xs-2">
-						  		<a href="home.html" ><img class="img-responsive center-block"  src="../src/img/logo.png"/></a>
-							</div>
-						</div>
-						<div class="row">
-							<div class="col-xs-5 ">
-								<ul class="nav nav-pills nav-justified ">
-						  			<li >
-						  				<a href="home.html">Recherche</a>
-						  			</li>
-						 			<li >
-						 				<a href="media_creation.html" >Nouveau</a>
-						 			</li>
-								</ul>
-							</div>
-							<div class="col-xs-2 col-xs-offset-5 marge-top-deco" >
-								
-						 			<button class="btn btn-default" role="button"  href="login.html">D&eacute;connexion</button>
-						 		
-						 	</div>
-						 	
-						</div>
-					</div>
-				</header>
-			
-			<div class="col-md-12">
-				<div class="form-group row">
-					<label class="col-md-2">Titre</label>
-					<label class="col-md-4">Ex_Titre</label>
+		<header>
+			<div>
+				<div >
+					<nav>
+						<ul>
+				  			<li>
+				  				<a href="home.html">M&eacute;dia</a>
+				  			</li>
+				 			<li>
+				 				<a href="adherent_recherche.html">Adh&eacute;rents</a>
+				 			</li>
+						</ul>
+					</nav>
 				</div>
-				<div class="form-group row">
-					<label class="col-md-2">Type</label>
-					<label class="col-md-4">Ex_Type</label>
+				<div>
+						<ul>
+				  			<li>
+				  				<a href="home.html">Logo</a>
+				  			</li>
+				 			<li>
+				 				<a href="login.html">D&eacute;connection</a>
+				 			</li>
+						</ul>
 				</div>
-				<div class="form-group row">
-					<label class="col-md-2">Auteur</label>
-					<label class="col-md-4">Ex_Auteur</label>
+				<div>
+					<nav>
+						<ul>
+				  			<li>
+				  				<a href="home.html">Recherche</a>
+				  			</li>
+				 			<li>
+				 				<a href="media_creation.html">Nouveau</a>
+				 			</li>
+						</ul>
+					</nav>
+							
 				</div>
-<<<<<<< HEAD
-				<div class="form-group row">
-					<label class="col-md-2">Emprunt&eacute;</label>
-					<label class="col-md-4">par Ex_Nom_Emprunteur</label>
-				</div>
-				<div class="form-group row">
-					<label class="col-md-2">Date de retour</label>
-					<div class="col-md-4"><input type="date" readonly></div>
-				</div>
-				<div class="form-group row">
-					<label class="col-md-2">Nom de l'Emprunteur</label>
-					<label class="col-md-2">Ex_Nom_Emprunteur</label>
-					<label class="col-md-1">Date</label>
-					<div class="col-md-2">
-						<input type="date">
-					</div>
-					<input class="active" type="submit" value="Ajouter">
-				</div>
-				<div class="form-group col-md-12">
-					<label>Dernier Emprunteur</label>
-					<br>
-					<table class="bs-example col-md-6">
-						<thead>
-							<tr>
-								<th>Identifiant Emprunteur
-								</th>
-								<th>Nom Emprunteur
-								</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>Ex_Id_Emprunteur1</td>
-								<td>Ex_Nom_Emprunteur1</td>
-							</tr>
-							<tr>
-								<td>Ex_Id_Emprunteur2</td>
-								<td>Ex_Nom_Emprunteur2</td>
-							</tr>
-							<tr>
-								<td>Ex_Id_Emprunteur3</td>
-								<td>Ex_Nom_Emprunteur3</td>
-							</tr>
-							<tr>
-								<td>Ex_Id_Emprunteur4</td>
-								<td>Ex_Nom_Emprunteur4</td>
-							</tr>
-							<tr>
-								<td>Ex_Id_Emprunteur5</td>
-								<td>Ex_Nom_Emprunteur5</td>
-							</tr>
-							<tr>
-								<td>Ex_Id_Emprunteur6</td>
-								<td>Ex_Nom_Emprunteur6</td>
-							</tr>
-							<tr>
-								<td>Ex_Id_Emprunteur7</td>
-								<td>Ex_Nom_Emprunteur7</td>
-							</tr>
-							<tr>
-								<td>Ex_Id_Emprunteur8</td>
-								<td>Ex_Nom_Emprunteur8</td>
-							</tr>
-							<tr>
-								<td>Ex_Id_Emprunteur9</td>
-								<td>Ex_Nom_Emprunteur9</td>
-							</tr>
-							<tr>
-								<td>Ex_Id_Emprunteur10</td>
-								<td>Ex_Nom_Emprunteur10</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
-				
-				<div class="col-md-6 col-md-offset-3"><input class="active" type="submit" value="Modifier"></div>
-			</div>
-			
-			<footer>
-				 <div class="panel-footer pull-right label-primary">
-					Projet r&eacute;alis&eacute; par Aragon Romain, Bouaoud Medhi, Gaborit Jean-Marie et Themelin Mathieu
-					
-				</div>
-			</footer>
-		</div>	
-=======
 			</div>
 		</header>
 		
 		<div>
-			<div class="col-xs-8 col-xs-offset-2" style="border:1px red dashed;">
+			<div class="col-xs-8 col-xs-offset-2 padding15 up-down-space border-red">
 				<div class="form-group col-xs-12">
 					<label class="col-xs-4">Titre</label>
 					<p class="col-xs-8">Ex_Titre</p>
@@ -175,7 +87,7 @@
 				</div>
 				<div class="form-group col-xs-12">
 					<form action="#" method="GET">
-						<label class="col-xs-2">Nom de l'Emprunteur</label>
+						<label class="col-xs-3">Nom de l'Emprunteur</label>
 						<input type="text" class="col-xs-2" value="Ex_Nom_Emprunteur" readonly>
 						<label class="col-xs-1">Date</label>
 						<div class="col-xs-2">
@@ -187,8 +99,8 @@
 				<div class="form-group col-xs-10 col-xs-offset-1">
 					<label>Dernier Emprunteur</label>
 					<br>
-					<table class="bs-example col-xs-12">
-						<thead>
+					<table class="table table-hover col-xs-12">
+						<thead class="bg-warning">
 							<tr>
 								<th>Identifiant Emprunteur
 								</th>
@@ -196,7 +108,7 @@
 								</th>
 							</tr>
 						</thead>
-						<tbody>
+						<tbody class="bg-danger">
 							<tr>
 								<td>Ex_Id_Emprunteur1</td>
 								<td>Ex_Nom_Emprunteur1</td>
@@ -242,9 +154,9 @@
 				</div>
 			</div>
 			
-			<div class="col-xs-2 col-xs-offset-5">
+			<div class="col-md-2 col-md-offset-5 up-down-space">
 				<form action="#" method="GET">
-					<input class="active" type="submit" value="Modifier" readonly>
+					<input class="btn btn-warning" type="submit" value="Modifier" readonly>
 				</form>
 			</div>
 		</div>
@@ -252,6 +164,5 @@
 		<footer>
 			<div></div>
 		</footer>
->>>>>>> c75a693a4b790713f6efc87fd52dc676b0e841ff
 	</body>
 </html>
