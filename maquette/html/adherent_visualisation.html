@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title></title>
+		<title>Visualisation d'un Adh&eacute;rent</title>
+		<div class="col-xs-12">
+			<h1 class="col-xs-6 col-xs-offset-3">Visualisation d'un Adh&eacute;rent</h1>
+		</div>
 		
 		<script src="../js/jquery-2.1.4.js"></script>
 		<link rel="stylesheet" href="../bootstrap/bootstrap-3.3.6-dist/css/bootstrap.css">
@@ -50,7 +53,99 @@
 				</div>
 		</header>
 		
-		<div></div>
+		<div>
+			<div class="col-md-8 col-md-offset-2" style="border:1px red dashed;">
+				<div class="form-group col-md-12">
+					<label class="col-md-4">Nom & Pr&eacute;nom</label>
+					<p class="col-md-8">Ex_Nom & Ex_Pr&eacute;nom</p>
+				</div>
+				<div class="form-group col-md-12">
+					<label class="col-md-4">Date de Naissance</label>
+					<input class="col-md-4" type="date" value="1985-09-15" readonly>
+				</div>
+				<div class="form-group col-md-12">
+					<label class="col-md-4">E-mail</label>
+					<p class="col-md-8">Ex_E-mail</p>
+				</div>
+				<div class="form-group col-md-12">
+					<label class="col-md-4">Adresse</label>
+					<p class="col-md-8">Ex_Adresse</p>
+				</div>
+				<div class="form-group col-md-12">
+					<label class="col-md-1 col-md-offset-1">CP & Ville</label>
+					<p class="col-md-8">Ex_Code_Postal & Ex_Ville</p>
+				</div>
+				<div class="form-group col-md-12">
+					<label class="col-md-4">Date de Paiement de la cotisation</label>
+					<input class="col-md-4" type="date" value="2016-08-15" readonly>
+				</div>
+				<div class="form-group col-md-12">
+					<label class="col-md-4">Montant de la cotisation</label>
+					<p class="col-md-4">Ex_Montant_Cotisation</p>
+					<p class="col-md-1">&euro;</p>
+				</div>
+				
+				<div class="form-group col-md-10 col-md-offset-1">
+					<label>Liste des m&eacute;dias emprunt&eacute;s</label>
+					<br>
+					<table class="bs-example col-md-12">
+						<thead>
+							<tr>
+								<th>Titre
+								</th>
+								<th>Auteur
+								</th>
+								<th>Type
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Ex_Titre1</td>
+								<td>Ex_Auteur1</td>
+								<td>Ex_Type1</td>
+							</tr>
+							<tr>
+								<td>Ex_Titre2</td>
+								<td>Ex_Auteur2</td>
+								<td>Ex_Type2</td>
+							</tr>
+							<tr>
+								<td>Ex_Titre3</td>
+								<td>Ex_Auteur3</td>
+								<td>Ex_Type3</td>
+							</tr>
+							<tr>
+								<td>Ex_Titre4</td>
+								<td>Ex_Auteur4</td>
+								<td>Ex_Type4</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				
+				<div class="form-group col-md-12">
+					<label class="col-md-2">Nouvel Emprunt :</label>
+				</div>
+				<div class="form-group col-md-12">
+					<form action="#" method="GET">
+						<label class="col-md-2">Nom de l'Emprunteur</label>
+						<input type="text" class="col-md-2" value="Ex_Nom_Emprunteur" readonly>
+						<label class="col-md-2">Date</label>
+						<div class="col-md-2">
+							<input type="date" value="2016-09-15" readonly>
+						</div>
+						<input class="active col-md-1 col-md-offset-1" type="submit" value="Ajouter" readonly>
+					</form>
+				</div>
+			</div>
+			
+			<div class="col-md-2 col-md-offset-5">
+				<form action="#" method="GET">
+					<input class="active" type="submit" value="Modifier" readonly>
+				</form>
+			</div>
+		</div>
 		
 		<footer>
 			 <div class="panel-footer pull-right label-primary">
