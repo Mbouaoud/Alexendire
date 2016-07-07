@@ -7,9 +7,10 @@
 		<link rel="stylesheet" href="../bootstrap/bootstrap-3.3.6-dist/css/bootstrap.css">
   		<script src="../bootstrap/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
   		<script src="../js/underscore.js"></script>
+  		
 	</head>
 	
-	<body>
+	<body class="container">
 		<header>
 			<div>
 				<div >
@@ -50,8 +51,52 @@
 			</div>
 
 		</header>
-		
-		<div></div>
+		<br>
+		<div class="row"> 
+			<form>
+				<div class="form-group">
+					<label class="col-xs-1 control-label">Identifiant:</label>
+					<div class="col-xs-2">
+						<input type="text" class="form-control">
+					</div>
+					
+					<label class="col-xs-offset-2 col-xs-1 control-label">Nom:</label>
+					<div class="col-xs-3">
+						<input type="text" class="form-control">
+					</div>
+					
+					<button type="button" class="btn btn-warning col-xs-offset-2 col-xs-1">Recherche</button>
+				</div>
+			</form>
+		</div>
+		<br>
+			<table class="table table-bordered table-striped">
+			<thead>
+				<tr class="row warning">
+					<th class="col-xs-2">Identifiant</th>
+					<th class="col-xs-4">Nom Pr&eacute;nom</th>
+					<th class="col-xs-2">Date de naissance</th>
+					<th class="col-xs-1">Cottisation</th>
+					<th class="col-xs-3">M&eacute;dia emprunt&eacute;</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class="row">
+					<td>id1</td>
+					<td>Nom Prenom</td>
+					<td>07/07/2016</td>
+					<td>oui</td>
+					<td>Media1, Media2</td>
+				</tr>
+				<tr class="row">
+					<td>id2</td>
+					<td>Nom Prenom</td>
+					<td>07/07/2016</td>
+					<td>non</td>
+					<td>Media3, Media4</td>
+				</tr>
+			</tbody>
+		</table>
 		
 		<footer>
 			<div></div>
