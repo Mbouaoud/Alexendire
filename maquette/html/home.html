@@ -8,6 +8,21 @@
   		<script src="../bootstrap/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
   		<script src="../js/underscore.js"></script>
   		<link rel="stylesheet" href="../css/style_headerfooter.css">
+  		
+  		<script>
+  			"use strict"
+  			
+  			function clic(){
+				var elmt = document.getElementById("result"); 
+ 				if( elmt.style.display == "none" ){
+   					elmt.style.display = "block";
+ 				}
+			}
+  			
+  			function tri(){
+  				alert("Vous avez triez le tableau");
+  			}
+  		</script>
 	</head>
 	
 	<body class="container">
@@ -25,13 +40,13 @@
 								</ul>
 							</div >
 							<div class="col-xs-2">
-						  		<a href="home.html" ><img class="img-responsive center-block"  src="../src/img/logo.png"/></a>
+						  		<a href="home.html" ><img class="img-responsive center-block img-circle border-image"  src="../src/img/logo.png"/></a>
 							</div>
 						</div>
 						<div class="row">
 							<div class="col-xs-5 ">
 								<ul class="nav nav-pills nav-justified ">
-						  			<li role="adherent_recherche" class="bg-info">
+						  			<li role="media_creation" class="bg-info" >
 						  				<a href="home.html">Recherche</a>
 						  			</li>
 						 			<li >
@@ -39,12 +54,11 @@
 						 			</li>
 								</ul>
 							</div>
-							<div class="col-xs-2 col-xs-offset-5 marge-top-deco" >
-								
-						 			<button class="btn btn-default" role="button"  href="login.html">D&eacute;connexion</button>
-						 		
+							<div class="col-xs-2 col-xs-offset-5 marge-top-deco center"  >
+								<a type="button" class="btn btn-default btn-block btm-sm" href="login.html">
+									<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+								</a>
 						 	</div>
-						 	
 						</div>
 					</div>
 			</header>
@@ -71,21 +85,21 @@
 								<option>DVD</option>
 							</select>
 						</div>
-						
-						<button type="bouton" class="btn btn-warning col-xs-offset-1 col-xs-2">Recherche</button>
-						
+						<div class="col-xs-offset-1 col-xs-2">
+							<button type="button" class="btn btn-warning" id="rech" onClick="clic()">Recherche</button>
+						</div>
 					</div>
 				</form>
 			</div>
 			<br>
-			<table class="table table-bordered table-striped">
+			<table class="table table-bordered table-striped" id="result" style="display:none">
 				<thead>
 					<tr class="row warning">
-						<th class="col-xs-4">Titre</th>
-						<th class="col-xs-1">Type</th>
-						<th class="col-xs-3">Auteur</th>
-						<th class="col-xs-2">Emprunteur</th>
-						<th class="col-xs-2">Date retour</th>
+						<th class="col-xs-4" id="titre"><a onClick="tri()">Titre</a></th>
+						<th class="col-xs-1" id="type">Type</th>
+						<th class="col-xs-3" id="auteur">Auteur</th>
+						<th class="col-xs-2" id="emprunt">Emprunteur</th>
+						<th class="col-xs-2" id="retour">Date retour</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -93,8 +107,9 @@
 						<td>Titre1</td>
 						<td>CD</td>
 						<td>Auteur1</td>
-						<td>Nom1</td>
+						<td>Libre</td>
 						<td>07/07/2016</td>
+						<td><a href="media_visualisation.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a></td>
 					</tr>
 					<tr class="row">
 						<td>Titre2</td>
@@ -102,6 +117,7 @@
 						<td>Auteur2</td>
 						<td>Nom2</td>
 						<td>07/07/2016</td>
+						<td><a href="media_visualisation2.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a></td>
 					</tr>	
 					<tr class="row">
 						<td>Titre3</td>
@@ -109,16 +125,15 @@
 						<td>Auteur3</td>
 						<td>Nom3</td>
 						<td>07/07/2016</td>
+						<td><a href="media_visualisation2.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a></td>
 					</tr>				
 				</tbody>
 				
 			</table>
 		
 		
-			<footer>
-				<div class="panel-footer pull-right label-primary">
-					Projet r&eacute;alis&eacute; par Aragon Romain, Bouaoud Medhi, Gaborit Jean-Marie et Themelin Mathieu	
-				</div>
+			<footer class="panel-footer marge-footer">
+				Projet r&eacute;alis&eacute; par Aragon Romain, Bouaoud Medhi, Gaborit Jean-Marie et Themelin Mathieu
 			</footer>
 	</body>
 </html>

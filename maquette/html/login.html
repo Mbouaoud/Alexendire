@@ -10,19 +10,49 @@
   		<link rel="stylesheet" href="../css/style_headerfooter.css">
 	</head>
 	
-	<body>
-		<div class="container">	
-		<header>
-			<div></div>
+	<body class="container">
+		
+		<header class="marge-top-login">
 			
-			<nav></nav>
 		</header>
 		
-		<div></div>
-		
-		<footer>
-			<div></div>
-		</footer>
+		<div class="row">
+			<div class="col-xs-4 col-xs-offset-5">
+				<a href="home.html" ><img class="img-responsive center-block border-image"  src="../src/img/logo.png"/></a>
+			</div>
 		</div>
+		<div class="col-xs-6 col-xs-offset-3">
+			<fieldset>
+				<form class="form-horizontal" action="home.html">
+		 			<div class="form-group" >
+						<div class="col-xs-4">
+			    			<label for="inputName" class="col-xs-0 control-label" >Login</label>
+			    		</div>
+			    		<div class="col-sm-8">
+			      			<input type="text" class="form-control" id="inputName"  required>
+			    		</div>
+			  		</div>
+			  		<div class="form-group">
+			  			<div class="col-xs-4">
+			    			<label for="inputPassword" class="col-xs-0 control-label">Password</label>
+			    		</div>
+			    		<div class="col-xs-8">
+			      			<input type="password" class="form-control" id="inputPassword"  required>
+			    		</div>
+					</div>
+					<div class="form-group">
+		   				<div class="col-xs-offset-4 col-xs-8">
+		      				<button type="submit" class="btn btn-warning btn-lg btn-block">Se connecter</button>
+		    			</div>
+		  			</div>
+				</form>
+			</fieldset>
+		</div>
+		
+		
+		<footer class="panel-footer marge-footer">
+			Projet r&eacute;alis&eacute; par Aragon Romain, Bouaoud Medhi, Gaborit Jean-Marie et Themelin Mathieu
+		</footer>
+		
 	</body>
 </html>
