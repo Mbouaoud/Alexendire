@@ -1,3 +1,7 @@
+body, html, zz.wrapper {
+	height: 100%;
+}
+
 .marge-top-menu {
 	margin-top: 35px;
 }
@@ -5,12 +9,12 @@
 	margin-top: 5px;
 }
 
-
-
 .marge-footer{
-	position:absolute;
-    bottom: 0px;
-    right:0px;
+	position: fixed;
+    height: 40px;
+    bottom: 0;
+    width: 1170px;
+    text-align: right;
 }
 
 .marge-top-login
