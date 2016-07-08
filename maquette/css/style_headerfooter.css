@@ -4,11 +4,13 @@
 .marge-top-deco{
 	margin-top: 5px;
 }
+
+
+
 .marge-footer{
-    position: fixed;
+	position:absolute;
     bottom: 0px;
-    right: 0px;
-    padding : 10px 10px 10px 10px;
+    right:0px;
 }
 
 .marge-top-login
