@@ -8,6 +8,21 @@
   		<script src="../bootstrap/bootstrap-3.3.6-dist/js/bootstrap.min.js"></script>
   		<script src="../js/underscore.js"></script>
   		<link rel="stylesheet" href="../css/style_headerfooter.css">
+  		
+  		<script>
+  			"use strict"
+  			
+  			function clic(){
+				var elmt = document.getElementById("result"); 
+ 				if( elmt.style.display == "none" ){
+   					elmt.style.display = "block";
+ 				}
+			}
+  			
+  			function tri(){
+  				alert("Vous avez triez le tableau");
+  			}
+  		</script>
 	</head>
 	
 	<body class="container">
@@ -71,21 +86,21 @@
 								<option>DVD</option>
 							</select>
 						</div>
-						
-						<button type="bouton" class="btn btn-warning col-xs-offset-1 col-xs-2">Recherche</button>
-						
+						<div class="col-xs-offset-1 col-xs-2">
+							<button type="button" class="btn btn-warning" id="rech" onClick="clic()">Recherche</button>
+						</div>
 					</div>
 				</form>
 			</div>
 			<br>
-			<table class="table table-bordered table-striped">
+			<table class="table table-bordered table-striped" id="result" style="display:none">
 				<thead>
 					<tr class="row warning">
-						<th class="col-xs-4">Titre</th>
-						<th class="col-xs-1">Type</th>
-						<th class="col-xs-3">Auteur</th>
-						<th class="col-xs-2">Emprunteur</th>
-						<th class="col-xs-2">Date retour</th>
+						<th class="col-xs-4" id="titre"><a onClick="tri()">Titre</a></th>
+						<th class="col-xs-1" id="type">Type</th>
+						<th class="col-xs-3" id="auteur">Auteur</th>
+						<th class="col-xs-2" id="emprunt">Emprunteur</th>
+						<th class="col-xs-2" id="retour">Date retour</th>
 					</tr>
 				</thead>
 				<tbody>
