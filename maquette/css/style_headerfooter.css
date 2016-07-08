@@ -4,3 +4,25 @@
 .marge-top-deco{
 	margin-top: 5px;
 }
+.marge-footer{
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    padding : 10px 10px 10px 10px;
+}
+
+.marge-top-login
+{
+	margin-top:200px;
+}
+
+.center
+{
+	text-align:center;
+}
+
+.border-image{
+	border-width:2px;
+	border-color:blue;
+	border-style:dashed;
+}
