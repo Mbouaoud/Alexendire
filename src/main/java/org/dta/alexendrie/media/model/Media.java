@@ -3,6 +3,7 @@ package org.dta.alexendrie.media.model;
 import java.util.List;
 
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
@@ -13,16 +14,6 @@ import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 import javax.validation.constraints.NotNull;
 
-enum Type {
-	Livre("Livre"), CD("CD"), DVD("DVD");
-
-	private String value = "";
-
-	private Type(String value) {
-		this.value = value;
-	}
-}
-
 @Entity
 public class Media {
 
@@ -32,7 +23,7 @@ public class Media {
 
 	@Id
 	@GeneratedValue
-	private int id = 0;
+	private int id;
 
 	@Column
 	@NotNull
@@ -44,19 +35,19 @@ public class Media {
 
 	@Column
 	@NotNull
-	private Type type;
+	private MediaType type;
 
 	@Column
 	private boolean status;
-/*
+
 	@ManyToOne(mappedBy="media")
-	private List<Emprunt> emprunts;
-*/
-	Media() {
+	private List<Loan> loans;
+
+	public Media() {
 
 	}
 
-	Media(String title, String author, Type type, Boolean status) {
+	public Media(String title, String author, MediaType type, Boolean status) {
 		this.title = title;
 		this.author = author;
 		this.type = type;
@@ -71,23 +62,12 @@ public class Media {
 		return this.author;
 	}
 
-	public Type getType() {
+	public MediaType getType() {
 		return this.type;
 	}
 
 	public boolean getStatus() {
 		return this.status;
-	}
-
-	public static void main(String args[]) {
-
-		System.out.println("Lancement du programme...");
-
-		emf = Persistence.createEntityManagerFactory("unit");
-		em = emf.createEntityManager();
-
-		em.close();
-		emf.close();
 	}
 
 	public static Media consulterMedia(int id_media) {
@@ -104,7 +84,7 @@ public class Media {
 		return query.getSingleResult();
 	}
 
-	public static void creationMedia(String title, String name, Type type) {
+	public static void creationMedia(String title, String name, MediaType type) {
 
 		emf = Persistence.createEntityManagerFactory("unit");
 		em = emf.createEntityManager();
@@ -124,7 +104,7 @@ public class Media {
 		emf = Persistence.createEntityManagerFactory("unit");
 		em = emf.createEntityManager();
 
-		String str_query = "select m.title,m.type,m.author,e.adherent.name from Media m join fetch m.emprunts e";
+		String str_query = "select m.title,m.type,m.author,l.member.name from Media m join fetch m.loans l";
 
 		if ((title != "") || (name != "") || (title != "")) {
 			str_query += " where";
