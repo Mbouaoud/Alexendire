@@ -9,6 +9,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+
 import org.dta.alexendrie.subscription.model.Subscription;
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -17,7 +19,7 @@ import org.hibernate.validator.constraints.NotBlank;
 public class Member {
 	@Id
 	@GeneratedValue
-	private long id;
+	private Long id;
 	
 	@NotBlank
 	private String lastname;
@@ -28,7 +30,7 @@ public class Member {
 	@NotBlank
 	private String mail;
 	
-	@NotBlank
+	@NotNull
 	@Temporal(TemporalType.DATE)
 	private Date birthday;
 
@@ -45,6 +47,14 @@ public class Member {
 		this.birthday = birthday;
 		this.address = address;
 		this.subscription = subscription;
+	}
+	
+	public Member(String lastname, String firstname, String mail, Date birthday, String address) {
+		this.lastname = lastname;
+		this.firstname = firstname;
+		this.mail = mail;
+		this.birthday = birthday;
+		this.address = address;
 	}
 	
 	public Member() {

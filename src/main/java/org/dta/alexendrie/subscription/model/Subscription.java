@@ -15,7 +15,7 @@ import javax.validation.constraints.NotNull;
 public class Subscription {
 	@Id
 	@GeneratedValue
-	private long id;
+	private Long id;
 	
 	@NotNull
 	@Temporal(TemporalType.DATE)

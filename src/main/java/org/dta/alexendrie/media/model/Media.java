@@ -1,15 +1,15 @@
 package org.dta.alexendrie.media.model;
 
 import java.util.List;
-
-
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 import javax.validation.constraints.NotNull;
@@ -23,7 +23,7 @@ public class Media {
 
 	@Id
 	@GeneratedValue
-	private int id;
+	private Long id;
 
 	@Column
 	@NotNull
@@ -35,13 +35,14 @@ public class Media {
 
 	@Column
 	@NotNull
+	@Enumerated(EnumType.STRING)
 	private MediaType type;
 
 	@Column
 	private boolean status;
 
-	@ManyToOne(mappedBy="media")
-	private List<Loan> loans;
+	/*@ManyToOne(mappedBy="media")
+	private List<Loan> loans;*/
 
 	public Media() {
 
@@ -69,5 +70,4 @@ public class Media {
 	public boolean getStatus() {
 		return this.status;
 	}
-
 }
