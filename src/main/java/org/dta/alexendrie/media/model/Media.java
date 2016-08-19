@@ -3,23 +3,17 @@ package org.dta.alexendrie.media.model;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Persistence;
-import javax.persistence.TypedQuery;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
+import org.dta.alexendrie.loan.model.Loan;
 
 @Entity
 public class Media {
-
-	protected static EntityManagerFactory emf;
-
-	protected static EntityManager em;
 
 	@Id
 	@GeneratedValue
@@ -38,21 +32,21 @@ public class Media {
 	@Enumerated(EnumType.STRING)
 	private MediaType type;
 
-	@Column
-	private boolean status;
+	@OneToOne
+	private Loan currentLoan;
 
-	/*@ManyToOne(mappedBy="media")
-	private List<Loan> loans;*/
+	@OneToMany(mappedBy="media")
+	private List<Loan> loans;
 
 	public Media() {
 
 	}
 
-	public Media(String title, String author, MediaType type, Boolean status) {
+	public Media(String title, String author, MediaType type) {
 		this.title = title;
 		this.author = author;
 		this.type = type;
-		this.status = status;
+		this.currentLoan = null;
 	}
 
 	public String getTitle() {
@@ -67,7 +61,7 @@ public class Media {
 		return this.type;
 	}
 
-	public boolean getStatus() {
-		return this.status;
+	public Loan getCurrentLoan() {
+		return this.currentLoan;
 	}
 }
