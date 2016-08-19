@@ -23,4 +23,36 @@ public class Subscription {
 	
 	@Column
 	private float amount;
+
+	public Subscription(Date paymentDate, float amount) {
+		this.paymentDate = paymentDate;
+		this.amount = amount;
+	}
+	
+	public Subscription() {
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public Date getPaymentDate() {
+		return paymentDate;
+	}
+
+	public void setPaymentDate(Date paymentDate) {
+		this.paymentDate = paymentDate;
+	}
+
+	public float getAmount() {
+		return amount;
+	}
+
+	public void setAmount(float amount) {
+		this.amount = amount;
+	}
 }
