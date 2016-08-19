@@ -31,10 +31,78 @@ public class Member {
 	@NotBlank
 	@Temporal(TemporalType.DATE)
 	private Date birthday;
-	
+
 	@Column
 	private String address;
 	
 	@OneToOne
 	private Subscription subscription;
+	
+	public Member(String lastname, String firstname, String mail, Date birthday, String address, Subscription subscription) {
+		this.lastname = lastname;
+		this.firstname = firstname;
+		this.mail = mail;
+		this.birthday = birthday;
+		this.address = address;
+		this.subscription = subscription;
+	}
+	
+	public Member() {
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getLastname() {
+		return lastname;
+	}
+
+	public void setLastname(String lastname) {
+		this.lastname = lastname;
+	}
+
+	public String getFirstname() {
+		return firstname;
+	}
+
+	public void setFirstname(String firstname) {
+		this.firstname = firstname;
+	}
+
+	public String getMail() {
+		return mail;
+	}
+
+	public void setMail(String mail) {
+		this.mail = mail;
+	}
+
+	public Date getBirthday() {
+		return birthday;
+	}
+
+	public void setBirthday(Date birthday) {
+		this.birthday = birthday;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public Subscription getSubscription() {
+		return subscription;
+	}
+
+	public void setSubscription(Subscription subscription) {
+		this.subscription = subscription;
+	}
 }
