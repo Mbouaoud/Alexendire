@@ -1,5 +1,7 @@
 node_modules/
 app/bower_components/
 
+src/main/resources/META-INF/persistence.xml
+
 .project
 /bin/
