@@ -11,6 +11,16 @@ angular
 	controller: 'MediaCreationCtrl'
 	});
 
+	$routeProvider.when('/mediaVisualisation',{
+	templateUrl: '/html/bibliApp/media/mediaVisualisation.html',
+	controller: 'MediaVisualisationCtrl'
+	});
+
+	$routeProvider.when('/adherentVisualisation',{
+	templateUrl: '/html/bibliApp/adherent/adherentVisualisation.html',
+	controller: 'AdherentVisualisationCtrl'
+	});
+
 	$routeProvider.when('/login', {
 	templateUrl : 'html/login/login.html',
 	controller: 'LoginCtrl'
