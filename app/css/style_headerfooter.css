@@ -1,0 +1,34 @@
+body, html, zz.wrapper {
+	height: 100%;
+}
+
+.marge-top-menu {
+	margin-top: 35px;
+}
+.marge-top-deco{
+	margin-top: 5px;
+}
+
+.marge-footer{
+	position: fixed;
+    height: 40px;
+    bottom: 0;
+    width: 1170px;
+    text-align: right;
+}
+
+.marge-top-login
+{
+	margin-top:200px;
+}
+
+.center
+{
+	text-align:center;
+}
+
+.border-image{
+	border-width:2px;
+	border-color:blue;
+	border-style:dashed;
+}
