@@ -11,4 +11,8 @@ angular.module('bibliApp', ['ngRoute']).config(function($routeProvider){
 		templateUrl: '/html/bibliApp/media/mediaCreation.html',
 		controller: 'MediaCreationCtrl'
 	});
+	
+	$routeProvider.otherwise({
+		redirectTo : '/login'
+	});
 });
