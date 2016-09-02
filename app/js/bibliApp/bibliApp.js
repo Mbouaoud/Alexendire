@@ -10,6 +10,12 @@ angular
 		$routeProvider.when('/mediaCreation',{
 		templateUrl: '/html/bibliApp/media/mediaCreation.html',
 		controller: 'MediaCreationCtrl'
-	});
+		});
 		
+		$routeProvider.when('/login', {
+		templateUrl : 'html/login/login.html',
+		controller: 'LoginCtrl'
+		});
+
 });
+
