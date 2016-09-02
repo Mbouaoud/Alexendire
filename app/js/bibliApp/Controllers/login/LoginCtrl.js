@@ -1,23 +1,18 @@
 angular.module('bibliApp')
 .controller('LoginCtrl', function($scope, $location, Authentification) {
-    this.login = login;
-    (function initController() {
-        Authentication.service.deconnexion();
-    })();
-    function login() {
-        this.dataLoading = true;
-        AuthenticationService.Login(this.login, this.password, function (response) {
-            if (response.success) {
-                Authentication.service.connexion(this.username, this.password);
-                $scope.validLogin = function() {
-            		if ($scope.formLogin.$valid) {
-            			$location.url("/home/" + $scope.user);
-                	} else {
-                		FlashService.Error(response.message);
-                		this.dataLoading = false;
-                	}
-            	};
-        	};
-    	});
-	};	
+	$scope.validLogin = function(){
+		if($scope.formLogin.$valid){
+			Authentification.connexion($scope.user, $scope.password).then(function(response){
+				if (response===true) {
+					$location.url("/home/" + "?" + $scope.user); 
+				}else {
+					console.log('Connexion invalide !!!')
+					// erreur partie
+				}
+				
+			});
+		} else {
+			console.log('Form invalide !!!')
+		}
+	}
 });

@@ -1,4 +1,7 @@
-angular.module('bibliApp').factory('Authentification',function($http, $rootScope, Base64Service) {
+angular.module('bibliApp')
+.factory('Authentification', function($http, $rootScope, Base64Service) {
+	
+	
 
 		var service = {};
 
@@ -9,7 +12,7 @@ angular.module('bibliApp').factory('Authentification',function($http, $rootScope
 					'Authorization' : 'Basic ' + authdata
 				}
 			};
-			return $http.get('/resource/connexion.right', config).then(function(){
+			return $http.get('http://192.168.10.41:8090/resource/connexion.rights', config).then(function(){
 				// connexion ok
 				$http.defaults.headers.common['Authorization'] = 'Basic ' + authdata;
 				return true;
@@ -62,6 +65,6 @@ angular.module('bibliApp').factory('Authentification',function($http, $rootScope
 	}).value('Base64Service',{
 		keyStr : 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=',
 		encode : function(input) {
-			return btoa(output);
+			return btoa(input);
 		}
 	});

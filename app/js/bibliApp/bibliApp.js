@@ -1,5 +1,5 @@
 angular
-	.module('bibliApp', ['ngRoute']).config(function($routeProvider){
+	.module('bibliApp', ['ngRoute', 'ngMessages']).config(function($routeProvider){
 		
 	$routeProvider.when('/home',{
 			templateUrl:'html/bibliApp/media/home.html',
