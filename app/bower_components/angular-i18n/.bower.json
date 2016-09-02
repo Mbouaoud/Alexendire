@@ -1,0 +1,21 @@
+{
+  "name": "angular-i18n",
+  "version": "1.4.12",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "components",
+    "precommit.sh"
+  ],
+  "homepage": "https://github.com/angular/bower-angular-i18n",
+  "_release": "1.4.12",
+  "_resolution": {
+    "type": "version",
+    "tag": "v1.4.12",
+    "commit": "c366b2b36911c14db09eb1a14cd3c983f4004b66"
+  },
+  "_source": "https://github.com/angular/bower-angular-i18n.git",
+  "_target": "~1.4.0",
+  "_originalSource": "angular-i18n"
+}
