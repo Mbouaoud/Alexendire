@@ -16,6 +16,11 @@ angular
 		templateUrl : 'html/login/login.html',
 		controller: 'LoginCtrl'
 		});
+		
+		$routeProvider.when('/adherentRecherche', {
+			templateUrl : 'html/bibliApp/adherent/adherent_recherche.html',
+			controller: 'AdherentRechercheCtrl'
+		});
 
 });
 
