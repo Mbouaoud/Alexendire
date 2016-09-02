@@ -1,0 +1,154 @@
+
+		<div class="wrapper">
+			<header >
+				<div class="navbar  navbar-default container-fluid ">
+					<div class="row">
+						<div class="col-xs-10">
+							<ul class="nav nav-pills nav-justified marge-top-menu ">
+					  			<li>
+					  				<a href="home.html">M&eacute;dia</a>
+					  			</li>
+					 			<li class="bg-info">
+					 				<a href="adherent_recherche.html">Adh&eacute;rents</a>
+					 			</li>
+							</ul>
+						</div >
+						<div class="col-xs-2">
+					  		<a href="home.html" ><img class="img-responsive center-block img-circle border-image"  src="../src/img/logo.png"/></a>
+						</div>
+					</div>
+					
+					<div class="row">
+						<div class="col-xs-5 col-xs-offset-5">
+							<ul class="nav nav-pills nav-justified ">
+					  			<li>
+					  				<a href="adherent_recherche.html">Recherche</a>
+					  			</li>
+					 			<li  >
+					 				<a href="adherent_creation.html" >Nouveau</a>
+					 			</li>
+							</ul>
+						</div>
+						
+						<div class="col-xs-2 marge-top-deco center"  >
+							<a type="button" class="btn btn-default btn-block btm-sm" href="login.html">
+								<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
+							</a>
+					 	</div>
+					</div>
+				</div>
+			</header>
+					
+			<div class="row">
+				<h1 class="col-xs-5 col-xs-offset-4">Fiche Adh&eacute;rent</h1>
+			</div><br>
+	
+			<div class="row">
+				<div class="col-xs-10 col-xs-offset-1 padding-space up-down-space border-red">
+					<div class="form-group col-xs-12">
+						<label class="col-xs-5 col-ld-4">Nom & Pr&eacute;nom</label>
+						<p class="col-xs-7 col-ld-8">{{adherent.nom}} {{adherent.prenom}}</p>
+					</div>
+					
+					<div class="form-group col-xs-12">
+						<label class="col-xs-5 col-ld-4">Date de Naissance</label>
+						<p class="col-xs-7 col-ld-8">{{adherent.date_naissance}}</p>
+					</div>
+					
+					<div class="form-group col-xs-12">
+						<label class="col-xs-5 col-ld-4">E-mail</label>
+						<p class="col-xs-7 col-ld-8">{{adherent.email}}</p>
+					</div>
+					
+					<div class="form-group col-xs-12">
+						<label class="col-xs-5 col-ld-4">Adresse</label>
+						<p class="col-xs-7 col-ld-8">{{adherent.adresse.ligne1}} {{adherent.adresse.ligne2}}</p>
+					</div>
+					
+					<div class="form-group col-xs-12">
+						<label class="col-xs-5 col-ld-4">Code Postal & Ville</label>
+						<p class="col-xs-7 col-ld-8">{{adherent.adresse.codepostal}} {{adherent.adresse.ville}}</p>
+					</div>
+					
+					<div class="form-group col-xs-12">
+						<label class="col-xs-5 col-ld-4">Date de Paiement de la cotisation</label>
+						<p class="col-xs-7 col-ld-8">{{adherent.cotisation.debut}}</p>
+					</div>
+					
+					<div class="form-group col-xs-12">
+						<label class="col-xs-5 col-ld-4">Montant de la cotisation</label>
+						<p class="col-xs-7 col-ld-8">{{adherent.cotisation.montant|currency}}</p>
+					</div>
+					
+					<div class="form-group col-xs-10 col-xs-offset-1">
+						<label>Liste des m&eacute;dias emprunt&eacute;s</label>
+						<br>
+						<table class="table table-hover col-xs-12">
+							<thead class="bg-warning">
+								<tr>
+									<th>Titre
+									</th>
+									<th class="hidden-xs hidden-sm">Auteur
+									</th>
+									<th class="hidden-xs">Type
+									</th>
+								</tr>
+							</thead>
+							
+							<tbody class="bg-danger">
+								<tr ng-repeat="media in medias">
+									<td>
+										<a href="media_visualisation.html">{{media.titre}}</a>
+									</td>
+									<td class="hidden-xs hidden-sm">
+										<a href="media_visualisation.html">{{media.auteur}}</a>
+									</td>
+									<td class="hidden-xs">
+										<a href="media_visualisation.html">{{media.type}}</a>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+					
+					<div class="form-group col-xs-12 hidden-xs hidden-sm">
+						<label class="col-xs-3">Nouvel Emprunt :</label>
+					</div>
+					
+					<div class="form-group col-xs-12 hidden-xs hidden-sm">
+						<form action="#" method="GET">
+							<label class="col-xs-1">Titre</label>
+							<div class="col-xs-2">
+								<input type="text" class="form-control col-xs-2 bg-warning" value="Ex_Nom_Emprunteur" readonly>
+							</div>
+							
+							<label class="col-xs-1">Date</label>
+							<div class="col-xs-3">
+								<input type="date" class="form-control bg-warning" value="2016-09-15" readonly>
+							</div>
+							
+							<label class="col-xs-1">Type</label>
+							<div class="col-xs-2">
+								<select class="form-control bg-warning" readonly>
+									<option>Livre</option>
+									<option>CD</option>
+									<option>DVD</option>
+								</select>
+							</div>
+							
+							<input class="col-xs-2 btn btn-warning" type="submit" value="Ajouter" readonly>
+						</form>
+					</div>
+				</div>
+				
+				<div class="col-xs-2 col-xs-offset-5 up-down-space">
+					<form action="adherent_update.html" method="GET">
+						<input class="btn btn-warning" type="submit" value="Modifier" readonly>
+					</form>
+				</div>
+			</div>
+		</div>
+		
+		<!--<footer class="marge-footer">
+			Projet r&eacute;alis&eacute; par Aragon Romain, Bouaoud Medhi, Gaborit Jean-Marie et Themelin Mathieu
+		</footer>-->

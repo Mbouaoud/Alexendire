@@ -13,16 +13,13 @@
 			
 			<label class="col-xs-1 control-label">Type:</label>
 			<div class="col-xs-2">
-				<select ng-model="media.type" class="form-control" style="padding-left: 4px;padding-right: 4px;">
-					<option value="">Selectionner un type</option>
-					<option value="livre">Livre</option>
-					<option value="cd">CD</option>
-					<option value="dvd">DVD</option>
+				<select ng-model="media.type" ng-options="item.label as item.label for item in mediaType track by item.id" class="form-control" style="padding-left: 4px;padding-right: 4px;">
+					<option value="" disabled>Selectionner un type</option>
 				</select>
 			</div>
 			
 			<div class="col-xs-offset-1 col-xs-2">
-				<button type="button" class="btn btn-warning" ng-click="clic()">Recherche</button>
+				<button type="button" class="btn btn-warning" ng-click="resultMedia()">Recherche</button>
 			</div>
 		</div>
 	</form>
@@ -30,10 +27,10 @@
 
 <br>
 
-<table class="table table-bordered table-hover" >
+<table class="table table-bordered table-hover" ng-show="showme" >
 	<thead>
 		<tr class="row warning">
-			<th class="col-xs-4" id="titre"><a onClick="tri()">Titre</a></th>
+			<th class="col-xs-4" id="titre"><a ng-click="tri()">Titre</a></th>
 			<th class="col-xs-1" id="type">Type</th>
 			<th class="col-xs-3" id="auteur">Auteur</th>
 			<th class="col-xs-2" id="emprunt">Emprunteur</th>
@@ -42,29 +39,13 @@
 	</thead>
 	
 	<tbody>
-		<tr class="row">
-			<td>Titre1</td>
-			<td>CD</td>
-			<td>Auteur1</td>
-			<td>Libre</td>
-			<td>07/07/2016</td>
-			<td><a href="media_visualisation.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a></td>
-		</tr>
-		<tr class="row">
-			<td>Titre2</td>
-			<td>Livre</td>
-			<td>Auteur2</td>
-			<td>Nom2</td>
-			<td>07/07/2016</td>
-			<td><a href="media_visualisation2.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a></td>
-		</tr>	
-		<tr class="row">
-			<td>Titre3</td>
-			<td>DVD</td>
-			<td>Auteur3</td>
-			<td>Nom3</td>
-			<td>07/07/2016</td>
-			<td><a href="media_visualisation2.html"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a></td>
-		</tr>				
+		<tr class="row" ng-repeat="resultat in resultats">
+			<td>{{resultat.titre}}</td>
+			<td>{{resultat.type}}</td>
+			<td>{{resultat.auteur}}</td>
+			<td>{{resultat.emprunteur.nom}} {{resultat.emprunteur.prenom}}</td>
+			<td>{{resultat.retour}}</td>
+			<td><a ng-click="mediaVisualisation()"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a></td>
+		</tr>			
 	</tbody>	
 </table>
