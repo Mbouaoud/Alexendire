@@ -1,9 +1,11 @@
 <header class="marge-top-login"></header>
+
 <div class="row">
 	<div class="col-xs-4 col-xs-offset-4">
 		<img class="img-responsive center-block border-image img-circle"  src="img/logo.png"/>
 	</div>
 </div>
+
 <div class="row">
 	<div class="col-xs-6 col-xs-offset-2 marge-top-menu ">
 		<form class="form-horizontal" ng-submit="validLogin()" name="formLogin" novalidate>
@@ -23,6 +25,7 @@
  					<div ng-messages-include="html/defaultMessage.html"></div>
 				</div>
 	  		</div>
+	  		
 	  		<div class="form-group">
 	    		<div class="col-xs-8 col-xs-offset-4">
 	      			<input  type="password" 
@@ -31,10 +34,9 @@
 	      					placeholder="Password"
 	      					ng-model="password"	  
 	      					>
-	    		</div>
-	    	
-	    		
+	    		</div>	    		
 			</div>
+			
 			<div class="form-group">
    				<div class="col-xs-offset-4 col-xs-8">
       				<button type="submit" class="btn btn-warning btn-lg btn-block">Se connecter</button>
