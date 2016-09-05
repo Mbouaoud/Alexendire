@@ -29,6 +29,28 @@ angular
 								+ $scope.media.id);
 					};
 
+					$scope.triAdherent = function($triValue) {
+						
+						var tri = false;
+						var echange;
+						do {
+							tri = false;
+							for (i = 1; i < $scope.emprunteurs.length; i++) {
+								if (($triValue == "id")
+										&& ($scope.emprunteurs[i].adherent.id < $scope.emprunteurs[i - 1].adherent.id))
+									tri = true;
+								else if (($triValue == "nom")
+										&& ($scope.emprunteurs[i].adherent.nom < $scope.emprunteurs[i - 1].adherent.nom))
+									tri = true;
+								if (tri == true) {
+									echange = $scope.emprunteurs[i];
+									$scope.emprunteurs[i] = $scope.emprunteurs[i - 1];
+									$scope.emprunteurs[i - 1] = echange;
+								}
+							}
+						} while (tri == true);
+					};
+
 					$scope.ajouterEmprunt = function() {
 
 						var id_adherent_fetch = undefined;

@@ -31,6 +31,31 @@ angular
 								+ $scope.adherent.id);
 					};
 
+					$scope.triMedia = function($triValue) {
+						
+						var tri = false;
+						var echange;
+						do {
+							tri = false;
+							for (i = 1; i < $scope.medias.length; i++) {
+								if (($triValue == "titre")
+										&& ($scope.medias[i].media.titre < $scope.medias[i - 1].media.titre))
+									tri = true;
+								else if (($triValue == "auteur")
+										&& ($scope.medias[i].media.auteur < $scope.medias[i - 1].media.auteur))
+									tri = true;
+								else if (($triValue == "type")
+										&& ($scope.medias[i].media.type < $scope.medias[i - 1].media.type))
+									tri = true;
+								if (tri == true) {
+									echange = $scope.medias[i];
+									$scope.medias[i] = $scope.medias[i - 1];
+									$scope.medias[i - 1] = echange;
+								}
+							}
+						} while (tri == true);
+					};
+
 					$scope.ajouterEmprunt = function() {
 
 						var id_media_fetch = undefined;
