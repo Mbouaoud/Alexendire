@@ -6,10 +6,12 @@ angular.module('bibliApp').controller('AdherentCreationCtrl', function($scope, $
 	
 	$scope.FinAbonnement = function(dateAbo){
 		var temp = null;
+		
 		if(dateAbo != null){
 			var temp = angular.copy(dateAbo);
 			temp.setFullYear(temp.getFullYear()+1);
 		}
+		
 		return temp;
 	};
 	
