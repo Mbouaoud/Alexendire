@@ -26,6 +26,7 @@ angular.module('bibliApp')
 		service.deconnexion = function() {
 			connexion = false;
 			$http.defaults.headers.common['Authorization'] = 'Basic';
+			return connexion;
 		}
 		
 		service.isConnected = function(){

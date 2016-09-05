@@ -1,5 +1,5 @@
 angular.module('bibliApp')
-.controller('HeaderCtrl', function($scope, $location, $rootScope){
+.controller('HeaderCtrl', function($scope, $location, $rootScope, Authentification){
 	/*********  Login *************/
 	$scope.LoginPage = function(){
 		if($scope.myForm.$valid){
@@ -36,4 +36,9 @@ angular.module('bibliApp')
 	$scope.menuAdherentVisualisation =  function(){
 		return $rootScope.typePage=='AV';
 	}
+	
+	$scope.disconnexion = function(){
+		return Authentification.deconnexion();
+	}
+	
 });
