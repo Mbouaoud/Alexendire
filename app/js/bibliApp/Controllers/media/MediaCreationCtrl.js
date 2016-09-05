@@ -1,5 +1,6 @@
-angular.module('bibliApp').controller('MediaCreationCtrl', function($scope){
-	
+angular.module('bibliApp').controller('MediaCreationCtrl', function($scope, $rootScope){
+		
+	$rootScope.typePage='MC';
 	var media = [];
 	$scope.add = false;
 	
@@ -16,6 +17,7 @@ angular.module('bibliApp').controller('MediaCreationCtrl', function($scope){
 			type: $scope.mediaType
 		});
 		
+		$scope.addedTitre = $scope.mediaTitre;
 		$scope.add = true;
 		$scope.mediaTitre = "";
 		$scope.mediaAuteur = "";

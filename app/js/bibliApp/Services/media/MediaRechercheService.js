@@ -1,5 +1,4 @@
-angular.module('bibliApp')
-	.factory('MediaRechercheService',function($http){
+angular.module('bibliApp').factory('MediaRechercheService',function($http){
 		
 		return {
 		get: function(titre,auteur,type){
@@ -9,7 +8,6 @@ angular.module('bibliApp')
 			}).error(function(){
 				console.log('Erreur lors du chargement du fichier media recherche');
 			})
-
 		}
 	};
 });
