@@ -1,5 +1,7 @@
 angular.module('bibliApp').controller('HomeCtrl', function($scope,$location,MediaRechercheService){
 		
+	$rootScope.typePage='MR';
+	
 	$scope.mediaType=[{
 		id:1,
 		label:"Livre"
