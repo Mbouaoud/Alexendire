@@ -5,6 +5,7 @@ angular.module('bibliApp').controller('AdherentCreationCtrl', function($scope, $
 	$rootScope.typePage='AC';
 	
 	$scope.FinAbonnement = function(dateAbo){
+<<<<<<< HEAD
 		if(dateAbo == null){
 			return null;
 		}else{
@@ -12,6 +13,14 @@ angular.module('bibliApp').controller('AdherentCreationCtrl', function($scope, $
 			temp.setFullYear(temp.getFullYear()+1);
 			return temp;
 		}	
+=======
+		var temp = null;
+		if(dateAbo != null){
+			var temp = angular.copy(dateAbo);
+			temp.setFullYear(temp.getFullYear()+1);
+		}
+		return temp;
+>>>>>>> 54c17eef08021b268e9e9098416bcf110f9d97eb
 	};
 	
 	$scope.AgeAbonne = function(dateNaissance){
@@ -53,8 +62,8 @@ angular.module('bibliApp').controller('AdherentCreationCtrl', function($scope, $
 		$scope.adhAdresse = "";
 		$scope.adhCp = "";
 		$scope.adhVille = "";
-		$scope.adhCotisation = "";
-		$scope.adhCotisationMontant = undefined;
+		$scope.adhCotisation = undefined;
+		$scope.adhCotisationMontant = "";
 		
 		console.log(adherent);
 	};
