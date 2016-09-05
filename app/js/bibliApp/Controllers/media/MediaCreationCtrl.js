@@ -1,6 +1,5 @@
-angular.module('bibliApp').controller('MediaCreationCtrl', function($scope, $rootScope){
-		
-	$rootScope.typePage='MC';
+angular.module('bibliApp').controller('MediaCreationCtrl', function($scope){
+	
 	var media = [];
 	$scope.add = false;
 	

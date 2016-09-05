@@ -1,45 +1,68 @@
-angular.module('bibliApp').controller('MediaVisualisationCtrl',
-		function($scope, $location, $http, $rootScope){
-			
+angular.module('bibliApp').controller(
+		'MediaVisualisationCtrl',
+		function($scope, $location, $http, $rootScope) {
+
 			$rootScope.typePage='MV';
 			
+			$scope.nbDisplay = 20;
+			
+			$scope.newNomEmprunteur = undefined;
+			
+			$scope.newDate = undefined;
+
 			$http.get('http://192.168.10.41:8090/resource/media.accession', {
 				params : {
-					id : 1
+					id : ($location.search()).idMedia
 				}
 			}).then(function(response) {
-				// console.log(response.data);
 				$scope.media = response.data;
 			});
 
-			$scope.emprunteurs = [ {
-				id : 'Ex_Id1',
-				nom : 'Ex_NomEmprunteur1'
-			}, {
-				id : 'Ex_Id2',
-				nom : 'Ex_NomEmprunteur2'
-			}, {
-				id : 'Ex_Id3',
-				nom : 'Ex_NomEmprunteur3'
-			}, {
-				id : 'Ex_Id4',
-				nom : 'Ex_NomEmprunteur4'
-			}, {
-				id : 'Ex_Id5',
-				nom : 'Ex_NomEmprunteur5'
-			}, {
-				id : 'Ex_Id6',
-				nom : 'Ex_NomEmprunteur6'
-			}, {
-				id : 'Ex_Id7',
-				nom : 'Ex_NomEmprunteur7'
-			}, {
-				id : 'Ex_Id8',
-				nom : 'Ex_NomEmprunteur8'
-			} ];
+			$scope.emprunteurs = [ {}, {}, {} ];
 
-			function modify() {
-				$location.url("/mediaUpdate/" + $scope.media.id);
-			}
-			;
+			$http.get('http://192.168.10.41:8090/resource/adherent.accession',
+					{
+						params : {
+							id : 1
+						}
+					}).then(function(response) {
+				$scope.emprunteurs[0] = response.data;
+			});
+			$http.get('http://192.168.10.41:8090/resource/adherent.accession',
+					{
+						params : {
+							id : 2
+						}
+					}).then(function(response) {
+				$scope.emprunteurs[1] = response.data;
+			});
+			$http.get('http://192.168.10.41:8090/resource/adherent.accession',
+					{
+						params : {
+							id : 3
+						}
+					}).then(function(response) {
+				$scope.emprunteurs[2] = response.data;
+			});
+
+			$scope.modify = function() {
+				$location.url("/mediaCreation?idMedia=" + $scope.media.id);
+			};
+			
+			$scope.ajouterEmprunteur = function() {
+				$http.get('http://192.168.10.41:8090/resource/emprunt.creation', {
+					params : {
+						id : $scope.newNomEmprunteur,
+						date : $scope.newDate
+					}
+				}).then(function(response) {
+					$http.get('http://192.168.10.41:8090/resource/media.accession', {
+						params : {
+							id : ($location.search()).idMedia
+						}
+					}).then(function(response) {
+						$scope.media = response.data;
+					});
+				});
+			};
 		});

@@ -1,6 +1,4 @@
-angular.module('bibliApp').controller('AdherentRechercheCtrl', function($scope,$location, $rootScope){
-	
-	$rootScope.typePage='AR';
+angular.module('bibliApp').controller('AdherentRechercheCtrl', function($scope,$location){
 	
 	$scope.adherentVisualisation = function(){
 		$location.url('/');
