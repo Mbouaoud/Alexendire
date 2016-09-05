@@ -29,12 +29,12 @@ angular.module('bibliApp', ['ngRoute', 'ngMessages']).config(function($routeProv
 		controller: 'AdherentVisualisationCtrl'
 	});
 
-	$routeProvider.when('/login', {
-		templateUrl : 'html/login/login.html',
-		controller: 'LoginCtrl'
-	});
-	
+//	$routeProvider.when('/login', {
+//		templateUrl : 'html/login/login.html',
+//		controller: 'LoginCtrl'
+//	});
+//	
 	$routeProvider.otherwise({
-		redirectTo : '/login'
+		redirectTo : '/home'
 	});
 });

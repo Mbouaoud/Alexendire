@@ -38,10 +38,13 @@
 	</head>
 	
 	<body class="container" ng-controller="MainCtrl">
-		<div ng-include="'/html/header-footer/header.html'" ng-if="menu()"></div>
-		
-		<ng-view></ng-view>
-		
-		<div ng-include="'/html/header-footer/footer.html'"></div>
+		<div ng-if="isConnected()">
+			<div ng-include="'/html/header-footer/header.html'" ng-if="menu()"></div>
+			<ng-view></ng-view>
+			<div ng-include="'/html/header-footer/footer.html'"></div>
+		</div>
+		<div ng-if="!isConnected()">
+			<div ng-include="'/html/login/login.html'" ></div>
+		</div>
 	</body>
 </html>
