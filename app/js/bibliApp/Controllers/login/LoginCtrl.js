@@ -1,5 +1,9 @@
 angular.module('bibliApp')
-.controller('LoginCtrl', function($scope, $location, Authentification) {
+.controller('LoginCtrl', function($scope, $location, Authentification, $rootScope) {
+
+	
+	$rootScope.typePage='L';
+	
 	$scope.validLogin = function(){
 		if($scope.formLogin.$valid){
 			Authentification.connexion($scope.user, $scope.password).then(function(response){

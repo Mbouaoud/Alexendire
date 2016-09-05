@@ -1,7 +1,8 @@
-angular.module('bibliApp').controller('AdherentCreationCtrl', function($scope, $filter){
+angular.module('bibliApp').controller('AdherentCreationCtrl', function($scope, $rootScope, $filter){
 	
 	var adherent = [];
 	$scope.add = false;
+	$rootScope.typePage='AC';
 	
 	$scope.FinAbonnement = function(dateAbo){
 		if(dateAbo == null){

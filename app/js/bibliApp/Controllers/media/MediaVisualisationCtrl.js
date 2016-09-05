@@ -1,6 +1,8 @@
 angular.module('bibliApp').controller('MediaVisualisationCtrl',
-		function($scope, $location, $http) {
-
+		function($scope, $location, $http, $rootScope){
+			
+			$rootScope.typePage='MV';
+			
 			$http.get('http://192.168.10.41:8090/resource/media.accession', {
 				params : {
 					id : 1
