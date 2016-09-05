@@ -28,5 +28,4 @@ angular.module('bibliApp').controller('HomeCtrl', function($scope,$location,Medi
 
 		$scope.showme=true;
 	}
-	
 })
