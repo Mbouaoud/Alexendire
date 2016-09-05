@@ -1,11 +1,12 @@
 angular.module('bibliApp')
 .controller('HeaderCtrl', function($scope, $location, $rootScope){
+	/*********  Login *************/
 	$scope.LoginPage = function(){
 		if($scope.myForm.$valid){
 			$location.url("/login"); 
 		}
 	}	
-	
+	/*********  Media *************/
 	$scope.menuMedia =  function(){
 		if($rootScope.typePage=='MR' || $rootScope.typePage=='MC' || $rootScope.typePage=='MV') {
 			return true;
@@ -20,6 +21,7 @@ angular.module('bibliApp')
 	$scope.menuMediaVisualisation =  function(){
 		return $rootScope.typePage=='MV';
 	}
+	/*********  Adherent **********/
 	$scope.menuAdherent =  function(){
 		if($rootScope.typePage=='AR' || $rootScope.typePage=='AC' || $rootScope.typePage=='AV') {
 			return true;
@@ -34,7 +36,4 @@ angular.module('bibliApp')
 	$scope.menuAdherentVisualisation =  function(){
 		return $rootScope.typePage=='AV';
 	}
-	
-	
-	
 });

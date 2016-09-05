@@ -1,40 +1,4 @@
 
-			<header >
-				<div class="navbar  navbar-default container-fluid ">
-					<div class="row">
-						<div class="col-xs-10">
-							<ul class="nav nav-pills nav-justified marge-top-menu ">
-					  			<li class="bg-info">
-					  				<a href="home.html">M&eacute;dia</a>
-					  			</li>
-					 			<li >
-					 				<a href="adherent_recherche.html">Adh&eacute;rents</a>
-					 			</li>
-							</ul>
-						</div >
-						<div class="col-xs-2">
-					  		<a href="home.html" ><img class="img-responsive center-block img-circle border-image"  src="../src/img/logo.png"/></a>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-xs-5 ">
-							<ul class="nav nav-pills nav-justified ">
-					  			<li>
-					  				<a href="home.html">Recherche</a>
-					  			</li>
-					 			<li>
-					 				<a href="adherent_creation.html" >Nouveau</a>
-					 			</li>
-							</ul>
-						</div>
-						<div class="col-xs-2 col-xs-offset-5 marge-top-deco center"  >
-							<a type="button" class="btn btn-default btn-block btm-sm" href="login.html">
-								<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
-							</a>
-					 	</div>
-					</div>
-				</div>
-			</header>
 				
 			<div class="row">
 				<h1 class="col-xs-5 col-xs-offset-4">Fiche M&eacute;dia</h1>
@@ -63,17 +27,17 @@
 					<label class="col-xs-5 col-ld-4">Date de retour</label>
 					<p class="col-xs-7 col-ld-8">{{media.date_retour}}</p>
 				</div>
-				<form action="#" method="GET">
+				<form ng-submit="ajouterEmprunteur()">
 					<div class="form-group col-xs-12 hidden-xs hidden-sm">
 						<label class="col-xs-3">Nom de l'Emprunteur</label>
 						<div class="col-xs-3">
-							<input type="text" class="form-control" value="Ex_Nom_Emprunteur" readonly>
+							<input type="text" class="form-control" ng-model="newNomEmprunteur">
 						</div>
 						<label class="col-xs-1">Date</label>
 						<div class="col-xs-3">
-							<input type="date" class="form-control" value="2016-09-15" readonly>
+							<input type="date" class="form-control" value="2016-09-15" ng-model="newDate">
 						</div>
-						<input class="btn btn-warning col-xs-2" type="submit" value="Ajouter" readonly>
+						<input class="btn btn-warning col-xs-2" type="submit" value="Ajouter">
 					</div>
 				</form>
 				<div class="form-group col-xs-10 col-xs-offset-1">
@@ -89,14 +53,14 @@
 							</tr>
 						</thead>
 						<tbody class="bg-danger">
-							<tr ng-repeat="emprunteur in emprunteurs">
-								<td>
-									<a href="adherent_visualisation.html">
+							<tr ng-repeat="emprunteur in emprunteurs | limitTo:nbDisplay">
+								<td class="hidden-xs">
+									<a href="/#/adherentVisualisation?idAdherent={{emprunteur.id}}">
 										{{emprunteur.id}}
 									</a>
 								</td>
-								<td class="hidden-xs">
-									<a href="adherent_visualisation.html">
+								<td>
+									<a href="/#/adherentVisualisation?idAdherent={{emprunteur.id}}">
 										{{emprunteur.nom}}
 									</a>
 								</td>
@@ -112,6 +76,3 @@
 				</form>
 			</div>
 		
-<!-- 		<footer class="panel-footer marge-footer"> -->
-<!-- 			Projet r&eacute;alis&eacute; par Aragon Romain, Bouaoud Medhi, Gaborit Jean-Marie et Themelin Mathieu -->
-<!-- 		</footer> -->

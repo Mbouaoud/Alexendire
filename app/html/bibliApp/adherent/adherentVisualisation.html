@@ -1,43 +1,5 @@
 
 		<div class="wrapper">
-			<header >
-				<div class="navbar  navbar-default container-fluid ">
-					<div class="row">
-						<div class="col-xs-10">
-							<ul class="nav nav-pills nav-justified marge-top-menu ">
-					  			<li>
-					  				<a href="home.html">M&eacute;dia</a>
-					  			</li>
-					 			<li class="bg-info">
-					 				<a href="adherent_recherche.html">Adh&eacute;rents</a>
-					 			</li>
-							</ul>
-						</div >
-						<div class="col-xs-2">
-					  		<a href="home.html" ><img class="img-responsive center-block img-circle border-image"  src="../src/img/logo.png"/></a>
-						</div>
-					</div>
-					
-					<div class="row">
-						<div class="col-xs-5 col-xs-offset-5">
-							<ul class="nav nav-pills nav-justified ">
-					  			<li>
-					  				<a href="adherent_recherche.html">Recherche</a>
-					  			</li>
-					 			<li  >
-					 				<a href="adherent_creation.html" >Nouveau</a>
-					 			</li>
-							</ul>
-						</div>
-						
-						<div class="col-xs-2 marge-top-deco center"  >
-							<a type="button" class="btn btn-default btn-block btm-sm" href="login.html">
-								<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
-							</a>
-					 	</div>
-					</div>
-				</div>
-			</header>
 					
 			<div class="row">
 				<h1 class="col-xs-5 col-xs-offset-4">Fiche Adh&eacute;rent</h1>
@@ -96,15 +58,15 @@
 							</thead>
 							
 							<tbody class="bg-danger">
-								<tr ng-repeat="media in medias">
+								<tr ng-repeat="media in medias | limitTo:nbDisplay">
 									<td>
-										<a href="media_visualisation.html">{{media.titre}}</a>
+										<a href="/#/mediaVisualisation?idMedia={{media.id}}">{{media.titre}}</a>
 									</td>
 									<td class="hidden-xs hidden-sm">
-										<a href="media_visualisation.html">{{media.auteur}}</a>
+										<a href="/#/mediaVisualisation?idMedia={{media.id}}">{{media.auteur}}</a>
 									</td>
 									<td class="hidden-xs">
-										<a href="media_visualisation.html">{{media.type}}</a>
+										<a href="/#/mediaVisualisation?idMedia={{media.id}}">{{media.type}}</a>
 									</td>
 								</tr>
 							</tbody>
@@ -116,39 +78,35 @@
 					</div>
 					
 					<div class="form-group col-xs-12 hidden-xs hidden-sm">
-						<form action="#" method="GET">
+						<form ng-submit="ajouterEmprunt()">
 							<label class="col-xs-1">Titre</label>
 							<div class="col-xs-2">
-								<input type="text" class="form-control col-xs-2 bg-warning" value="Ex_Nom_Emprunteur" readonly>
+								<input type="text" class="form-control col-xs-2 bg-warning" ng-model="newTitre">
 							</div>
 							
 							<label class="col-xs-1">Date</label>
 							<div class="col-xs-3">
-								<input type="date" class="form-control bg-warning" value="2016-09-15" readonly>
+								<input type="date" class="form-control bg-warning" value="2016-09-15" ng-model="newDate">
 							</div>
 							
 							<label class="col-xs-1">Type</label>
 							<div class="col-xs-2">
-								<select class="form-control bg-warning" readonly>
+								<select class="form-control bg-warning" ng-model="newType">
 									<option>Livre</option>
 									<option>CD</option>
 									<option>DVD</option>
 								</select>
 							</div>
 							
-							<input class="col-xs-2 btn btn-warning" type="submit" value="Ajouter" readonly>
+							<input class="col-xs-2 btn btn-warning" type="submit" value="Ajouter">
 						</form>
 					</div>
 				</div>
 				
 				<div class="col-xs-2 col-xs-offset-5 up-down-space">
-					<form action="adherent_update.html" method="GET">
-						<input class="btn btn-warning" type="submit" value="Modifier" readonly>
+					<form nb-submit="modify()">
+						<input class="btn btn-warning" type="submit" value="Modifier">
 					</form>
 				</div>
 			</div>
 		</div>
-		
-		<!--<footer class="marge-footer">
-			Projet r&eacute;alis&eacute; par Aragon Romain, Bouaoud Medhi, Gaborit Jean-Marie et Themelin Mathieu
-		</footer>-->

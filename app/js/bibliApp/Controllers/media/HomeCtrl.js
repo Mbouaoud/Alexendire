@@ -1,7 +1,5 @@
-angular.module('bibliApp').controller('HomeCtrl', function($scope,$location,MediaRechercheService,$timeout, $rootScope){
+angular.module('bibliApp').controller('HomeCtrl', function($scope,$location,MediaRechercheService){
 		
-	$rootScope.typePage='MR';
-	
 	$scope.mediaType=[{
 		id:1,
 		label:"Livre"
@@ -17,10 +15,15 @@ angular.module('bibliApp').controller('HomeCtrl', function($scope,$location,Medi
 		$location.url('/');
 	}
 	
-	$scope.resultMedia = function(){
-		$timeout(function(){
-			$scope.resultats=MediaRechercheService.get();
-		},600);
+	$scope.resultMedia = function(){	
+		
+		MediaRechercheService.get($scope.titre,$scope.auteur,$scope.type)
+		.then(function(result){
+			$scope.resultats=result.data;
+		},function(error){
+			this.error=error;
+		});
+
 		$scope.showme=true;
 	}
 	
