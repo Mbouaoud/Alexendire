@@ -24,7 +24,7 @@ angular
 								$scope.emprunteurs = response.data.emprunteurs;
 							});
 
-					$scope.modify = function() {
+					$scope.modifierMedia = function() {
 						$location.url("/mediaCreation?idMedia="
 								+ $scope.media.id);
 					};

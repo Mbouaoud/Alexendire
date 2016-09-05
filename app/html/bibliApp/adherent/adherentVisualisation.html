@@ -1,112 +1,109 @@
 
-		<div class="wrapper">
-					
-			<div class="row">
-				<h1 class="col-xs-5 col-xs-offset-4">Fiche Adh&eacute;rent</h1>
-			</div><br>
-	
-			<div class="row">
-				<div class="col-xs-10 col-xs-offset-1 padding-space up-down-space border-red">
-					<div class="form-group col-xs-12">
-						<label class="col-xs-5 col-ld-4">Nom & Pr&eacute;nom</label>
-						<p class="col-xs-7 col-ld-8">{{adherent.nom}} {{adherent.prenom}}</p>
-					</div>
-					
-					<div class="form-group col-xs-12">
-						<label class="col-xs-5 col-ld-4">Date de Naissance</label>
-						<p class="col-xs-7 col-ld-8">{{adherent.date_naissance}}</p>
-					</div>
-					
-					<div class="form-group col-xs-12">
-						<label class="col-xs-5 col-ld-4">E-mail</label>
-						<p class="col-xs-7 col-ld-8">{{adherent.email}}</p>
-					</div>
-					
-					<div class="form-group col-xs-12">
-						<label class="col-xs-5 col-ld-4">Adresse</label>
-						<p class="col-xs-7 col-ld-8">{{adherent.adresse.ligne1}} {{adherent.adresse.ligne2}}</p>
-					</div>
-					
-					<div class="form-group col-xs-12">
-						<label class="col-xs-5 col-ld-4">Code Postal & Ville</label>
-						<p class="col-xs-7 col-ld-8">{{adherent.adresse.codepostal}} {{adherent.adresse.ville}}</p>
-					</div>
-					
-					<div class="form-group col-xs-12">
-						<label class="col-xs-5 col-ld-4">Date de Paiement de la cotisation</label>
-						<p class="col-xs-7 col-ld-8">{{adherent.cotisation.debut}}</p>
-					</div>
-					
-					<div class="form-group col-xs-12">
-						<label class="col-xs-5 col-ld-4">Montant de la cotisation</label>
-						<p class="col-xs-7 col-ld-8">{{adherent.cotisation.montant|currency}}</p>
-					</div>
-					
-					<div class="form-group col-xs-10 col-xs-offset-1">
-						<label>Liste des m&eacute;dias emprunt&eacute;s</label>
-						<br>
-						<table class="table table-hover col-xs-12">
-							<thead class="bg-warning">
-								<tr>
-									<th>Titre
-									</th>
-									<th class="hidden-xs hidden-sm">Auteur
-									</th>
-									<th class="hidden-xs">Type
-									</th>
-								</tr>
-							</thead>
-							
-							<tbody class="bg-danger">
-								<tr ng-repeat="media in medias | limitTo:nbDisplay">
-									<td>
-										<a href="/#/mediaVisualisation?idMedia={{media.id}}">{{media.media.titre}}</a>
-									</td>
-									<td class="hidden-xs hidden-sm">
-										<a href="/#/mediaVisualisation?idMedia={{media.id}}">{{media.media.auteur}}</a>
-									</td>
-									<td class="hidden-xs">
-										<a href="/#/mediaVisualisation?idMedia={{media.id}}">{{media.media.type}}</a>
-									</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-					
-					<div class="form-group col-xs-12 hidden-xs hidden-sm">
-						<label class="col-xs-3">Nouvel Emprunt :</label>
-					</div>
-					
-					<div class="form-group col-xs-12 hidden-xs hidden-sm">
-						<form ng-submit="ajouterEmprunt()">
-							<label class="col-xs-1">Titre</label>
-							<div class="col-xs-2">
-								<input type="text" class="form-control col-xs-2 bg-warning" ng-model="newTitre">
-							</div>
-							
-							<label class="col-xs-1">Date</label>
-							<div class="col-xs-3">
-								<input type="date" class="form-control bg-warning" value="2016-09-15" ng-model="newDate">
-							</div>
-							
-							<label class="col-xs-1">Type</label>
-							<div class="col-xs-2">
-								<select class="form-control bg-warning" ng-model="newType">
-									<option>Livre</option>
-									<option>CD</option>
-									<option>DVD</option>
-								</select>
-							</div>
-							
-							<input class="col-xs-2 btn btn-warning" type="submit" value="Ajouter">
-						</form>
-					</div>
-				</div>
-				
-				<div class="col-xs-2 col-xs-offset-5 up-down-space">
-					<form nb-submit="modify()">
-						<input class="btn btn-warning" type="submit" value="Modifier">
-					</form>
-				</div>
+<div class="row">
+	<h1 class="col-xs-5 col-xs-offset-4">Fiche Adh&eacute;rent</h1>
+</div>
+<br>
+
+<div
+	class="col-xs-10 col-xs-offset-1 padding-space up-down-space border-red">
+	<div class="form-group col-xs-12">
+		<label class="col-xs-5 col-ld-4">Nom & Pr&eacute;nom</label>
+		<p class="col-xs-7 col-ld-8">{{adherent.nom}} {{adherent.prenom}}</p>
+	</div>
+
+	<div class="form-group col-xs-12">
+		<label class="col-xs-5 col-ld-4">Date de Naissance</label>
+		<p class="col-xs-7 col-ld-8">{{adherent.date_naissance}}</p>
+	</div>
+
+	<div class="form-group col-xs-12">
+		<label class="col-xs-5 col-ld-4">E-mail</label>
+		<p class="col-xs-7 col-ld-8">{{adherent.email}}</p>
+	</div>
+
+	<div class="form-group col-xs-12">
+		<label class="col-xs-5 col-ld-4">Adresse</label>
+		<p class="col-xs-7 col-ld-8">{{adherent.adresse.ligne1}}
+			{{adherent.adresse.ligne2}}</p>
+	</div>
+
+	<div class="form-group col-xs-12">
+		<label class="col-xs-5 col-ld-4">Code Postal & Ville</label>
+		<p class="col-xs-7 col-ld-8">{{adherent.adresse.codepostal}}
+			{{adherent.adresse.ville}}</p>
+	</div>
+
+	<div class="form-group col-xs-12">
+		<label class="col-xs-5 col-ld-4">Date de Paiement de la
+			cotisation</label>
+		<p class="col-xs-7 col-ld-8">{{adherent.cotisation.debut}}</p>
+	</div>
+
+	<div class="form-group col-xs-12">
+		<label class="col-xs-5 col-ld-4">Montant de la cotisation</label>
+		<p class="col-xs-7 col-ld-8">{{adherent.cotisation.montant|currency}}</p>
+	</div>
+
+	<div class="form-group col-xs-10 col-xs-offset-1">
+		<label>Liste des m&eacute;dias emprunt&eacute;s</label> <br>
+		<table class="table table-hover col-xs-12">
+			<thead class="bg-warning">
+				<tr>
+					<th>Titre</th>
+					<th class="hidden-xs hidden-sm">Auteur</th>
+					<th class="hidden-xs">Type</th>
+				</tr>
+			</thead>
+
+			<tbody class="bg-danger">
+				<tr ng-repeat="media in medias | limitTo:nbDisplay">
+					<td><a href="/#/mediaVisualisation?idMedia={{media.media.id}}">{{media.media.titre}}</a>
+					</td>
+					<td class="hidden-xs hidden-sm"><a
+						href="/#/mediaVisualisation?idMedia={{media.media.id}}">{{media.media.auteur}}</a>
+					</td>
+					<td class="hidden-xs"><a
+						href="/#/mediaVisualisation?idMedia={{media.media.id}}">{{media.media.type}}</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="form-group col-xs-12 hidden-xs hidden-sm">
+		<label class="col-xs-3">Nouvel Emprunt :</label>
+	</div>
+
+	<div class="form-group col-xs-12 hidden-xs hidden-sm">
+		<form ng-submit="ajouterEmprunt()">
+			<label class="col-xs-1">Titre</label>
+			<div class="col-xs-2">
+				<input type="text" class="form-control col-xs-2 bg-warning"
+					ng-model="newTitre">
 			</div>
-		</div>
+
+			<label class="col-xs-1">Date</label>
+			<div class="col-xs-3">
+				<input type="date" class="form-control bg-warning"
+					value="2016-09-15" ng-model="newDate">
+			</div>
+
+			<label class="col-xs-1">Type</label>
+			<div class="col-xs-2">
+				<select class="form-control bg-warning" ng-model="newType">
+					<option>Livre</option>
+					<option>CD</option>
+					<option>DVD</option>
+				</select>
+			</div>
+
+			<input class="col-xs-2 btn btn-warning" type="submit" value="Ajouter">
+		</form>
+	</div>
+</div>
+
+<div class="col-xs-2 col-xs-offset-5 up-down-space">
+	<form ng-submit="modifierAdherent()">
+		<input class="btn btn-warning" type="submit" value="Modifier">
+	</form>
+</div>
