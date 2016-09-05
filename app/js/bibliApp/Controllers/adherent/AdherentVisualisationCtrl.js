@@ -1,7 +1,8 @@
 angular.module('bibliApp').controller(
 		'AdherentVisualisationCtrl',
-		function($scope, $location, $http) {
-
+		function($scope, $location, $http, $rootScope){
+			
+			$rootScope.typePage='AV';
 			$http.get('http://192.168.10.41:8090/resource/adherent.accession',
 					{
 						params : {

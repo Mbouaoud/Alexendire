@@ -6,6 +6,11 @@ angular.module('bibliApp')
 		}
 	}	
 	
+	$scope.menuMedia =  function(){
+		if($rootScope.typePage=='MR' || $rootScope.typePage=='MC' || $rootScope.typePage=='MV') {
+			return true;
+		}
+	}
 	$scope.menuHome =  function(){
 		return $rootScope.typePage=='MR';
 	}
@@ -14,6 +19,11 @@ angular.module('bibliApp')
 	}
 	$scope.menuMediaVisualisation =  function(){
 		return $rootScope.typePage=='MV';
+	}
+	$scope.menuAdherent =  function(){
+		if($rootScope.typePage=='AR' || $rootScope.typePage=='AC' || $rootScope.typePage=='AV') {
+			return true;
+		}
 	}
 	$scope.menuAdherentRecherche =  function(){
 		return $rootScope.typePage=='AR';
@@ -24,5 +34,7 @@ angular.module('bibliApp')
 	$scope.menuAdherentVisualisation =  function(){
 		return $rootScope.typePage=='AV';
 	}
+	
+	
 	
 });
