@@ -8,7 +8,7 @@
 
 <div class="row">
 	<div class="col-xs-6 col-xs-offset-2 marge-top-menu ">
-		<form class="form-horizontal" ng-submit="validLogin()" name="formLogin" novalidate>
+		<form class="form-horizontal" ng-submit="validLogin()" name="formLogin" METHOD="POST" novalidate>
  			<div class="form-group" >
 				<div class="col-sm-8 col-xs-offset-4">
 	      			<input  type="text" 
@@ -17,11 +17,12 @@
 							placeholder="Login"
 							ng-model="user"	
 							ng-minlength="3"
-			         		ng-maxlength="15">
+			         		ng-maxlength="15"
+			         		ng-required="true">
 	    		</div>
 <!-- 	    		<pre>{{formLogin.login|json}}</pre> -->
 <!-- 	    		<pre>{{user|json}}</pre> -->
-	    		<div class="col-sm-8 col-xs-offset-4" ng-messages="formLogin.login.$error" style="color:maroon">
+	    		<div class="col-sm-8 col-xs-offset-4" ng-messages="formLogin.login.$error" style="color:red">
  					<div ng-messages-include="html/defaultMessage.html"></div>
 				</div>
 	  		</div>
@@ -32,13 +33,20 @@
 	      					class="form-control"
 	      					name="password" 
 	      					placeholder="Password"
-	      					ng-model="password">
+	      					ng-model="password"
+	      					ng-required="true">
 	    		</div>
+	    		<div class="col-sm-8 col-xs-offset-4" ng-messages="formLogin.password.$error" style="color:red">
+ 					<div ng-messages-include="html/defaultMessage.html"></div>
+				</div>
 			</div>
 			
 			<div class="form-group">
    				<div class="col-xs-offset-4 col-xs-8">
       				<button type="submit" class="btn btn-warning btn-lg btn-block">Se connecter</button>
+    			</div>
+    			<div class="col-xs-offset-4 col-xs-8" style="color:red">
+    			<p>{{required()}}</p>
     			</div>
   			</div>
 		</form>

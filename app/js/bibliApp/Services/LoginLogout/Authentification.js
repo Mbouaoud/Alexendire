@@ -12,7 +12,7 @@ angular.module('bibliApp')
 					'Authorization' : 'Basic ' + authdata
 				}
 			};
-			return $http.get('http://192.168.10.41:8090/resource/connexion.rights', config).then(function(){
+			return $http.get('http://192.168.10.41:1977/resource/connexion.rights', config).then(function(){
 				// connexion ok
 				$http.defaults.headers.common['Authorization'] = 'Basic ' + authdata;
 				return true;
