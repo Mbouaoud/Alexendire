@@ -26,7 +26,7 @@ angular
 								$scope.medias = response.data.emprunt;
 							});
 
-					$scope.modify = function() {
+					$scope.modifierAdherent = function() {
 						$location.url("/adherentCreation?idAdherent="
 								+ $scope.adherent.id);
 					};

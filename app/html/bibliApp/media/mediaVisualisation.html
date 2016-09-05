@@ -1,78 +1,73 @@
 
-				
-			<div class="row">
-				<h1 class="col-xs-5 col-xs-offset-4">Fiche M&eacute;dia</h1>
+
+<div class="row">
+	<h1 class="col-xs-5 col-xs-offset-4">Fiche M&eacute;dia</h1>
+</div>
+
+<br>
+
+<div
+	class="col-xs-10 col-xs-offset-1 padding-space up-down-space border-red">
+	<div class="form-group col-xs-12">
+		<label class="col-xs-5 col-ld-4">Titre</label>
+		<p class="col-xs-7 col-ld-8">{{media.titre}}</p>
+	</div>
+	<div class="form-group col-xs-12">
+		<label class="col-xs-5 col-ld-4">Type</label>
+		<p class="col-xs-7 col-ld-8">{{media.type}}</p>
+	</div>
+	<div class="form-group col-xs-12">
+		<label class="col-xs-5 col-ld-4">Auteur</label>
+		<p class="col-xs-7 col-ld-8">{{media.auteur}}</p>
+	</div>
+	<div class="form-group col-xs-12">
+		<label class="col-xs-5 col-ld-4">Emprunt&eacute;</label>
+		<p class="col-xs-7 col-ld-8">{{media.emprunteurs.size>0?media.emprunteurs[0].nom:'Libre'}}</p>
+	</div>
+	<div ng-if=media.emprunteurs.size>
+		0" class="form-group col-xs-12"> <label class="col-xs-5 col-ld-4">Date
+			de retour</label>
+		<p class="col-xs-7 col-ld-8">{{media.date_retour}}</p>
+	</div>
+	<form ng-submit="ajouterEmprunt()">
+		<div class="form-group col-xs-12 hidden-xs hidden-sm">
+			<label class="col-xs-3">Nom de l'Emprunteur</label>
+			<div class="col-xs-3">
+				<input type="text" class="form-control" ng-model="newNomEmprunteur">
 			</div>
-			
-			<br>
-		
-			<div class="col-xs-10 col-xs-offset-1 padding-space up-down-space border-red">
-				<div class="form-group col-xs-12">
-					<label class="col-xs-5 col-ld-4">Titre</label>
-					<p class="col-xs-7 col-ld-8">{{media.titre}}</p>
-				</div>
-				<div class="form-group col-xs-12">
-					<label class="col-xs-5 col-ld-4">Type</label>
-					<p class="col-xs-7 col-ld-8">{{media.type}}</p>
-				</div>
-				<div class="form-group col-xs-12">
-					<label class="col-xs-5 col-ld-4">Auteur</label>
-					<p class="col-xs-7 col-ld-8">{{media.auteur}}</p>
-				</div>
-				<div class="form-group col-xs-12">
-					<label class="col-xs-5 col-ld-4">Emprunt&eacute;</label>
-					<p class="col-xs-7 col-ld-8">{{media.emprunteurs.size>0?media.emprunteurs[0].nom:'Libre'}}</p>
-				</div>
-				<div ng-if=media.emprunteurs.size>0" class="form-group col-xs-12">
-					<label class="col-xs-5 col-ld-4">Date de retour</label>
-					<p class="col-xs-7 col-ld-8">{{media.date_retour}}</p>
-				</div>
-				<form ng-submit="ajouterEmprunt()">
-					<div class="form-group col-xs-12 hidden-xs hidden-sm">
-						<label class="col-xs-3">Nom de l'Emprunteur</label>
-						<div class="col-xs-3">
-							<input type="text" class="form-control" ng-model="newNomEmprunteur">
-						</div>
-						<label class="col-xs-1">Date</label>
-						<div class="col-xs-3">
-							<input type="date" class="form-control" value="2016-09-15" ng-model="newDate">
-						</div>
-						<input class="btn btn-warning col-xs-2" type="submit" value="Ajouter">
-					</div>
-				</form>
-				<div class="form-group col-xs-10 col-xs-offset-1">
-					<label class="up-down-space">Dernier(s) Emprunteur(s)</label>
-					<br>
-					<table class="table table-hover col-xs-12">
-						<thead class="bg-warning">
-							<tr>
-								<th>Identifiant Emprunteur
-								</th>
-								<th class="hidden-xs">Nom Emprunteur
-								</th>
-							</tr>
-						</thead>
-						<tbody class="bg-danger">
-							<tr ng-repeat="emprunteur in emprunteurs | limitTo:nbDisplay">
-								<td class="hidden-xs">
-									<a href="/#/adherentVisualisation?idAdherent={{emprunteur.adherent.id}}">
-										{{emprunteur.adherent.id}}
-									</a>
-								</td>
-								<td>
-									<a href="/#/adherentVisualisation?idAdherent={{emprunteur.adherent.id}}">
-										{{emprunteur.adherent.nom}}
-									</a>
-								</td>
-							</tr>
-						</tbody>
-					</table>
-				</div>
+			<label class="col-xs-1">Date</label>
+			<div class="col-xs-3">
+				<input type="date" class="form-control" value="2016-09-15"
+					ng-model="newDate">
 			</div>
-			
-			<div class="col-xs-2 col-xs-offset-5 up-down-space">
-				<form ng-submit="modify()">
-					<input class="btn btn-warning" type="submit" value="Modifier">
-				</form>
-			</div>
-		
+			<input class="btn btn-warning col-xs-2" type="submit" value="Ajouter">
+		</div>
+	</form>
+	<div class="form-group col-xs-10 col-xs-offset-1">
+		<label class="up-down-space">Dernier(s) Emprunteur(s)</label> <br>
+		<table class="table table-hover col-xs-12">
+			<thead class="bg-warning">
+				<tr>
+					<th>Identifiant Emprunteur</th>
+					<th class="hidden-xs">Nom Emprunteur</th>
+				</tr>
+			</thead>
+			<tbody class="bg-danger">
+				<tr ng-repeat="emprunteur in emprunteurs | limitTo:nbDisplay">
+					<td class="hidden-xs"><a
+						href="/#/adherentVisualisation?idAdherent={{emprunteur.adherent.id}}">
+							{{emprunteur.adherent.id}} </a></td>
+					<td><a
+						href="/#/adherentVisualisation?idAdherent={{emprunteur.adherent.id}}">
+							{{emprunteur.adherent.nom}} </a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<div class="col-xs-2 col-xs-offset-5 up-down-space">
+	<form ng-submit="modifierMedia()">
+		<input class="btn btn-warning" type="submit" value="Modifier">
+	</form>
+</div>
