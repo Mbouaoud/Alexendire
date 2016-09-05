@@ -1,9 +1,8 @@
 angular.module('bibliApp')
 .factory('Authentification', function($http, $rootScope, Base64Service) {
 	
-	
-
 		var service = {};
+		var connexion = false;
 
 		service.connexion = function(login, password) {
 			var authdata = Base64Service.encode(login + ':' + password);
@@ -15,15 +14,22 @@ angular.module('bibliApp')
 			return $http.get('http://192.168.10.41:1977/resource/connexion.rights', config).then(function(){
 				// connexion ok
 				$http.defaults.headers.common['Authorization'] = 'Basic ' + authdata;
+				connexion = true;
 				return true;
 			}, function(){
 				// connexion ko
+				connexion = false;
 				return false;
 			});
 		}
 		
 		service.deconnexion = function() {
+			connexion = false;
 			$http.defaults.headers.common['Authorization'] = 'Basic';
+		}
+		
+		service.isConnected = function(){
+			return connexion;
 		}
 		
 		return service;
