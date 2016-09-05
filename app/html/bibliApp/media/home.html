@@ -3,18 +3,18 @@
 		<div class="form-group">
 			<label class="col-xs-1 control-label">Titre:</label>
 			<div class="col-xs-2">
-				<input type="text" class="form-control" ng-model="media.titre" name="titre"> 
+				<input type="text" class="form-control" ng-model="titre" name="titre"> 
 			</div>
 			
 			<label class="col-xs-1 control-label">Auteur:</label>
 			<div class="col-xs-2">
-				<input type="text" class="form-control" ng-model="media.auteur" name="auteur"> 
+				<input type="text" class="form-control" ng-model="auteur" name="auteur"> 
 			</div>
 			
 			<label class="col-xs-1 control-label">Type:</label>
 			<div class="col-xs-2">
-				<select ng-model="media.type" ng-options="item.label as item.label for item in mediaType track by item.id" class="form-control" style="padding-left: 4px;padding-right: 4px;">
-					<option value="" disabled>Selectionner un type</option>
+				<select ng-model="type" ng-options="item.label as item.label for item in mediaType track by item.id" class="form-control" style="padding-left: 4px;padding-right: 4px;">
+					<option value="">Selectionner un type</option>
 				</select>
 			</div>
 			

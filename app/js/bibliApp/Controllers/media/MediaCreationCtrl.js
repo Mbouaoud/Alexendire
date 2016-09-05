@@ -17,6 +17,7 @@ angular.module('bibliApp').controller('MediaCreationCtrl', function($scope, $roo
 			type: $scope.mediaType
 		});
 		
+		$scope.addedTitre = $scope.mediaTitre;
 		$scope.add = true;
 		$scope.mediaTitre = "";
 		$scope.mediaAuteur = "";

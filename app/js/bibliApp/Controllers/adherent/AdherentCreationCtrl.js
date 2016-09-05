@@ -5,13 +5,25 @@ angular.module('bibliApp').controller('AdherentCreationCtrl', function($scope, $
 	$rootScope.typePage='AC';
 	
 	$scope.FinAbonnement = function(dateAbo){
+<<<<<<< HEAD
 		if(dateAbo == null){
 			return null;
 		}else{
+=======
+		var temp = null;
+		
+		if(dateAbo != null){
+>>>>>>> branch 'master' of https://github.com/Mbouaoud/Alexendire
 			var temp = angular.copy(dateAbo);
 			temp.setFullYear(temp.getFullYear()+1);
+<<<<<<< HEAD
 			return temp;
 		}	
+=======
+		}
+		
+		return temp;
+>>>>>>> branch 'master' of https://github.com/Mbouaoud/Alexendire
 	};
 	
 	$scope.AgeAbonne = function(dateNaissance){
@@ -44,6 +56,7 @@ angular.module('bibliApp').controller('AdherentCreationCtrl', function($scope, $
 		
 		$scope.addedNom = $scope.adhNom;
 		$scope.addedPrenom = $scope.adhPrenom;
+<<<<<<< HEAD
 		
 		$scope.add = true;
 		$scope.adhNom = "";
@@ -56,6 +69,20 @@ angular.module('bibliApp').controller('AdherentCreationCtrl', function($scope, $
 		$scope.adhCotisation = "";
 		$scope.adhCotisationMontant = undefined;
 		
+=======
+
+		$scope.add = true;
+		$scope.adhNom = "";
+		$scope.adhPrenom = "";
+		$scope.adhNaissance = undefined;
+		$scope.adhEmail = "";
+		$scope.adhAdresse = "";
+		$scope.adhCp = "";
+		$scope.adhVille = "";
+		$scope.adhCotisation = undefined;
+		$scope.adhCotisationMontant = "";
+			
+>>>>>>> branch 'master' of https://github.com/Mbouaoud/Alexendire
 		console.log(adherent);
 	};
 });
