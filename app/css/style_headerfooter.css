@@ -10,7 +10,7 @@ body, html, zz.wrapper {
 }
 
 .marge-footer{
-	position: fixed;
+	/*position: fixed;*/
     height: 40px;
     bottom: 0;
     width: 1170px;

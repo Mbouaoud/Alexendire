@@ -28,14 +28,23 @@
 		<script src="/js/bibliApp/Controllers/MainCtrl.js"></script>
 
 		<script src="/js/bibliApp/Services/media/MediaRechercheService.js"></script>
+		<script src="/js/bibliApp/Services/media/MediaCreationService.js"></script>
+		
+		<script src="/js/bibliApp/Services/adherent/AdherentCreationService.js"></script>
+		
 		<script src="/js/bibliApp/Services/LoginLogout/Authentification.js"></script>
+		
+		<script src="/js/functions.js"></script>
 	</head>
 	
 	<body class="container" ng-controller="MainCtrl">
-		<div ng-include="'/html/header-footer/header.html'" ng-if="menu()"></div>
-		
-		<ng-view></ng-view>
-		
-		<div ng-include="'/html/header-footer/footer.html'"></div>
+		<div ng-if="isConnected()">
+			<div ng-include="'/html/header-footer/header.html'" ng-if="menu()"></div>
+			<ng-view></ng-view>
+			<div ng-include="'/html/header-footer/footer.html'"></div>
+		</div>
+		<div ng-if="!isConnected()">
+			<div ng-include="'/html/login/login.html'" ></div>
+		</div>
 	</body>
 </html>
