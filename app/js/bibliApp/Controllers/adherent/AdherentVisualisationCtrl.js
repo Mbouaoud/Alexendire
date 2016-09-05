@@ -1,7 +1,9 @@
 angular.module('bibliApp').controller(
 		'AdherentVisualisationCtrl',
-		function($scope, $location, $http) {
+		function($scope, $location, $http, $rootScope) {
 
+			$rootScope.typePage='AV';
+			
 			$scope.nbDisplay = 20;
 
 			$scope.newTitre = undefined;

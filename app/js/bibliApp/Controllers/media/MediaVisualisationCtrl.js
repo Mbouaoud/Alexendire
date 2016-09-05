@@ -1,7 +1,9 @@
 angular.module('bibliApp').controller(
 		'MediaVisualisationCtrl',
-		function($scope, $location, $http) {
+		function($scope, $location, $http, $rootScope) {
 
+			$rootScope.typePage='MV';
+			
 			$scope.nbDisplay = 20;
 			
 			$scope.newNomEmprunteur = undefined;
