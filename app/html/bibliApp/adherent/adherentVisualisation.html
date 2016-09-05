@@ -60,13 +60,13 @@
 							<tbody class="bg-danger">
 								<tr ng-repeat="media in medias | limitTo:nbDisplay">
 									<td>
-										<a href="/#/mediaVisualisation?idMedia={{media.id}}">{{media.titre}}</a>
+										<a href="/#/mediaVisualisation?idMedia={{media.id}}">{{media.media.titre}}</a>
 									</td>
 									<td class="hidden-xs hidden-sm">
-										<a href="/#/mediaVisualisation?idMedia={{media.id}}">{{media.auteur}}</a>
+										<a href="/#/mediaVisualisation?idMedia={{media.id}}">{{media.media.auteur}}</a>
 									</td>
 									<td class="hidden-xs">
-										<a href="/#/mediaVisualisation?idMedia={{media.id}}">{{media.type}}</a>
+										<a href="/#/mediaVisualisation?idMedia={{media.id}}">{{media.media.type}}</a>
 									</td>
 								</tr>
 							</tbody>

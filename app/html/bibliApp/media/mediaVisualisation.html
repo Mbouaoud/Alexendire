@@ -27,7 +27,7 @@
 					<label class="col-xs-5 col-ld-4">Date de retour</label>
 					<p class="col-xs-7 col-ld-8">{{media.date_retour}}</p>
 				</div>
-				<form ng-submit="ajouterEmprunteur()">
+				<form ng-submit="ajouterEmprunt()">
 					<div class="form-group col-xs-12 hidden-xs hidden-sm">
 						<label class="col-xs-3">Nom de l'Emprunteur</label>
 						<div class="col-xs-3">
@@ -55,13 +55,13 @@
 						<tbody class="bg-danger">
 							<tr ng-repeat="emprunteur in emprunteurs | limitTo:nbDisplay">
 								<td class="hidden-xs">
-									<a href="/#/adherentVisualisation?idAdherent={{emprunteur.id}}">
-										{{emprunteur.id}}
+									<a href="/#/adherentVisualisation?idAdherent={{emprunteur.adherent.id}}">
+										{{emprunteur.adherent.id}}
 									</a>
 								</td>
 								<td>
-									<a href="/#/adherentVisualisation?idAdherent={{emprunteur.id}}">
-										{{emprunteur.nom}}
+									<a href="/#/adherentVisualisation?idAdherent={{emprunteur.adherent.id}}">
+										{{emprunteur.adherent.nom}}
 									</a>
 								</td>
 							</tr>
