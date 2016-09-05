@@ -25,14 +25,15 @@
 		
 		<script src="/js/bibliApp/Controllers/login/LoginCtrl.js"></script>
 		<script src="/js/bibliApp/Controllers/header/HeaderCtrl.js"></script>
-		
-		
+		<script src="/js/bibliApp/Controllers/MainCtrl.js"></script>
+			
 		<script src="/js/bibliApp/Services/media/MediaRechercheService.js"></script>
 		<script src="/js/bibliApp/Services/LoginLogout/Authentification.js"></script>
 	</head>
 	
-	<body class="container">
-		<div ng-include="'/html/header-footer/header.html'"></div>
+	<body class="container" ng-controller="MainCtrl">
+	
+		<div ng-include="'/html/header-footer/header.html'" ng-if="menu()"></div>
 		
 		<ng-view></ng-view>
 		
