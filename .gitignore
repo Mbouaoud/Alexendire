@@ -5,3 +5,4 @@ src/main/resources/META-INF/persistence.xml
 
 .project
 /bin/
+/target/

@@ -1,9 +1,11 @@
 <header class="marge-top-login"></header>
+
 <div class="row">
 	<div class="col-xs-4 col-xs-offset-4">
 		<img class="img-responsive center-block border-image img-circle"  src="img/logo.png"/>
 	</div>
 </div>
+
 <div class="row">
 	<div class="col-xs-6 col-xs-offset-2 marge-top-menu ">
 		<form class="form-horizontal" ng-submit="validLogin()" name="formLogin" novalidate>
@@ -19,22 +21,21 @@
 	    		</div>
 <!-- 	    		<pre>{{formLogin.login|json}}</pre> -->
 <!-- 	    		<pre>{{user|json}}</pre> -->
-	    		<div ng-messages="formLogin.login.$error" style="color:maroon">
+	    		<div class="col-sm-8 col-xs-offset-4" ng-messages="formLogin.login.$error" style="color:maroon">
  					<div ng-messages-include="html/defaultMessage.html"></div>
 				</div>
 	  		</div>
+	  		
 	  		<div class="form-group">
 	    		<div class="col-xs-8 col-xs-offset-4">
 	      			<input  type="password" 
 	      					class="form-control"
 	      					name="password" 
 	      					placeholder="Password"
-	      					ng-model="password"	  
-	      					>
+	      					ng-model="password">
 	    		</div>
-	    	
-	    		
 			</div>
+			
 			<div class="form-group">
    				<div class="col-xs-offset-4 col-xs-8">
       				<button type="submit" class="btn btn-warning btn-lg btn-block">Se connecter</button>

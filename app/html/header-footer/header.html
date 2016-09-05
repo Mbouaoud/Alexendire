@@ -1,7 +1,29 @@
-<header >
+<header ng-controller="HeaderCtrl">
 	<div class="navbar  navbar-default container-fluid ">
 		<div class="row">
 			<div class="col-xs-10">
+<<<<<<< HEAD
+				<span ng-show="menuMedia()">
+					<ul class="nav nav-pills nav-justified marge-top-menu ">
+			  			<li class="bg-info">
+			  				<a href="#/home">M&eacute;dia</a>
+			  			</li>
+			 			<li>
+			 				<a href="#/adherentRecherche" >Adh&eacute;rents</a>
+			 			</li>
+					</ul>
+				</span>
+				<span ng-show="menuAdherent()">
+					<ul class="nav nav-pills nav-justified marge-top-menu ">
+			  			<li>
+			  				<a href="#/home">M&eacute;dia</a>
+			  			</li>
+			 			<li class="bg-info">
+			 				<a href="#/adherentRecherche" >Adh&eacute;rents</a>
+			 			</li>
+					</ul>
+				</span>
+=======
 				<ul class="nav nav-pills nav-justified marge-top-menu ">
 		  			<li class="bg-info">
 		  				<a href="/home.html">M&eacute;dia</a>
@@ -10,14 +32,52 @@
 		 				<a href="/adherent_recherche.html" >Adh&eacute;rents</a>
 		 			</li>
 				</ul>
+>>>>>>> branch 'master' of https://github.com/Mbouaoud/Alexendire
 			</div >
-			
 			<div class="col-xs-2">
+<<<<<<< HEAD
+		  		<a href="/#/home" ><img class="img-responsive center-block img-circle border-image"  src="/img/logo.png"/></a>
+=======
 		  		<a href="/home.html" ><img class="img-responsive center-block img-circle border-image"  src="/img/logo.png"/></a>
+>>>>>>> branch 'master' of https://github.com/Mbouaoud/Alexendire
 			</div>
 		</div>
+		
+		
 		<div class="row">
 			<div class="col-xs-5">
+<<<<<<< HEAD
+				<span ng-show="menuHome()">
+					<ul class="nav nav-pills nav-justified ">
+			  			<li role="media_recherche" class="bg-info">
+			  				<a href="/#/home">Recherche</a>
+			  			</li>
+			 			<li>
+			 				<a href="/#/mediaCreation" >Nouveau</a>
+			 			</li>
+					</ul>
+				</span>
+				<span ng-show="menuMediaCreation()">
+					<ul class="nav nav-pills nav-justified ">
+			  			<li>
+			  				<a href="/#/home">Recherche</a>
+			  			</li>
+			 			<li role="media_creation" class="bg-info" >
+			 				<a href="/#/mediaCreation" >Nouveau</a>
+			 			</li>
+					</ul>
+				</span>
+				<span ng-show="menuMediaVisualisation()">
+					<ul class="nav nav-pills nav-justified ">
+			  			<li>
+			  				<a href="/#/home">Recherche</a>
+			  			</li>
+			 			<li >
+			 				<a href="/#/mediaCreation" >Nouveau</a>
+			 			</li>
+					</ul>
+				</span>
+=======
 				<ul class="nav nav-pills nav-justified ">
 		  			<li>
 		  				<a href="/home.html">Recherche</a>
@@ -26,10 +86,49 @@
 		 				<a href="/media_creation.html" >Nouveau</a>
 		 			</li>
 				</ul>
+>>>>>>> branch 'master' of https://github.com/Mbouaoud/Alexendire
 			</div>
+<<<<<<< HEAD
+			<div class="col-xs-5">
+				<span ng-show="menuAdherentRecherche()">
+					<ul class="nav nav-pills nav-justified ">
+			  			<li  role="media_recherche" class="bg-info">
+			  				<a href="/#/adherentRecherche">Recherche</a>
+			  			</li>
+			 			<li>
+			 				<a href="/#/adherentCreation" >Nouveau</a>
+			 			</li>
+					</ul>
+				</span>
+				<span ng-show="menuAdherentCreation()">
+					<ul class="nav nav-pills nav-justified ">
+			  			<li>
+			  				<a href="/#/adherentRecherche">Recherche</a>
+			  			</li>
+			 			<li role="media_creation" class="bg-info" >
+			 				<a href="/#/adherentCreation" >Nouveau</a>
+			 			</li>
+					</ul>
+				</span>
+				<span ng-show="menuAdherentVisualisation()">
+					<ul class="nav nav-pills nav-justified ">
+			  			<li>
+			  				<a href="/#/adherentRecherche">Recherche</a>
+			  			</li>
+			 			<li>
+			 				<a href="/#/adherentCreation" >Nouveau</a>
+			 			</li>
+					</ul>
+				</span>
+			</div>
+			
+			<div class="col-xs-2  marge-top-deco center"  >
+				<a type="button" class="btn btn-default btn-block btm-sm" href="/#/login">
+=======
 
 			<div class="col-xs-2 col-xs-offset-5 marge-top-deco center"  >
 				<a type="button" class="btn btn-default btn-block btm-sm" href="./login.html">
+>>>>>>> branch 'master' of https://github.com/Mbouaoud/Alexendire
 					<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>
 				</a>
 		 	</div>
