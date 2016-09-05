@@ -1,7 +1,7 @@
 <header class="marge-top-login"></header>
 <div class="row">
 	<div class="col-xs-4 col-xs-offset-4">
-		<img class="img-responsive center-block border-image img-circle"  src="../src/img/logo.png"/>
+		<img class="img-responsive center-block border-image img-circle"  src="img/logo.png"/>
 	</div>
 </div>
 <div class="row">
@@ -15,11 +15,10 @@
 							placeholder="Login"
 							ng-model="user"	
 							ng-minlength="3"
-			         		ng-maxlength="15"
-         					>
+			         		ng-maxlength="15">
 	    		</div>
-	    		<pre>{{formLogin.login|json}}</pre>
-	    		<pre>{{user|json}}</pre>
+<!-- 	    		<pre>{{formLogin.login|json}}</pre> -->
+<!-- 	    		<pre>{{user|json}}</pre> -->
 	    		<div ng-messages="formLogin.login.$error" style="color:maroon">
  					<div ng-messages-include="html/defaultMessage.html"></div>
 				</div>
