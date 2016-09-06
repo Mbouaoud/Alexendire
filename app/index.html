@@ -35,15 +35,18 @@
 		
 		<script src="/js/bibliApp/Services/LoginLogout/Authentification.js"></script>
 		
-		<script src="/js/functions.js"></script>
+		<script src="/js/bibliApp/Directive/FillPage.js"></script>
 	</head>
 	
 	<body class="container" ng-controller="MainCtrl">
-	<pre>{{isConnected()}}</pre>
-		<div ng-if="isConnected()">
-			<div ng-include="'/html/header-footer/header.html'" ng-if="menu()"></div>
-			<ng-view></ng-view>
-			<div ng-include="'/html/header-footer/footer.html'"></div>
+		<div ng-if="isConnected()">	
+			<div id="header-div" ng-include="'/html/header-footer/header.html'" ng-if="menu()"></div>
+			
+			<div fill-page>
+				<ng-view></ng-view>
+			</div>
+			
+			<div id="footer-div" ng-include="'/html/header-footer/footer.html'"></div>
 		</div>
 		<div ng-if="!isConnected()">
 			<div ng-include="'/html/login/login.html'" ></div>
