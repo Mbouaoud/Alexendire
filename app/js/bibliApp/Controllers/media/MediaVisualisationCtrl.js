@@ -12,8 +12,7 @@ angular.module('bibliApp').controller('MediaVisualisationCtrl', function($scope,
 			});
 
 	$scope.modifierMedia = function() {
-		$location.url("/mediaCreation?idMedia="
-				+ $scope.media.id);
+		$location.url("/mediaCreation/" + $scope.media.id);
 	};
 
 	$scope.triAdherent = function($triValue) {

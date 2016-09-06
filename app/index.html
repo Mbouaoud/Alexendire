@@ -40,7 +40,6 @@
 	</head>
 	
 	<body class="container" ng-controller="MainCtrl">
-	<pre>{{isConnected()}}</pre>
 		<div ng-if="isConnected()">
 			<div ng-include="'/html/header-footer/header.html'" ng-if="menu()"></div>
 			<ng-view></ng-view>
