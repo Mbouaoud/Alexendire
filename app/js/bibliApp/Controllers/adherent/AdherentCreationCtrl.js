@@ -88,6 +88,8 @@ angular.module('bibliApp').controller('AdherentCreationCtrl', function($scope, $
 					$scope.modifiedPrenom = $scope.adhPrenom;
 					
 					$scope.failModif = false;
+					click = false;
+					$scope.validationForm();
 				},function(error){
 					$scope.failModif = true;
 				});
@@ -127,6 +129,9 @@ angular.module('bibliApp').controller('AdherentCreationCtrl', function($scope, $
 					$scope.adhCotisation = undefined;
 					$scope.adhCotisationMontant = "";
 					$scope.failAdd = false;
+
+					click = false;
+					$scope.validationForm();
 				},function(error){
 					$scope.failAdd = true;
 				});
