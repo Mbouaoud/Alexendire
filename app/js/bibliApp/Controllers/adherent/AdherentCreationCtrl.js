@@ -10,26 +10,22 @@ angular.module('bibliApp').controller('AdherentCreationCtrl', function($scope, $
 	$rootScope.typePage='AC';
 	
 	if ($routeParams.idAdherent) {
-		$http.get('http://192.168.10.41:8090/resource/adherent.accession',
-		{
-			params : {
-				id : $routeParams.idAdherent
-			}
-		}).then(function(response) {
-			$scope.adhId = response.data.id;
-			$scope.adhNom = response.data.nom;
-			$scope.adhPrenom = response.data.prenom;
-			$scope.adhNaissance = new Date(response.data.date_naissance);
-			$scope.adhEmail = response.data.email;
-			$scope.adhAdresse = response.data.adresse.ligne1 + " " + response.data.adresse.ligne2;
-			$scope.adhCp = response.data.adresse.codepostal;
-			$scope.adhVille = response.data.adresse.ville;
-			$scope.adhCotisation = new Date(response.data.cotisation.debut);
-			$scope.adhCotisationMontant = response.data.cotisation.montant;
-			
-			$scope.emprunt = response.data.emprunt;
-			
-			$scope.makeModif = true;
+		$http.get('http://192.168.10.41:8090/resource/adherent.accession', {params : {id : $routeParams.idAdherent}})
+			.then(function(response) {
+				$scope.adhId = response.data.id;
+				$scope.adhNom = response.data.nom;
+				$scope.adhPrenom = response.data.prenom;
+				$scope.adhNaissance = new Date(response.data.date_naissance);
+				$scope.adhEmail = response.data.email;
+				$scope.adhAdresse = response.data.adresse.ligne1 + " " + response.data.adresse.ligne2;
+				$scope.adhCp = response.data.adresse.codepostal;
+				$scope.adhVille = response.data.adresse.ville;
+				$scope.adhCotisation = new Date(response.data.cotisation.debut);
+				$scope.adhCotisationMontant = response.data.cotisation.montant;
+				
+				$scope.emprunt = response.data.emprunt;
+				
+				$scope.makeModif = true;
 		});
 	};
 	
@@ -60,9 +56,7 @@ angular.module('bibliApp').controller('AdherentCreationCtrl', function($scope, $
 	};
 		
 	$scope.addAdherent = function(){
-		
 		if ($scope.makeModif) {
-
 			adherent = {
 				id : $scope.adhId,
 				nom : $scope.adhNom,
@@ -93,8 +87,7 @@ angular.module('bibliApp').controller('AdherentCreationCtrl', function($scope, $
 				$scope.failModif = true;
 			});
 			
-		}
-		else {
+		}else {
 
 			adherent = {
 				nom : $scope.adhNom,

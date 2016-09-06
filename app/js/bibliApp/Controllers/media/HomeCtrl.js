@@ -63,5 +63,4 @@ angular.module('bibliApp').controller('HomeCtrl', function($scope,$location,Medi
 			}
 		} while (tri == true);
 	};
-	
 })
