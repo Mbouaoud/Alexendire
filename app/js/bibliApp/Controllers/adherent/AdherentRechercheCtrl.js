@@ -5,14 +5,13 @@ angular.module('bibliApp').controller('AdherentRechercheCtrl', function($scope,$
 	var recherche = [];
 	
 	$scope.adherentVisualisation = function(id){
-		$location.url('/adherentVisualisation?idAdhrent='+id);
+		$location.url('/adherentVisualisation?idAdherent='+id);
 	}
 	
 	$scope.resultAdherent = function(page){	
 		AdherentRechercheService.get($scope.idAdherent,$scope.nomAdherent)
 		.then(function(result){
 			recherche=result.data;
-				console.log(recherche);
 			$scope.triAdherent($scope.varTri);
 			$scope.resultats=recherche.slice((page-1)*$scope.nbElmtByPage,page*$scope.nbElmtByPage);
 			$scope.pageMax = Math.ceil(recherche.length/$scope.nbElmtByPage);
