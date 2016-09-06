@@ -1,5 +1,4 @@
-angular.module('bibliApp')
-.factory('Authentification', function($http, $rootScope, Base64Service) {
+angular.module('bibliApp').factory('Authentification', function($http, $rootScope, Base64Service) {
 	
 		var service = {};
 		var connexion = false;

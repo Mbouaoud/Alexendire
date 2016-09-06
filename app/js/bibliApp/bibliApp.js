@@ -9,6 +9,11 @@ angular.module('bibliApp', ['ngRoute', 'ngMessages']).config(function($routeProv
 			controller: 'AdherentRechercheCtrl'
 	});
 
+	$routeProvider.when('/mediaCreation/:idMedia',{
+		templateUrl: '/html/bibliApp/media/mediaCreation.html',
+		controller: 'MediaCreationCtrl'
+	});
+	
 	$routeProvider.when('/mediaCreation',{
 		templateUrl: '/html/bibliApp/media/mediaCreation.html',
 		controller: 'MediaCreationCtrl'
