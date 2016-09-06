@@ -1,8 +1,19 @@
 angular.module('bibliApp')
-.factory('Authentification', function($http, $rootScope, Base64Service) {
+.factory('Authentification', function($http, $rootScope, Base64Service, $cookies) {
 	
 		var service = {};
+		
 		var connexion = false;
+		
+		// On vérifie si la personne n'était pas déjà connectée à xce PC avant :
+		var cookie = $cookies.get('bibliAppCookie');
+		if(cookie != null){
+			connexion = true;
+			$http.defaults.headers.common['Authorization'] = cookie;
+		} else {
+			connexion = false;
+			$http.defaults.headers.common['Authorization'] = 'Basic';
+		}
 
 		service.connexion = function(login, password) {
 			var authdata = Base64Service.encode(login + ':' + password);
@@ -14,19 +25,22 @@ angular.module('bibliApp')
 			return $http.get('http://192.168.10.41:1977/resource/connexion.rights', config).then(function(){
 				// connexion ok
 				$http.defaults.headers.common['Authorization'] = 'Basic ' + authdata;
+				// Setting a cookie
+				$cookies.put('bibliAppCookie',  'Basic ' + authdata);
 				connexion = true;
 				return true;
+				
 			}, function(){
 				// connexion ko
-				connexion = false;
+				service.deconnexion();
 				return false;
 			});
 		}
 		
 		service.deconnexion = function() {
-			connexion = false;
 			$http.defaults.headers.common['Authorization'] = 'Basic';
-			return connexion;
+			connexion = false;
+			$cookies.remove('bibliAppCookie');
 		}
 		
 		service.isConnected = function(){

@@ -37,7 +37,7 @@ angular.module('bibliApp')
 		return $rootScope.typePage=='AV';
 	}
 	
-	$scope.disconnexion = function(){
+	$scope.dis = function(){
 		return Authentification.deconnexion();
 	}
 	
