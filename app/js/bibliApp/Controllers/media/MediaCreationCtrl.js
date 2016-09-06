@@ -2,6 +2,7 @@ angular.module('bibliApp').controller('MediaCreationCtrl', function($scope, $roo
 		
 	$scope.idMedia = $routeParams.idMedia;
 	var media = {};
+	click=false;
 	
 	$scope.add = false;
 	$scope.fail = false;
@@ -28,35 +29,49 @@ angular.module('bibliApp').controller('MediaCreationCtrl', function($scope, $roo
 	];
 	
 	$scope.addMedia = function(){
-		if($scope.idMedia != undefined){
-			media = {
-				id: $scope.idMedia,
-				titre : $scope.mediaTitre,
-				auteur: $scope.mediaAuteur,
-				type: $scope.mediaType
-			};
-			
-			MediaCreationService.updateMedia(media).then(function(result){
-				$scope.addedTitre = $scope.mediaTitre;
-				$scope.up = true;
-				$scope.fail = false;
-			},function(error){
-				$scope.fail = true;
-			});
-		}else{
-			media = {
-				titre : $scope.mediaTitre,
-				auteur: $scope.mediaAuteur,
-				type: $scope.mediaType
-			};
-			
-			MediaCreationService.addMedia(media).then(function(result){
-				$scope.addedTitre = $scope.mediaTitre;
-				$scope.add = true;
-				$scope.fail = false;
-			},function(error){
-				$scope.fail = true;
-			});
+
+		click=true;
+		if($scope.mdcrForm.$valid) {
+			if($scope.idMedia != undefined){
+				media = {
+					id: $scope.idMedia,
+					titre : $scope.mediaTitre,
+					auteur: $scope.mediaAuteur,
+					type: $scope.mediaType
+				};
+				
+				MediaCreationService.updateMedia(media).then(function(result){
+					$scope.addedTitre = $scope.mediaTitre;
+					$scope.up = true;
+					$scope.fail = false;
+					click = false;
+					$scope.validationFormMedia();
+				},function(error){
+					$scope.fail = true;
+				});
+			}else{
+				media = {
+					titre : $scope.mediaTitre,
+					auteur: $scope.mediaAuteur,
+					type: $scope.mediaType
+				};
+				
+				MediaCreationService.addMedia(media).then(function(result){
+					$scope.addedTitre = $scope.mediaTitre;
+					$scope.add = true;
+					$scope.mediaTitre = "";
+					$scope.mediaAuteur = "";
+					$scope.mediaType = "";
+					$scope.fail = false;
+					click = false;
+					$scope.validationFormMedia();
+				},function(error){
+					$scope.fail = true;
+				});
+			}
 		}
+	};
+	$scope.validationFormMedia = function(){
+		if(click==true) return true;
 	}
 });

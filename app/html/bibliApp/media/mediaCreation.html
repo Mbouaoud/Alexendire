@@ -19,40 +19,57 @@
 <div class="col-lg-offset-4">
 	<i>* Elements obligatoire.</i><br><br>
 
-	<form ng-submit="addMedia()" name="mdcrForm" class="form-horizontal">
-		<div class="form-group">
-			<label class="col-xs-2 control-label">Titre* :</label>
-			
-			<div class="col-sm-3">
-				<input type="text" class="form-control" ng-model="mediaTitre" required>
+	<form ng-submit="addMedia()" name="mdcrForm" class="form-horizontal" novalidate>
+		<div class="row">
+			<div class="form-group">
+				<label class="col-xs-2 control-label">Titre* :</label>
+				
+				<div class="col-sm-3">
+					<input type="text" class="form-control" ng-model="mediaTitre" name="inputTitre" ng-required="true">
+				</div>
+			</div>
+			<div class="col-sm-3 col-xs-offset-2" ng-messages="mdcrForm.inputTitre.$error" style="color:red" ng-show="validationFormMedia()">
+	 			<div ng-messages-include="html/defaultMessageCreationAdherent.html"></div>
 			</div>
 		</div>
-
-		<div class="form-group">
-			<label class="col-xs-2 control-label">Auteur* :</label>
-			
-			<div class="col-sm-3">
-				<input type="text" class="form-control" ng-model="mediaAuteur" required>
+		<br>
+		<div class="row">
+			<div class="form-group">
+				<label class="col-xs-2 control-label">Auteur* :</label>
+				
+				<div class="col-sm-3">
+					<input type="text" class="form-control" ng-model="mediaAuteur" name="inputAuteur" ng-required="true">
+				</div>
+				
 			</div>
-			
-		</div>
-
-		<div class="form-group">
-			<label class="col-xs-2 control-label">Type* :</label>
-			
-			<div class="col-sm-3">
-				<select class="form-control" ng-model="mediaType" ng-options="mediaType.type as mediaType.type for mediaType in mediaTypes" required>
-					<option value="" disabled>selectionner un type</option>
-				</select>
+			<div class="col-sm-3 col-xs-offset-2" ng-messages="mdcrForm.inputAuteur.$error" style="color:red" ng-show="validationFormMedia()">
+	 			<div ng-messages-include="html/defaultMessageCreationAdherent.html"></div>
 			</div>
-		</div>
-
-		<div class="col-xs-offset-2">
-			<input type="submit" class="btn btn-warning">
 		</div><br>
 		
-		<div class="col-xs-offset-2">
-			<a href="/#/mediaVisualisation/{{idMedia}}" class="btn btn-warning">Annuler</a>
-		</div>
+		<div class="row">
+			<div class="form-group">
+				<label class="col-xs-2 control-label">Type* :</label>
+				
+				<div class="col-sm-3">
+					<select class="form-control" ng-model="mediaType" ng-options="mediaType.type as mediaType.type for mediaType in mediaTypes"
+							name="inputType" ng-required="true">
+						<option value="" disabled>selectionner un type</option>
+					</select>
+				</div>
+			</div>
+			<div class="col-sm-3 col-xs-offset-2" ng-messages="mdcrForm.inputType.$error" style="color:red" ng-show="validationFormMedia()">
+	 			<div ng-messages-include="html/defaultMessageCreationAdherent.html"></div>
+			</div>
+		</div><br>
+
+			<div class="col-xs-offset-2">
+				<input type="submit" class="btn btn-warning">
+			</div><br>
+			
+			<div class="col-xs-offset-2">
+				<a href="/#/mediaVisualisation/{{idMedia}}" class="btn btn-warning">Annuler</a>
+	
+			</div><br>
 	</form>
 </div>
