@@ -35,5 +35,4 @@ angular.module('bibliApp').controller('HomeCtrl', function($scope,$location,Medi
 	$scope.getNumber = function(num) {
 	    return new Array(num);   
 	}
-	
 })

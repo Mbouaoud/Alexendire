@@ -1,13 +1,19 @@
 <div class="alert alert-success" role="alert" ng-show="add" id="creation-alert">
 	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 	
-	La media {{addedTitre}} a &eacute;t&eacute; corr&eacute;ctement cr&eacute;e.
+	La media "{{addedTitre}}" a &eacute;t&eacute; corr&eacute;ctement cr&eacute;e.
+</div>
+
+<div class="alert alert-success" role="alert" ng-show="up" id="creation-alert">
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	
+	La media "{{addedTitre}}" a &eacute;t&eacute; corr&eacute;ctement mis a jour.
 </div>
 
 <div class="alert alert-danger" role="alert" ng-show="fail" id="creation-alert">
 	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
 	
-	La cr&eacute;tion du media a echou&eacute;.
+	L'op&eacute;ration a echou&eacute;.
 </div>
 
 <div class="col-lg-offset-4">

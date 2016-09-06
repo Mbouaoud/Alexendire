@@ -1,4 +1,4 @@
-angular.module('bibliApp', ['ngRoute', 'ngMessages']).config(function($routeProvider){
+angular.module('bibliApp', ['ngRoute', 'ngMessages', 'ngCookies']).config(function($routeProvider){
 	$routeProvider.when('/home',{
 		templateUrl:'html/bibliApp/media/home.html',
 		controller:'HomeCtrl'
@@ -9,6 +9,11 @@ angular.module('bibliApp', ['ngRoute', 'ngMessages']).config(function($routeProv
 			controller: 'AdherentRechercheCtrl'
 	});
 
+	$routeProvider.when('/mediaCreation/:idMedia',{
+		templateUrl: '/html/bibliApp/media/mediaCreation.html',
+		controller: 'MediaCreationCtrl'
+	});
+	
 	$routeProvider.when('/mediaCreation',{
 		templateUrl: '/html/bibliApp/media/mediaCreation.html',
 		controller: 'MediaCreationCtrl'
@@ -37,12 +42,12 @@ angular.module('bibliApp', ['ngRoute', 'ngMessages']).config(function($routeProv
 		controller: 'AdherentVisualisationCtrl'
 	});
 
-//	$routeProvider.when('/login', {
-//		templateUrl : 'html/login/login.html',
-//		controller: 'LoginCtrl'
-//	});
-//	
+	$routeProvider.when('/login', {
+		templateUrl : 'html/login/login.html',
+		controller: 'LoginCtrl'
+	});
+	
 	$routeProvider.otherwise({
-		redirectTo : '/home'
+		redirectTo : '/login'
 	});
 });
