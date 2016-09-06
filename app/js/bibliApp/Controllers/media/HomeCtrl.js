@@ -16,7 +16,7 @@ angular.module('bibliApp').controller('HomeCtrl', function($scope,$location,Medi
 	}];
 	
 	$scope.mediaVisualisation = function(id){
-		$location.url('/mediaVisualisation?idMedia='+id);
+		$location.url('/mediaVisualisation/'+id);
 	}
 	
 	$scope.resultMedia = function(page){	

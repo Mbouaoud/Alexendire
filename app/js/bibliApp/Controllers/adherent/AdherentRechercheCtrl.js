@@ -5,7 +5,7 @@ angular.module('bibliApp').controller('AdherentRechercheCtrl', function($scope,$
 	var recherche = [];
 	
 	$scope.adherentVisualisation = function(id){
-		$location.url('/adherentVisualisation?idAdherent='+id);
+		$location.url('/adherentVisualisation/'+id);
 	}
 	
 	$scope.resultAdherent = function(page){	

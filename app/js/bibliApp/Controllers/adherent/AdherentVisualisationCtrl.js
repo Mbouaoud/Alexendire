@@ -1,12 +1,14 @@
-angular.module('bibliApp').controller('AdherentVisualisationCtrl', function($scope, $location, $http, $rootScope) {
+angular.module('bibliApp').controller('AdherentVisualisationCtrl', function($scope, $location, $http, $rootScope, $routeParams) {
 
 	$rootScope.typePage = 'AV';
 	$scope.nbDisplay = 20;
 	$scope.newTitre = undefined;
 	$scope.newDate = undefined;
 	$scope.newType = undefined;
+	$scope.mediaNotFound = false;
+	$scope.mediaTooMuchFound = false;
 
-	$http.get('http://192.168.10.41:8090/resource/adherent.accession', {params : {id : ($location.search()).idAdherent}})
+	$http.get('http://192.168.10.41:8090/resource/adherent.accession', {params : {id : $routeParams.idAdherent}})
 		.then(function(response) {
 			$scope.adherent = response.data;
 			$scope.medias = response.data.emprunt;
@@ -53,20 +55,28 @@ angular.module('bibliApp').controller('AdherentVisualisationCtrl', function($sco
 				type : $scope.newType,
 				tri : undefined
 			}
-		}).then(function(response) {
-			id_media_fetch = response.data[0].id;
-			
-			$http.post('http://192.168.10.41:8090/resource/emprunt.ajout', {
-				id_adherent : ($location.search()).idAdherent,
-				id_media : ""+ id_media_fetch,
-				depart : $scope.newDate.toISOString().substring(0, 10)
-			}).then(function(response) {
-				$http.get('http://192.168.10.41:8090/resource/adherent.accession', {params : {id : ($location.search()).idAdherent}})
+		}).then(function(response) {console.log(response);
+			if (response.data.length == 0){
+				$scope.mediaNotFound = true;
+			}
+			else if (response.data.length > 1) {
+				$scope.mediaTooMuchFound = true;
+			}
+			else {
+				id_media_fetch = response.data[0].id;
+				
+				$http.post('http://192.168.10.41:8090/resource/emprunt.ajout', {
+					id_adherent : $routeParams.idAdherent,
+					id_media : ""+ id_media_fetch,
+					depart : $scope.newDate.toISOString().substring(0, 10)
+				}).then(function(response) {
+				$http.get('http://192.168.10.41:8090/resource/adherent.accession', {params : {id : $routeParams.idAdherent}})
 					.then(function(response) {
 						$scope.adherent = response.data;
 						$scope.medias = response.data.emprunt;
 					});
 				});
+			}
 		});
 	};
 });

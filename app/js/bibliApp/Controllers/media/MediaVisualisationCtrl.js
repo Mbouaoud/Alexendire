@@ -1,11 +1,12 @@
-angular.module('bibliApp').controller('MediaVisualisationCtrl', function($scope, $location, $http, $rootScope) {
+angular.module('bibliApp').controller('MediaVisualisationCtrl', function($scope, $location, $http, $rootScope,$routeParams) {
 
 	$rootScope.typePage = 'MV';
 	$scope.nbDisplay = 20;
 	$scope.newNomEmprunteur = undefined;
 	$scope.newDate = undefined;
+	$scope.fail = false;
 
-	$http.get('http://192.168.10.41:8090/resource/media.accession', {params : {id : ($location.search()).idMedia}})
+	$http.get('http://192.168.10.41:8090/resource/media.accession', {params : {id : $routeParams.idMedia}})
 		.then(function(response) {
 				$scope.media = response.data;
 				$scope.emprunteurs = response.data.emprunteurs;
@@ -45,21 +46,28 @@ angular.module('bibliApp').controller('MediaVisualisationCtrl', function($scope,
 
 		$http.get('http://192.168.10.41:8090/resource/adherent.recherche', {params : {nom : $scope.newNomEmprunteur, prenom : undefined, email : undefined}})
 			.then(function(response) {
-				id_adherent_fetch = ""+ response.data[0].id;
-				
-				$http.post('http://192.168.10.41:8090/resource/emprunt.ajout', {
-					"id_adherent" : id_adherent_fetch,
-					"id_media" : ($location.search()).idMedia,
-					"depart" : $scope.newDate.toISOString().substring(0, 10)
-				})
-					.then(function(response) {
-						$http.get('http://192.168.10.41:8090/resource/media.accession', {params : {id : ($location.search()).idMedia}})
-							.then(function(response) {
-								$scope.media = response.data;
-								$scope.emprunteurs = response.data.emprunteurs;
-							});
-					});
-		});
-	};
+				if(response.data[0]==undefined){
+					$scope.fail = true;
+				} else {
+					id_adherent_fetch = ""+ response.data[0].id;
+					
+					$http.post('http://192.168.10.41:8090/resource/emprunt.ajout', {
+						"id_adherent" : id_adherent_fetch,
+						"id_media" : $routeParams.idMedia,
+						"depart" : $scope.newDate.toISOString().substring(0, 10)
+					})
+						.then(function(response) {
+							$http.get('http://192.168.10.41:8090/resource/media.accession', {params : {id : $routeParams.idMedia}})
+								.then(function(response) {
+									$scope.media = response.data;
+									$scope.emprunteurs = response.data.emprunteurs;
+								});
+							$scope.fail=false;
+						},function(error){
+							$scope.fail = true;
+						});
+					}
+				});
+		};
 
 });

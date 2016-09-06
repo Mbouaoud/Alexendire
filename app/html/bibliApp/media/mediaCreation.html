@@ -45,8 +45,8 @@
 			<div class="col-sm-3 col-xs-offset-2" ng-messages="mdcrForm.inputAuteur.$error" style="color:red" ng-show="validationFormMedia()">
 	 			<div ng-messages-include="html/defaultMessageCreationAdherent.html"></div>
 			</div>
-		</div>
-		<br>
+		</div><br>
+		
 		<div class="row">
 			<div class="form-group">
 				<label class="col-xs-2 control-label">Type* :</label>
@@ -61,10 +61,15 @@
 			<div class="col-sm-3 col-xs-offset-2" ng-messages="mdcrForm.inputType.$error" style="color:red" ng-show="validationFormMedia()">
 	 			<div ng-messages-include="html/defaultMessageCreationAdherent.html"></div>
 			</div>
-		</div>
-		<br>
+		</div><br>
+
 			<div class="col-xs-offset-2">
 				<input type="submit" class="btn btn-warning">
-			</div>
+			</div><br>
+			
+			<div class="col-xs-offset-2">
+				<a href="/#/mediaVisualisation/{{idMedia}}" class="btn btn-warning">Annuler</a>
+	
+			</div><br>
 	</form>
 </div>

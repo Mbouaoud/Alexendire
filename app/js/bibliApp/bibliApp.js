@@ -32,14 +32,17 @@ angular.module('bibliApp', ['ngRoute', 'ngMessages', 'ngCookies']).config(functi
 		controller: 'AdherentCreationCtrl'
 	});
 	
-	$routeProvider.when('/mediaVisualisation',{
+	$routeProvider.when('/mediaVisualisation/:idMedia',{
 		templateUrl: '/html/bibliApp/media/mediaVisualisation.html',
 		controller: 'MediaVisualisationCtrl'
 	});
 
-	$routeProvider.when('/adherentVisualisation',{
+	$routeProvider.when('/adherentVisualisation/:idAdherent',{
 		templateUrl: '/html/bibliApp/adherent/adherentVisualisation.html',
-		controller: 'AdherentVisualisationCtrl'
+		controller: 'AdherentVisualisationCtrl',
+			params: {
+				name : 'idAdherent'
+			}
 	});
 
 //	$routeProvider.when('/login', {
