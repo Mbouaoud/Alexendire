@@ -5,7 +5,7 @@ angular.module('bibliApp', ['ngRoute', 'ngMessages', 'ngCookies']).config(functi
 	});	
 		
 	$routeProvider.when('/adherentRecherche', {
-			templateUrl : 'html/bibliApp/adherent/adherent_recherche.html',
+			templateUrl : 'html/bibliApp/adherent/adherentRecherche.html',
 			controller: 'AdherentRechercheCtrl'
 	});
 

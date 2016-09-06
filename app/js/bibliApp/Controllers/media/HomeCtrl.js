@@ -23,7 +23,6 @@ angular.module('bibliApp').controller('HomeCtrl', function($scope,$location,Medi
 		MediaRechercheService.get($scope.titre,$scope.auteur,$scope.type)
 		.then(function(result){
 			recherche=result.data;
-			console.log(recherche);
 			$scope.triMedia($scope.varTri);
 			$scope.resultats=recherche.slice((page-1)*$scope.nbElmtByPage,page*$scope.nbElmtByPage);
 			$scope.pageMax = Math.ceil(recherche.length/$scope.nbElmtByPage);
@@ -63,5 +62,4 @@ angular.module('bibliApp').controller('HomeCtrl', function($scope,$location,Medi
 			}
 		} while (tri == true);
 	};
-	
 })
