@@ -1,0 +1,76 @@
+<div class="row"> 
+	<form name="formRechercheAdherent" novalidate>
+		<div class="form-group">
+			<label class="col-xs-1 control-label">Identifiant:</label>
+			<div class="col-xs-2">
+				<input type="text" class="form-control" ng-model="idAdherent" name="identifiant">
+			</div>
+			
+			<label class="col-xs-offset-2 col-xs-1 control-label">Nom:</label>
+			<div class="col-xs-3">
+				<input type="text" class="form-control" ng-model="nomAdherent" name="nom">
+			</div>
+			<div class="col-xs-offset-1 col-xs-1">
+				<button type="button" class="btn btn-warning" ng-click="resultAdherent(1);varTri='nom'">Recherche</button>
+			</div>
+		</div>
+	</form>
+</div>
+
+<br>
+
+<div ng-show="showme">
+
+	<form class="form-inline"> 
+		<div class="form-group">
+			<h2>R&eacute;sultats de la recherche :</h2>
+			<label class="col-xs-6 control-label">&Eacute;lements par page:</label>
+				<div class="col-xs-2">
+				<select ng-model="element" ng-change="nbElmtByPage=element;resultAdherent(1)" class="form-control" style="padding-left: 4px;padding-right: 4px;">
+					<option value=10>10</option>
+					<option value=20>20</option>
+					<option value=50>50</option>
+					<option value=100>100</option>
+				</select>
+			</div>
+		</div>
+	</form>
+
+	<table class="table table-bordered table-hover">
+		<thead>
+			<tr class="row warning">
+				<th class="col-xs-2" id="Identifiant"><a ng-click="varTri='id';resultAdherent(1)">Identifiant</a></th>
+				<th class="col-xs-4" id="nom"><a ng-click="varTri='nom';resultAdherent(1)">Nom Pr&eacute;nom</a></th>
+				<th class="col-xs-2" id="naissance">Date de naissance</th>
+				<th class="col-xs-1" id="cotisation">Cottisation</th>
+				<th class="col-xs-3" id="media">M&eacute;dia emprunt&eacute;</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr class="row" ng-repeat="resultat in resultats">
+				<td>{{resultat.id}}</td>
+				<td>{{resultat.nom}} {{resultat.prenom}}</td>
+				<td>{{resultat.date_naissance}}</td>
+				<td>{{resultat.cotisation.fin}}</td>
+				<td>{{resultat.nombre_media}}</td>
+				<td><a ng-click="adherentVisualisation(resultat.id)"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a></td>
+			</tr>
+		</tbody>
+	</table>
+	
+	<nav aria-label="Page navigation">
+	  <ul class="pagination">
+	    <li ng-hide="pageActuelle==1">
+	      <a ng-click="resultAdherent(pageActuelle-1)" aria-label="Previous">
+	        <span aria-hidden="true">&laquo;</span>
+	      </a>
+	    </li>
+	    <li ng-repeat="i in getNumber(pageMax) track by $index" ><a ng-click="resultAdherent($index+1)">{{$index+1}}</a></li>
+	    <li ng-hide="pageActuelle==pageMax">
+	      <a ng-click="resultAdherent(pageActuelle+1)" aria-label="Next">
+	        <span aria-hidden="true">&raquo;</span>
+	      </a>
+	    </li>
+	  </ul>
+	</nav>
+</div>

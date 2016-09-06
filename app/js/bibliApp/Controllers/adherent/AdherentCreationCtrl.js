@@ -1,6 +1,8 @@
 angular.module('bibliApp').controller('AdherentCreationCtrl', function($scope, $rootScope, $filter, $http, $routeParams, AdherentCreationService){
 	
 	var adherent = {};
+	var click = false;
+	
 	$scope.add = false;
 	$scope.failAdd = false;
 	$scope.modif = false;
@@ -56,75 +58,84 @@ angular.module('bibliApp').controller('AdherentCreationCtrl', function($scope, $
 	};
 		
 	$scope.addAdherent = function(){
-		if ($scope.makeModif) {
-			adherent = {
-				id : $scope.adhId,
-				nom : $scope.adhNom,
-				prenom: $scope.adhPrenom,
-				date_naissance: $filter('date')($scope.adhNaissance, "yyyy-MM-dd"),
-				email : $scope.adhEmail,
-				adresse : {
-					ligne1 : $scope.adhAdresse,
-					ligne2 : '',
-					codepostal : $scope.adhCp,
-					ville : $scope.adhVille
-				},
-				cotisation : {
-					debut : $filter('date')($scope.adhCotisation, "yyyy-MM-dd"),
-					montant : $scope.adhCotisationMontant
-				},
-				emprunt : $scope.emprunt
-			};
-			
-			$scope.failAdd = false;
-			AdherentCreationService.modifAdherent(adherent).then(function(result){
-				$scope.modif = true;
-				$scope.modifiedNom = $scope.adhNom;
-				$scope.modifiedPrenom = $scope.adhPrenom;
+		click=true;
+		if($scope.adcrForm.$valid) {
+			if ($scope.makeModif) {
+				adherent = {
+					id : $scope.adhId,
+					nom : $scope.adhNom,
+					prenom: $scope.adhPrenom,
+					date_naissance: $filter('date')($scope.adhNaissance, "yyyy-MM-dd"),
+					email : $scope.adhEmail,
+					adresse : {
+						ligne1 : $scope.adhAdresse,
+						ligne2 : '',
+						codepostal : $scope.adhCp,
+						ville : $scope.adhVille
+					},
+					cotisation : {
+						debut : $filter('date')($scope.adhCotisation, "yyyy-MM-dd"),
+						montant : $scope.adhCotisationMontant
+					},
+					emprunt : $scope.emprunt
+				};
+				
+				$scope.failAdd = false;
+				AdherentCreationService.modifAdherent(adherent).then(function(result){
+					$scope.modif = true;
+					$scope.modifiedNom = $scope.adhNom;
+					$scope.modifiedPrenom = $scope.adhPrenom;
+					
+					$scope.failModif = false;
+				},function(error){
+					$scope.failModif = true;
+				});
+			}else {
+	
+				adherent = {
+					nom : $scope.adhNom,
+					prenom: $scope.adhPrenom,
+					date_naissance: $filter('date')($scope.adhNaissance, "yyyy-MM-dd"),
+					email : $scope.adhEmail,
+					adresse : {
+						ligne1 : $scope.adhAdresse,
+						ligne2 : '',
+						codepostal : $scope.adhCp,
+						ville : $scope.adhVille
+					},
+					cotisation : {
+						debut : $filter('date')($scope.adhCotisation, "yyyy-MM-dd"),
+						montant : $scope.adhCotisationMontant
+					}
+				};
 				
 				$scope.failModif = false;
-			},function(error){
-				$scope.failModif = true;
-			});
-			
-		}else {
-
-			adherent = {
-				nom : $scope.adhNom,
-				prenom: $scope.adhPrenom,
-				date_naissance: $filter('date')($scope.adhNaissance, "yyyy-MM-dd"),
-				email : $scope.adhEmail,
-				adresse : {
-					ligne1 : $scope.adhAdresse,
-					ligne2 : '',
-					codepostal : $scope.adhCp,
-					ville : $scope.adhVille
-				},
-				cotisation : {
-					debut : $filter('date')($scope.adhCotisation, "yyyy-MM-dd"),
-					montant : $scope.adhCotisationMontant
-				}
-			};
-			
-			$scope.failModif = false;
-			AdherentCreationService.addAdherent(adherent).then(function(result){
-				$scope.addedNom = $scope.adhNom;
-				$scope.addedPrenom = $scope.adhPrenom;
-	
-				$scope.add = true;
-				$scope.adhNom = "";
-				$scope.adhPrenom = "";
-				$scope.adhNaissance = undefined;
-				$scope.adhEmail = "";
-				$scope.adhAdresse = "";
-				$scope.adhCp = "";
-				$scope.adhVille = "";
-				$scope.adhCotisation = undefined;
-				$scope.adhCotisationMontant = "";
-				$scope.failAdd = false;
-			},function(error){
-				$scope.failAdd = true;
-			});
+				
+				AdherentCreationService.addAdherent(adherent).then(function(result){
+					$scope.addedNom = $scope.adhNom;
+					$scope.addedPrenom = $scope.adhPrenom;
+		
+					$scope.add = true;
+					$scope.adhNom = "";
+					$scope.adhPrenom = "";
+					$scope.adhNaissance = undefined;
+					$scope.adhEmail = "";
+					$scope.adhAdresse = "";
+					$scope.adhCp = "";
+					$scope.adhVille = "";
+					$scope.adhCotisation = undefined;
+					$scope.adhCotisationMontant = "";
+					$scope.failAdd = false;
+				},function(error){
+					$scope.failAdd = true;
+				});
+			}
 		}
 	};
+	
+	$scope.validationForm = function(){
+		if(click==true) return true;
+	}
+	
+	
 });

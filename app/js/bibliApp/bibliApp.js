@@ -5,7 +5,7 @@ angular.module('bibliApp', ['ngRoute', 'ngMessages', 'ngCookies']).config(functi
 	});	
 		
 	$routeProvider.when('/adherentRecherche', {
-			templateUrl : 'html/bibliApp/adherent/adherent_recherche.html',
+			templateUrl : 'html/bibliApp/adherent/adherentRecherche.html',
 			controller: 'AdherentRechercheCtrl'
 	});
 
@@ -42,12 +42,12 @@ angular.module('bibliApp', ['ngRoute', 'ngMessages', 'ngCookies']).config(functi
 		controller: 'AdherentVisualisationCtrl'
 	});
 
-	$routeProvider.when('/login', {
-		templateUrl : 'html/login/login.html',
-		controller: 'LoginCtrl'
-	});
+//	$routeProvider.when('/login', {
+//		templateUrl : 'html/login/login.html',
+//		controller: 'LoginCtrl'
+//	});
 	
 	$routeProvider.otherwise({
-		redirectTo : '/login'
+		redirectTo : '/home'
 	});
 });

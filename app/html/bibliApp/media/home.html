@@ -34,16 +34,18 @@
 			<h2>R&eacute;sultats de la recherche :</h2>
 			<label class="col-xs-6 control-label">&Eacute;lements par page:</label>
 				<div class="col-xs-2">
-				<select ng-model="element" ng-change="nbElmtByPage=element;resultMedia(1);varTri='titre'">
+				<select ng-model="element" ng-change="nbElmtByPage=element;resultMedia(1);varTri='titre'" class="form-control" style="padding-left: 4px;padding-right: 4px;">
 					<option value=10>10</option>
-					<option selected value=20 >20</option>
+					<option value=20>20</option>
 					<option value=50>50</option>
 					<option value=100>100</option>
 				</select>
 			</div>
 		</div>
 	</form>
+	
 	<br>
+	
 	<table class="table table-bordered table-hover">
 		<thead>
 			<tr class="row warning">
@@ -54,7 +56,6 @@
 				<th class="col-xs-2" id="retour">Date retour</th>
 			</tr>
 		</thead>
-		
 		<tbody>
 			<tr class="row" ng-repeat="resultat in resultats">
 				<td>{{resultat.titre}}</td>
@@ -82,4 +83,5 @@
 	    </li>
 	  </ul>
 	</nav>
+	
 </div>
