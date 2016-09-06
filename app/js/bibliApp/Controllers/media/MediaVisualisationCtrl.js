@@ -9,6 +9,7 @@ angular.module('bibliApp').controller('MediaVisualisationCtrl', function($scope,
 		.then(function(response) {
 				$scope.media = response.data;
 				$scope.emprunteurs = response.data.emprunteurs;
+				console.log($scope.emprunteurs);
 			});
 
 	$scope.modifierMedia = function() {

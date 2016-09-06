@@ -3,13 +3,12 @@ angular.module('bibliApp').controller('MediaCreationCtrl', function($scope, $roo
 	var idMedia = $routeParams.idMedia;
 	var media = {};
 	
-	$rootScope.typePage='MC';
-	
 	$scope.add = false;
 	$scope.fail = false;
 	$scope.up = false;
 	
 	if(idMedia != undefined){
+		$rootScope.typePage='MV';
 		MediaCreationService.getMedia(idMedia).then(function(result){
 			$scope.mediaTitre = result.data.titre;
 			$scope.mediaAuteur = result.data.auteur;
@@ -18,6 +17,8 @@ angular.module('bibliApp').controller('MediaCreationCtrl', function($scope, $roo
 		},function(error){
 		});
 	}
+	else
+		$rootScope.typePage='MC';
 	
 	$scope.mediaTypes = [
 		{type : "Livre", id : "l"},
