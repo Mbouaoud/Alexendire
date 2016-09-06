@@ -5,13 +5,9 @@ angular
 				function($scope, $location, $http, $rootScope) {
 
 					$rootScope.typePage = 'AV';
-
 					$scope.nbDisplay = 20;
-
 					$scope.newTitre = undefined;
-
 					$scope.newDate = undefined;
-
 					$scope.newType = undefined;
 
 					$http
@@ -27,12 +23,12 @@ angular
 							});
 
 					$scope.modifierAdherent = function() {
-						$location.url("/adherentCreation?idAdherent="
-								+ $scope.adherent.id);
+						$location
+								.url("/adherentCreation/" + $scope.adherent.id);
 					};
 
 					$scope.triMedia = function($triValue) {
-						
+
 						var tri = false;
 						var echange;
 						do {

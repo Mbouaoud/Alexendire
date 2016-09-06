@@ -1,5 +1,4 @@
-angular.module('bibliApp')
-.controller('MainCtrl',function($scope, $location, $rootScope, Authentification){
+angular.module('bibliApp').controller('MainCtrl',function($scope, $location, $rootScope, Authentification){
 	
 	$scope.menu =  function(){
 		if($rootScope.typePage=='L'){
@@ -12,5 +11,4 @@ angular.module('bibliApp')
 	$scope.isConnected = function(){
 		return Authentification.isConnected();
 	}
-	
 });
