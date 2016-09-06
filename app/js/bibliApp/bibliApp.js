@@ -1,4 +1,4 @@
-angular.module('bibliApp', ['ngRoute', 'ngMessages', 'ngCookies']).config(function($routeProvider){
+angular.module('bibliApp', ['ngRoute', 'ngMessages', 'ngCookies']).config(function($routeProvider, UrlServiceProvider){
 	$routeProvider.when('/home',{
 		templateUrl:'html/bibliApp/media/home.html',
 		controller:'HomeCtrl'
@@ -53,4 +53,7 @@ angular.module('bibliApp', ['ngRoute', 'ngMessages', 'ngCookies']).config(functi
 	$routeProvider.otherwise({
 		redirectTo : '/home'
 	});
+	
+	UrlServiceProvider.setDefaut('http', '192.168.10.41', '8090');
+
 });

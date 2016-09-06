@@ -1,4 +1,4 @@
-angular.module('bibliApp').controller('AdherentCreationCtrl', function($scope, $rootScope, $filter, $http, $routeParams, AdherentCreationService){
+angular.module('bibliApp').controller('AdherentCreationCtrl', function($scope, $rootScope, $filter, $http, $routeParams, AdherentCreationService, UrlService){
 	
 	var adherent = {};
 	var click = false;
@@ -11,7 +11,7 @@ angular.module('bibliApp').controller('AdherentCreationCtrl', function($scope, $
 	
 	if ($routeParams.idAdherent) {
 		$rootScope.typePage='AV';
-		$http.get('http://192.168.10.41:8090/resource/adherent.accession', {params : {id : $routeParams.idAdherent}})
+		$http.get(UrlService.getAccessionAdherent(), {params : {id : $routeParams.idAdherent}})
 			.then(function(response) {
 				$scope.adhId = response.data.id;
 				$scope.adhNom = response.data.nom;

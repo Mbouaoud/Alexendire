@@ -1,4 +1,4 @@
-angular.module('bibliApp').controller('MediaVisualisationCtrl', function($scope, $location, $http, $rootScope,$routeParams) {
+angular.module('bibliApp').controller('MediaVisualisationCtrl', function($scope, $location, $http, $rootScope,$routeParams, UrlService) {
 
 	$rootScope.typePage = 'MV';
 	$scope.nbDisplay = 20;
@@ -6,7 +6,7 @@ angular.module('bibliApp').controller('MediaVisualisationCtrl', function($scope,
 	$scope.newDate = undefined;
 	$scope.fail = false;
 
-	$http.get('http://192.168.10.41:8090/resource/media.accession', {params : {id : $routeParams.idMedia}})
+	$http.get(UrlService.getAccessionMedia(), {params : {id : $routeParams.idMedia}})
 		.then(function(response) {
 				$scope.media = response.data;
 				$scope.emprunteurs = response.data.emprunteurs;
@@ -57,7 +57,7 @@ angular.module('bibliApp').controller('MediaVisualisationCtrl', function($scope,
 						"depart" : $scope.newDate.toISOString().substring(0, 10)
 					})
 						.then(function(response) {
-							$http.get('http://192.168.10.41:8090/resource/media.accession', {params : {id : $routeParams.idMedia}})
+							$http.get(UrlService.getAccessionMedia(), {params : {id : $routeParams.idMedia}})
 								.then(function(response) {
 									$scope.media = response.data;
 									$scope.emprunteurs = response.data.emprunteurs;

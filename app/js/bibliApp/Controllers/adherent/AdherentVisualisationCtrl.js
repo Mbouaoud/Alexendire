@@ -1,4 +1,4 @@
-angular.module('bibliApp').controller('AdherentVisualisationCtrl', function($scope, $location, $http, $rootScope, $routeParams) {
+angular.module('bibliApp').controller('AdherentVisualisationCtrl', function($scope, $location, $http, $rootScope, $routeParams, UrlService) {
 
 	$rootScope.typePage = 'AV';
 	$scope.nbDisplay = 20;
@@ -8,7 +8,7 @@ angular.module('bibliApp').controller('AdherentVisualisationCtrl', function($sco
 	$scope.mediaNotFound = false;
 	$scope.mediaTooMuchFound = false;
 
-	$http.get('http://192.168.10.41:8090/resource/adherent.accession', {params : {id : $routeParams.idAdherent}})
+	$http.get(UrlService.getAccessionAdherent(), {params : {id : $routeParams.idAdherent}})
 		.then(function(response) {
 			$scope.adherent = response.data;
 			$scope.medias = response.data.emprunt;
@@ -47,7 +47,7 @@ angular.module('bibliApp').controller('AdherentVisualisationCtrl', function($sco
 
 		var id_media_fetch = undefined;
 
-		$http.get('http://192.168.10.41:8090/resource/media.recherche', {
+		$http.get(UrlService.getRechercheMedia(), {
 			params : {
 				page : undefined,
 				titre : $scope.newTitre,
@@ -70,7 +70,7 @@ angular.module('bibliApp').controller('AdherentVisualisationCtrl', function($sco
 					id_media : ""+ id_media_fetch,
 					depart : $scope.newDate.toISOString().substring(0, 10)
 				}).then(function(response) {
-				$http.get('http://192.168.10.41:8090/resource/adherent.accession', {params : {id : $routeParams.idAdherent}})
+				$http.get(UrlService.getAccessionAdherent(), {params : {id : $routeParams.idAdherent}})
 					.then(function(response) {
 						$scope.adherent = response.data;
 						$scope.medias = response.data.emprunt;

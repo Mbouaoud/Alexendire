@@ -1,4 +1,4 @@
-angular.module('bibliApp').factory('MediaCreationService',function($http){
+angular.module('bibliApp').factory('MediaCreationService',function($http,UrlService){
 	return {
 		addMedia: function(media){	
 			 return $http.post('http://192.168.10.41:8090/resource/media.creation',media).success(function(data){
@@ -9,7 +9,7 @@ angular.module('bibliApp').factory('MediaCreationService',function($http){
 		},
 	
 		getMedia: function(idMedia){	
-			 return $http({method:'GET', url:'http://192.168.10.41:8090/resource/media.accession', params:{'id' : idMedia }})
+			 return $http({method:'GET', url:UrlService.getAccessionMedia(), params:{'id' : idMedia }})
 				 .success(function(data){
 					console.log('Media ajouté avec succes');
 				}).error(function(){
