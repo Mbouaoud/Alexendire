@@ -39,7 +39,10 @@ angular.module('bibliApp', ['ngRoute', 'ngMessages', 'ngCookies']).config(functi
 
 	$routeProvider.when('/adherentVisualisation/:idAdherent',{
 		templateUrl: '/html/bibliApp/adherent/adherentVisualisation.html',
-		controller: 'AdherentVisualisationCtrl'
+		controller: 'AdherentVisualisationCtrl',
+			params: {
+				name : 'idAdherent'
+			}
 	});
 
 //	$routeProvider.when('/login', {
