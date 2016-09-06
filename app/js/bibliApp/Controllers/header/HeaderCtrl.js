@@ -45,7 +45,7 @@ angular.module('bibliApp').controller('HeaderCtrl', function($scope, $location, 
 		return $rootScope.typePage=='AV';
 	}
 	
-	$scope.disconnexion = function(){
+	$scope.dis = function(){
 		return Authentification.deconnexion();
 	}
 });
