@@ -27,12 +27,12 @@ angular
 							});
 
 					$scope.modifierAdherent = function() {
-						$location.url("/adherentCreation?idAdherent="
-								+ $scope.adherent.id);
+						$location
+								.url("/adherentCreation/" + $scope.adherent.id);
 					};
 
 					$scope.triMedia = function($triValue) {
-						
+
 						var tri = false;
 						var echange;
 						do {

@@ -14,6 +14,14 @@ angular.module('bibliApp', ['ngRoute', 'ngMessages']).config(function($routeProv
 		controller: 'MediaCreationCtrl'
 	});
 
+	$routeProvider.when('/adherentCreation/:idAdherent',{
+		templateUrl: '/html/bibliApp/adherent/adherentCreation.html',
+		controller: 'AdherentCreationCtrl',
+		params: {
+			name : 'idAdherent'
+		}
+	});
+
 	$routeProvider.when('/adherentCreation',{
 		templateUrl: '/html/bibliApp/adherent/adherentCreation.html',
 		controller: 'AdherentCreationCtrl'
