@@ -53,9 +53,6 @@ angular.module('bibliApp').controller('MediaCreationCtrl', function($scope, $roo
 			MediaCreationService.addMedia(media).then(function(result){
 				$scope.addedTitre = $scope.mediaTitre;
 				$scope.add = true;
-				$scope.mediaTitre = "";
-				$scope.mediaAuteur = "";
-				$scope.mediaType = "";
 				$scope.fail = false;
 			},function(error){
 				$scope.fail = true;
