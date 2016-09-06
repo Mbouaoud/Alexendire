@@ -9,9 +9,8 @@ angular.module('bibliApp').controller('AdherentCreationCtrl', function($scope, $
 	$scope.failModif = false;
 	$scope.makeModif = false;
 	
-	$rootScope.typePage='AC';
-	
 	if ($routeParams.idAdherent) {
+		$rootScope.typePage='AV';
 		$http.get('http://192.168.10.41:8090/resource/adherent.accession', {params : {id : $routeParams.idAdherent}})
 			.then(function(response) {
 				$scope.adhId = response.data.id;
@@ -29,7 +28,9 @@ angular.module('bibliApp').controller('AdherentCreationCtrl', function($scope, $
 				
 				$scope.makeModif = true;
 		});
-	};
+	}
+	else
+		$rootScope.typePage='AC';
 	
 	$scope.FinAbonnement = function(dateAbo){
 		var temp = null;
