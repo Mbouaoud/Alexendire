@@ -13,11 +13,11 @@ angular.module('bibliApp').controller('AdherentVisualisationCtrl', function($sco
 		});
 
 	$scope.modifierAdherent = function() {
-		$location.url("/adherentCreation?idAdherent=" + $scope.adherent.id);
+		$location.url("/adherentCreation/" + $scope.adherent.id);
 	};
 
 	$scope.triMedia = function($triValue) {
-		
+
 		var tri = false;
 		var echange;
 		
@@ -28,7 +28,7 @@ angular.module('bibliApp').controller('AdherentVisualisationCtrl', function($sco
 					tri = true;
 				}else if (($triValue == "auteur") && ($scope.medias[i].media.auteur < $scope.medias[i - 1].media.auteur)){
 					tri = true;
-				}else if (($triValue == "type") && ($scope.medias[i].media.type < $scope.medias[i - 1].media.type)){
+				}else if (($triValue == "type")&& ($scope.medias[i].media.type < $scope.medias[i - 1].media.type)){
 					tri = true;
 				}
 				
@@ -45,18 +45,28 @@ angular.module('bibliApp').controller('AdherentVisualisationCtrl', function($sco
 
 		var id_media_fetch = undefined;
 
-		$http.get('http://192.168.10.41:8090/resource/media.recherche', {params : { page : undefined, titre : $scope.newTitre, auteur : undefined, type : $scope.newType, tri : undefined}})
-			.then(function(response) {
-				id_media_fetch = response.data[0].id;
-				
-				$http.post('http://192.168.10.41:8090/resource/emprunt.ajout', {id_adherent : ($location.search()).idAdherent, id_media : "" + id_media_fetch, depart : $scope.newDate.toISOString().substring(0, 10)})
+		$http.get('http://192.168.10.41:8090/resource/media.recherche', {
+			params : {
+				page : undefined,
+				titre : $scope.newTitre,
+				auteur : undefined,
+				type : $scope.newType,
+				tri : undefined
+			}
+		}).then(function(response) {
+			id_media_fetch = response.data[0].id;
+			
+			$http.post('http://192.168.10.41:8090/resource/emprunt.ajout', {
+				id_adherent : ($location.search()).idAdherent,
+				id_media : ""+ id_media_fetch,
+				depart : $scope.newDate.toISOString().substring(0, 10)
+			}).then(function(response) {
+				$http.get('http://192.168.10.41:8090/resource/adherent.accession', {params : {id : ($location.search()).idAdherent}})
 					.then(function(response) {
-						$http.get('http://192.168.10.41:8090/resource/adherent.accession', {params : {id : ($location.search()).idAdherent}})
-							.then(function(response) {
-								$scope.adherent = response.data;
-								$scope.medias = response.data.emprunt;
-							});
+						$scope.adherent = response.data;
+						$scope.medias = response.data.emprunt;
 					});
-			});
+				});
+		});
 	};
 });
