@@ -44,14 +44,14 @@ angular.module('bibliApp').controller('MediaVisualisationCtrl', function($scope,
 
 		var id_adherent_fetch = undefined;
 
-		$http.get('http://192.168.10.41:8090/resource/adherent.recherche', {params : {nom : $scope.newNomEmprunteur, prenom : undefined, email : undefined}})
+		$http.get(UrlService.getRechercheAdherent(), {params : {nom : $scope.newNomEmprunteur, prenom : undefined, email : undefined}})
 			.then(function(response) {
 				if(response.data[0]==undefined){
 					$scope.fail = true;
 				} else {
 					id_adherent_fetch = ""+ response.data[0].id;
 					
-					$http.post('http://192.168.10.41:8090/resource/emprunt.ajout', {
+					$http.post(UrlService.getEmpruntMedia(), {
 						"id_adherent" : id_adherent_fetch,
 						"id_media" : $routeParams.idMedia,
 						"depart" : $scope.newDate.toISOString().substring(0, 10)
