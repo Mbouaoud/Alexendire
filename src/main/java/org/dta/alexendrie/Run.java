@@ -3,13 +3,13 @@ package org.dta.alexendrie;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
-import org.dta.alexendrie.loan.dao.LoanDAO;
-import org.dta.alexendrie.loan.model.Loan;
-import org.dta.alexendrie.media.dao.MediaDAO;
-import org.dta.alexendrie.media.model.Media;
-import org.dta.alexendrie.media.model.MediaType;
-import org.dta.alexendrie.member.dao.MemberDAO;
-import org.dta.alexendrie.member.model.Member;
+import org.dta.alexendrie.dao.LoanDAO;
+import org.dta.alexendrie.dao.MediaDAO;
+import org.dta.alexendrie.dao.MemberDAO;
+import org.dta.alexendrie.model.Loan;
+import org.dta.alexendrie.model.Media;
+import org.dta.alexendrie.model.MediaType;
+import org.dta.alexendrie.model.Member;
 
 public class Run {
 	public static void main(String[] args) throws ParseException {
