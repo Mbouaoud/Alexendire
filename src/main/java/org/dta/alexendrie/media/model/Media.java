@@ -10,10 +10,12 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
+
+import org.dta.alexendrie.core.Model;
 import org.dta.alexendrie.loan.model.Loan;
 
 @Entity
-public class Media {
+public class Media implements Model{
 
 	@Id
 	@GeneratedValue
@@ -63,5 +65,13 @@ public class Media {
 
 	public Loan getCurrentLoan() {
 		return this.currentLoan;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 }

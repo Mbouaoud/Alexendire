@@ -4,7 +4,8 @@ import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
-import org.dta.alexendrie.dao.DatabaseHelper;
+
+import org.dta.alexendrie.core.DatabaseHelper;
 import org.dta.alexendrie.member.model.Member;
 import org.dta.alexendrie.subscription.model.Subscription;
 

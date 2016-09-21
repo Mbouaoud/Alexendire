@@ -10,9 +10,11 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
+import org.dta.alexendrie.core.Model;
+
 @Entity
 @Table(name="subscription")
-public class Subscription {
+public class Subscription implements Model{
 	@Id
 	@GeneratedValue
 	private Long id;

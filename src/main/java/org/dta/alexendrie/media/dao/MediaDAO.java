@@ -3,7 +3,8 @@ package org.dta.alexendrie.media.dao;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
-import org.dta.alexendrie.dao.DatabaseHelper;
+
+import org.dta.alexendrie.core.DatabaseHelper;
 import org.dta.alexendrie.media.model.Media;
 import org.dta.alexendrie.media.model.MediaType;
 

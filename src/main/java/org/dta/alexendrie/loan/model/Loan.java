@@ -1,7 +1,6 @@
 package org.dta.alexendrie.loan.model;
 
 import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,15 +10,16 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
+import org.dta.alexendrie.core.Model;
 import org.dta.alexendrie.media.model.Media;
 import org.dta.alexendrie.member.model.Member;
 
 @Entity
-public class Loan {
+public class Loan implements Model{
 
 	@Id
 	@GeneratedValue
-	private int id;
+	private long id;
 
 	@ManyToOne
 	@NotNull
@@ -35,7 +35,6 @@ public class Loan {
 	private Date dateEmprunt;
 	
 	public Loan(){
-		
 	}
 	
 	public Loan(Member member, Media media, Date dateEmprunt){
@@ -46,5 +45,13 @@ public class Loan {
 	
 	public Member getMember(){
 		return this.member;
+	}
+	
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
 	}
 }

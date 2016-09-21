@@ -1,4 +1,4 @@
-package org.dta.alexendrie.dao;
+package org.dta.alexendrie.core;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

@@ -2,7 +2,8 @@ package org.dta.alexendrie.subscription.dao;
 
 import java.util.Date;
 import javax.persistence.EntityManager;
-import org.dta.alexendrie.dao.DatabaseHelper;
+
+import org.dta.alexendrie.core.DatabaseHelper;
 import org.dta.alexendrie.subscription.model.Subscription;
 
 public class SubscriptionDAO {

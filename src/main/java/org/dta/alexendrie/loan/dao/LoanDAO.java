@@ -1,10 +1,9 @@
 package org.dta.alexendrie.loan.dao;
 
 import java.util.Date;
-
 import javax.persistence.EntityManager;
 
-import org.dta.alexendrie.dao.DatabaseHelper;
+import org.dta.alexendrie.core.DatabaseHelper;
 import org.dta.alexendrie.loan.model.Loan;
 import org.dta.alexendrie.media.model.Media;
 import org.dta.alexendrie.member.model.Member;
@@ -25,5 +24,4 @@ public class LoanDAO {
 		
 		return insertion;
 	}
-
 }

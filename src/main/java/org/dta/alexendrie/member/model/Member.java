@@ -11,12 +11,13 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 
+import org.dta.alexendrie.core.Model;
 import org.dta.alexendrie.subscription.model.Subscription;
 import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Table(name="member")
-public class Member {
+public class Member implements Model{
 	@Id
 	@GeneratedValue
 	private Long id;
