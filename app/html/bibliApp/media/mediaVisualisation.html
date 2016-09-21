@@ -28,14 +28,14 @@
 	</div>
 	<div class="form-group col-xs-12">
 		<label class="col-xs-5 col-ld-4">Emprunt&eacute;</label>
-		<p class="col-xs-7 col-ld-8">{{media.emprunteurs.length>0?media.emprunteurs[0].adherent.nom:'Libre'}}</p>
+		<p class="col-xs-7 col-ld-8">{{media.emprunteur?media.emprunteur.nom:'Libre'}} {{media.emprunteur?media.emprunteur.prenom:''}}</p>
 	</div>
 	<div ng-if=media.emprunteurs.size>
 		0" class="form-group col-xs-12"> <label class="col-xs-5 col-ld-4">Date
 			de retour</label>
 		<p class="col-xs-7 col-ld-8">{{media.date_retour}}</p>
 	</div>
-	<form ng-submit="ajouterEmprunt()">
+	<form ng-submit="ajouterEmprunt()" ng-show="!media.emprunteur">
 		<div class="form-group col-xs-12 hidden-xs hidden-sm">
 			<label class="col-xs-3">Nom de l'Emprunteur</label>
 			<div class="col-xs-3">
@@ -61,11 +61,11 @@
 			<tbody class="bg-danger">
 				<tr ng-repeat="emprunteur in emprunteurs | limitTo:nbDisplay">
 					<td class="hidden-xs"><a
-						href="/#/adherentVisualisation?idAdherent={{emprunteur.adherent.id}}">
+						href="/#/adherentVisualisation/{{emprunteur.adherent.id}}">
 							{{emprunteur.adherent.id}} </a></td>
 					<td><a
-						href="/#/adherentVisualisation?idAdherent={{emprunteur.adherent.id}}">
-							{{emprunteur.adherent.nom}} </a></td>
+						href="/#/adherentVisualisation/{{emprunteur.adherent.id}}">
+							{{emprunteur.adherent.nom}} {{emprunteur.adherent.prenom}} </a></td>
 				</tr>
 			</tbody>
 		</table>
