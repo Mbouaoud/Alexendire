@@ -4,9 +4,13 @@
 	<h1 class="col-xs-5 col-xs-offset-4">Fiche M&eacute;dia</h1>
 </div>
 
-<div class="alert alert-danger" role="alert" ng-show="fail" id="creation-alert">
-	<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	
+<div class="alert alert-danger" role="alert" ng-show="fail"
+	id="creation-alert">
+	<button type="button" class="close" data-dismiss="alert"
+		aria-label="Close">
+		<span aria-hidden="true">&times;</span>
+	</button>
+
 	L'op&eacute;ration a echou&eacute;.
 </div>
 
@@ -28,18 +32,25 @@
 	</div>
 	<div class="form-group col-xs-12">
 		<label class="col-xs-5 col-ld-4">Emprunt&eacute;</label>
-		<p class="col-xs-7 col-ld-8">{{media.emprunteur?media.emprunteur.nom:'Libre'}} {{media.emprunteur?media.emprunteur.prenom:''}}</p>
+		<p class="col-xs-7 col-ld-8">{{media.emprunteur?media.emprunteur.nom:'Libre'}}
+			{{media.emprunteur?media.emprunteur.prenom:''}}</p>
 	</div>
-	<div ng-if=media.emprunteurs.size>
+	<div ng-if="media.emprunteurs.size">
 		0" class="form-group col-xs-12"> <label class="col-xs-5 col-ld-4">Date
 			de retour</label>
 		<p class="col-xs-7 col-ld-8">{{media.date_retour}}</p>
 	</div>
 	<form ng-submit="ajouterEmprunt()" ng-show="!media.emprunteur">
 		<div class="form-group col-xs-12 hidden-xs hidden-sm">
-			<label class="col-xs-3">Nom de l'Emprunteur</label>
-			<div class="col-xs-3">
-				<input type="text" class="form-control" ng-model="newNomEmprunteur">
+			<label class="col-xs-2">Nom de l'Emprunteur</label>
+			<div class="col-xs-2">
+				<input type="text" class="form-control" ng-model="newNomEmprunteur"
+					ng-blur="recherchePrenoms()">
+			</div>
+			<div class="col-xs-2">
+				<select ng-show="listePrenoms" class="form-control" ng-model="selectedPrenom">
+					<option ng-repeat="prenom in listePrenoms" value="{{prenom}}">{{prenom}}</option>
+				</select>
 			</div>
 			<label class="col-xs-1">Date</label>
 			<div class="col-xs-3">
@@ -55,7 +66,8 @@
 			<thead class="bg-warning">
 				<tr>
 					<th ng-click="triAdherent('id')">Identifiant Emprunteur</th>
-					<th ng-click="triAdherent('nom')" class="hidden-xs">Nom Emprunteur</th>
+					<th ng-click="triAdherent('nom')" class="hidden-xs">Nom
+						Emprunteur</th>
 				</tr>
 			</thead>
 			<tbody class="bg-danger">
