@@ -1,4 +1,4 @@
-angular.module('bibliApp').factory('Authentification', function($http, $rootScope, Base64Service, $cookies) {
+angular.module('bibliApp').factory('Authentification', function($http, $rootScope, Base64Service, $cookies, UrlService) {
 	
 		var service = {};
 		var connexion = false;
@@ -21,7 +21,9 @@ angular.module('bibliApp').factory('Authentification', function($http, $rootScop
 					'Authorization' : 'Basic ' + authdata
 				}
 			};
-			return $http.get('http://192.168.10.41:1977/resource/connexion.rights', config).then(function(){
+//			return $http.get('http://192.168.10.41:1977/resource/connexion.rights', config).then(function(){
+			console.log(UrlService.getRightConnexion());
+			return $http.get(UrlService.getRightConnexion(), config).then(function(){
 				// connexion ok
 				$http.defaults.headers.common['Authorization'] = 'Basic ' + authdata;
 				// Setting a cookie

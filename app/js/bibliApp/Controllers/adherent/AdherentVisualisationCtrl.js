@@ -65,7 +65,7 @@ angular.module('bibliApp').controller('AdherentVisualisationCtrl', function($sco
 			else {
 				id_media_fetch = response.data[0].id;
 				
-				$http.post('http://192.168.10.41:8090/resource/emprunt.ajout', {
+				$http.post(UrlService.getEmpruntMedia(), {
 					id_adherent : $routeParams.idAdherent,
 					id_media : ""+ id_media_fetch,
 					depart : $scope.newDate.toISOString().substring(0, 10)

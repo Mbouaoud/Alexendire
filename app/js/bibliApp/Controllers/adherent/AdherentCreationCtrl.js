@@ -60,7 +60,7 @@ angular.module('bibliApp').controller('AdherentCreationCtrl', function($scope, $
 		
 	$scope.addAdherent = function(){
 		click=true;
-		if($scope.dcrForm.$valid) {
+		if($scope.adcrForm.$valid) {
 			if ($scope.makeModif) {
 				adherent = {
 					id : $scope.adhId,

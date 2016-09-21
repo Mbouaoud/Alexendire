@@ -54,6 +54,6 @@ angular.module('bibliApp', ['ngRoute', 'ngMessages', 'ngCookies']).config(functi
 		redirectTo : '/home'
 	});
 	
-	UrlServiceProvider.setDefaut('http', '192.168.10.41', '8090');
+	//UrlServiceProvider.setDefaut('http', '192.168.10.41', '8090');
 
 });

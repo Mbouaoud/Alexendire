@@ -1,7 +1,7 @@
 angular.module('bibliApp').provider('UrlService',function(){
 	var protocol = 'http';
 	var server = 'localhost';
-	var port = '8000';
+	var port = '8090';
 	return {
 		setDefaut : function(nouveauProtocol, nouveauServer, nouveauPort){
 			protocol = nouveauProtocol;
@@ -13,15 +13,42 @@ angular.module('bibliApp').provider('UrlService',function(){
 				return protocol + '://' + server + ':' + port + resource;
 			}
 			return {
+				getRightConnexion : function(){
+					return getFullUrl('/resource/connexion.rights')
+				},
+				
 				getAccessionAdherent : function(){
 					return getFullUrl('/resource/adherent.accession');
 				},
 				getAccessionMedia : function(){
 					return getFullUrl('/resource/media.accession');
 				},
+				
 				getRechercheMedia : function(){
 					return getFullUrl('/resource/media.recherche');
+				},
+				getRechercheAdherent : function(){
+					return getFullUrl('/resource/adherent.recherche');
+				},
+				
+				getCreationMedia : function(){
+					return getFullUrl('/resource/media.creation');
+				},
+				getCreationAdherent : function(){
+					return getFullUrl('/resource/adherent.creation');
+				},
+				
+				getModificationMedia : function(){
+					return getFullUrl('/resource/media.modification');
+				},
+				getModificationAdherent : function(){
+					return getFullUrl('/resource/adherent.modification');
+				},
+				
+				getEmpruntMedia : function(){
+					return getFullUrl('/resource/emprunt.ajout');
 				}
+				
 			};
 		}
 	}
