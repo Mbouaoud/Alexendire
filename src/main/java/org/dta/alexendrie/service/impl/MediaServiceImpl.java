@@ -7,5 +7,6 @@ import org.springframework.stereotype.Service;
 
 @Service("mediaService")
 public class MediaServiceImpl implements MediaService{
+	
 	@Autowired private MediaRepository mediaRepository;
 }

@@ -7,5 +7,6 @@ import org.springframework.stereotype.Service;
 
 @Service("subscriptionService")
 public class SubscriptionServiceImpl implements SubscriptionService{
+	
 	@Autowired private SubscriptionRepository subscriptionRepository;
 }

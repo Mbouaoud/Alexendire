@@ -5,7 +5,8 @@ import org.dta.alexendrie.service.LoanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service("mediaService")
+@Service("loanService")
 public class LoanServiceImpl implements LoanService{
+	
 	@Autowired private LoanRepository loanRepository;
 }
