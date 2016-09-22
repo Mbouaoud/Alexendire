@@ -5,12 +5,14 @@ angular.module('bibliApp').controller('MediaVisualisationCtrl', function($scope,
 	$scope.newNomEmprunteur = undefined;
 	$scope.newDate = undefined;
 	$scope.fail = false;
+	$scope.rechercheNom = undefined;
+	$scope.listePrenoms = undefined;
+	$scope.selectedPrenom = undefined;
 
 	$http.get(UrlService.getAccessionMedia(), {params : {id : $routeParams.idMedia}})
 		.then(function(response) {
 				$scope.media = response.data;
 				$scope.emprunteurs = response.data.emprunteurs;
-				console.log($scope.emprunteurs);
 			});
 
 	$scope.modifierMedia = function() {
@@ -40,13 +42,29 @@ angular.module('bibliApp').controller('MediaVisualisationCtrl', function($scope,
 		} while (tri == true);
 	};
 
+	$scope.recherchePrenoms = function() {
+		
+		if ($scope.newNomEmprunteur != undefined) {
+
+			$http.get(UrlService.getRechercheAdherent(), {params : {nom : $scope.newNomEmprunteur, prenom : undefined, email : undefined}})
+				.then(function(response) {
+					$scope.listePrenoms = [];
+					$scope.newNomEmprunteur = response.data[0].nom;
+					for( var i = 0; i< response.data.length; i++)
+						$scope.listePrenoms.push(response.data[i].prenom);
+				});
+		}
+	};
+
 	$scope.ajouterEmprunt = function() {
 
 		var id_adherent_fetch = undefined;
 
-		$http.get(UrlService.getRechercheAdherent(), {params : {nom : $scope.newNomEmprunteur, prenom : undefined, email : undefined}})
+		$http.get(UrlService.getRechercheAdherent(), {params : {nom : $scope.newNomEmprunteur,
+																prenom : $scope.selectedPrenom,
+																email : undefined}})
 			.then(function(response) {
-				if(response.data[0]==undefined){
+				if(response.data[0]==undefined || $scope.selectedPrenom == '') {
 					$scope.fail = true;
 				} else {
 					id_adherent_fetch = ""+ response.data[0].id;
