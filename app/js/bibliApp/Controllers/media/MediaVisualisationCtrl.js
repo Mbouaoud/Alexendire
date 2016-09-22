@@ -5,7 +5,6 @@ angular.module('bibliApp').controller('MediaVisualisationCtrl', function($scope,
 	$scope.newNomEmprunteur = undefined;
 	$scope.newDate = undefined;
 	$scope.fail = false;
-	$scope.rechercheNom = undefined;
 	$scope.listePrenoms = undefined;
 	$scope.selectedPrenom = undefined;
 
