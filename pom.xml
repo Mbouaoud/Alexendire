@@ -1,11 +1,12 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.dta</groupId>
 	<artifactId>alexendrie</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>Alexendire</name>
-	
+
+
+ <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>alxandrie Maven Webapp</name>
 	<properties>
 		<java.version>1.8</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -31,20 +32,9 @@
 			</dependency>
 		</dependencies>
 	</dependencyManagement>
-	
-	<dependencies>
-		<dependency>
-			<groupId>javax.el</groupId>
-			<artifactId>javax.el-api</artifactId>
-			<version>2.2.4</version>
-		</dependency>
 
-		<dependency>
-			<groupId>org.glassfish.web</groupId>
-			<artifactId>javax.el</artifactId>
-			<version>2.2.4</version>
-		</dependency>
-		
+	<dependencies>
+
 		<!-- core, bean,aop -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -74,23 +64,17 @@
 			<artifactId>hibernate-core</artifactId>
 			<version>${hibernate.version}</version>
 		</dependency>
-		
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-entitymanager</artifactId>
-			<version>4.3.11.Final</version>
-		</dependency>
 
 		<dependency>
 			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-hikaricp</artifactId>
-			<version>4.3.11.Final</version>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.hibernate</groupId>
 			<artifactId>hibernate-validator</artifactId>
-			<version>5.2.4.Final</version>
+			<version>${hibernate.validator.version}</version>
 		</dependency>
 
 		<!-- mvc -->
@@ -128,7 +112,7 @@
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
-			<version>9.3-1104-jdbc41</version>
+			<version>${postgres.jdbc.version}</version>
 		</dependency>
 
 		<!--Security -->
@@ -184,7 +168,6 @@
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
-	
 	<build>
 		<plugins>
 			<plugin>
@@ -194,7 +177,6 @@
 					<failOnMissingWebXml>false</failOnMissingWebXml>
 				</configuration>
 			</plugin>
-			
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -208,5 +190,6 @@
 				</configuration>
 			</plugin>
 		</plugins>
+
 	</build>
 </project>

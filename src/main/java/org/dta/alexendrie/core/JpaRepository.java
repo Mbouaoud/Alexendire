@@ -1,7 +1,6 @@
 package org.dta.alexendrie.core;
 
 import java.util.List;
-
 import org.hibernate.Session;
 
 public interface JpaRepository<T extends Model> {

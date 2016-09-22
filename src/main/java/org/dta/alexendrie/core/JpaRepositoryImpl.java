@@ -1,12 +1,10 @@
 package org.dta.alexendrie.core;
 
 import java.util.List;
-
 import javax.annotation.PostConstruct;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
-
 import org.hibernate.Session;
 
 public abstract class JpaRepositoryImpl<T extends Model> implements JpaRepository<T>{
@@ -72,6 +70,7 @@ public abstract class JpaRepositoryImpl<T extends Model> implements JpaRepositor
     @Transactional
     public void delete(int id) {
     	T t = findOne(id);
+    	
     	if(t==null) return;
     	
         if (!getSession().contains(t)) {

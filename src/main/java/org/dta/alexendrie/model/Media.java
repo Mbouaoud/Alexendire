@@ -10,7 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
-
 import org.dta.alexendrie.core.Model;
 
 @Entity
@@ -40,7 +39,6 @@ public class Media implements Model{
 	private List<Loan> loans;
 
 	public Media() {
-
 	}
 
 	public Media(String title, String author, MediaType type) {
