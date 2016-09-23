@@ -4,6 +4,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+
 import org.dta.alexendrie.core.Model;
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -21,6 +22,9 @@ public class Usr implements Model {
 	@Column
 	@NotBlank
 	private String password;
+
+	@Column
+	private Boolean rights;
 
 	public Usr(String login, String password) {
 		this.login = login;
@@ -54,4 +58,13 @@ public class Usr implements Model {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	public Boolean getRights() {
+		return rights;
+	}
+
+	public void setRights(Boolean rights) {
+		this.rights = rights;
+	}
+
 }
