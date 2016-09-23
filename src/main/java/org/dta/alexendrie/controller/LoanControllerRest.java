@@ -44,21 +44,21 @@ public class LoanControllerRest {
 			Subscription subscription = subscriptionService.getById(member.getSubscription().getId());
 			Media media = mediaService.getMediaById(id_media);
 			Loan loan = new Loan(member, media, dateemprunt);
-			subscriptionService.getRepository().merge(subscription);
-			memberService.getRepository().merge(member);
-			mediaService.getRepository().merge(media);
+			subscription = subscriptionService.save(subscription);
+			member = memberService.save(member);
+			media = mediaService.save(media);
 			
-			loanService.addLoan(loan);
+			loan = loanService.addLoan(loan);
 			media.setCurrentLoan(loan);
-			mediaService.getRepository().merge(media);
+			mediaService.save(media);
 			
-			//return loan;
-			/*
-			Media mediaToUpdate = mediaService.getMediaById(media.getId());
-			mediaToUpdate.setCurrentLoan(loan);
-			mediaService.save(mediaToUpdate);
+			//long idRetour = loan.getId();
+			//loan = null;
+			member = null;
+			media = null;
+			subscription = null;
 			
-			return loanService.getById(loan.getId());*/
+			return loan;
 			
 		} catch (ParseException e) {
 			e.printStackTrace();
