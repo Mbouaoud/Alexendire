@@ -85,6 +85,5 @@ angular.module('bibliApp').controller('MediaVisualisationCtrl', function($scope,
 						});
 					}
 				});
-		};
-
+	};
 });

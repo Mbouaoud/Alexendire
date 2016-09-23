@@ -1,4 +1,6 @@
 package org.dta.alexendrie.service;
 
-public interface SubscriptionService {
+import org.dta.alexendrie.model.Subscription;
+
+public interface SubscriptionService extends GenericService<Subscription>{
 }

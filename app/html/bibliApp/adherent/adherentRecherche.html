@@ -48,6 +48,7 @@
 				<th class="col-xs-3" id="media">M&eacute;dia emprunt&eacute;</th>
 			</tr>
 		</thead>
+		
 		<tbody>
 			<tr class="row" ng-repeat="resultat in resultats">
 				<td>{{resultat.id}}</td>
@@ -67,7 +68,9 @@
 	        <span aria-hidden="true">&laquo;</span>
 	      </a>
 	    </li>
+	    
 	    <li ng-repeat="i in getNumber(pageMax) track by $index" ><a ng-click="resultAdherent($index+1)">{{$index+1}}</a></li>
+	    
 	    <li ng-hide="pageActuelle==pageMax">
 	      <a ng-click="resultAdherent(pageActuelle+1)" aria-label="Next">
 	        <span aria-hidden="true">&raquo;</span>

@@ -4,7 +4,6 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-
 import org.dta.alexendrie.core.Model;
 import org.hibernate.validator.constraints.NotBlank;
 
@@ -55,5 +54,4 @@ public class Usr implements Model {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-
 }

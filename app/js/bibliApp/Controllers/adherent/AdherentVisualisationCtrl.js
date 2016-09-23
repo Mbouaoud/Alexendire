@@ -72,11 +72,9 @@ angular.module('bibliApp').controller('AdherentVisualisationCtrl', function($sco
 		}).then(function(response) {
 			if (response.data.length == 0){
 				$scope.mediaNotFound = true;
-			}
-			else if (response.data.length > 1) {
+			}else if (response.data.length > 1) {
 				$scope.mediaTooMuchFound = true;
-			}
-			else {
+			}else {
 				id_media_fetch = response.data[0].id;
 				
 				$http.post(UrlService.getEmpruntMedia(), {

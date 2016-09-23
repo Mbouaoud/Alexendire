@@ -14,5 +14,4 @@ public class AuthentificationServiceImpl implements AuthentificationService {
 	public Boolean getLoginConnexion(String login, String password) {
 		return authentificationRepository.findUsrbyLogin(login, password);
 	}
-
 }

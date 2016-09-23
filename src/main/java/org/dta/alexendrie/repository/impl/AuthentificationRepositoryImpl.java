@@ -24,7 +24,5 @@ public class AuthentificationRepositoryImpl extends JpaRepositoryImpl<Usr>implem
 		}
 
 		return usrFind;
-
 	}
-
 }
