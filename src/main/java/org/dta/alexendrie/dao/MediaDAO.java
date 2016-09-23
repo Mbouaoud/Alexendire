@@ -3,7 +3,6 @@ package org.dta.alexendrie.dao;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
-
 import org.dta.alexendrie.core.DatabaseHelper;
 import org.dta.alexendrie.model.Media;
 import org.dta.alexendrie.model.MediaType;
@@ -18,22 +17,19 @@ public class MediaDAO {
 	}
 
 	public static Media creationMedia(String title, String name, MediaType type) {
+		
 		EntityManager em = DatabaseHelper.createEntityManager();
-
 		DatabaseHelper.beginTx(em);
-
 		Media insertion = new Media(title, name, type);
-
 		em.persist(insertion);
-
 		DatabaseHelper.commitTxAndClose(em);
 
 		return insertion;
 	}
 
 	public static List<Media> rechercheMedias(String title, String name, String type) {
+		
 		EntityManager em = DatabaseHelper.createEntityManager();
-
 		String str_query = "select m from Media m left join fetch m.currentLoan cl left join fetch cl.member";
 
 		if (title != "")

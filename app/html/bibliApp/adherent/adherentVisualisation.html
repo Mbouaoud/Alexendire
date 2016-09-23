@@ -91,9 +91,9 @@
 			<label class="col-xs-1">Titre</label>
 			<div class="col-xs-2">
 				<input type="text" class="form-control col-xs-2 bg-warning"
-					ng-model="newTitre">
+					ng-model="newTitre" ng-blur="rechercheMedias()">
 			</div>
-
+			
 			<label class="col-xs-1">Date</label>
 			<div class="col-xs-3">
 				<input type="date" class="form-control bg-warning"
@@ -103,9 +103,7 @@
 			<label class="col-xs-1">Type</label>
 			<div class="col-xs-2">
 				<select class="form-control bg-warning" ng-model="newType">
-					<option>Livre</option>
-					<option>CD</option>
-					<option>DVD</option>
+					<option ng-repeat="type in listeTypes">{{type}}</option>
 				</select>
 			</div>
 

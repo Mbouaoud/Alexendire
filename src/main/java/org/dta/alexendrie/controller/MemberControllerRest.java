@@ -26,4 +26,11 @@ public class MemberControllerRest {
 		}
 		return member;		
 	}
+
+	@RequestMapping(value = "/resource/member.accession", method = RequestMethod.GET)
+	public Member rechercheMember(@RequestParam("id") long id) {
+		return memberService.getMemberById(id);
+	}
+
 }
+

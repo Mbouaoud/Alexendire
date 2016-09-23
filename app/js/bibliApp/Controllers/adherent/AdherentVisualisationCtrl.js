@@ -7,6 +7,7 @@ angular.module('bibliApp').controller('AdherentVisualisationCtrl', function($sco
 	$scope.newType = undefined;
 	$scope.mediaNotFound = false;
 	$scope.mediaTooMuchFound = false;
+	$scope.listeTypes = ["Livre","CD","DVD"];
 
 	$http.get(UrlService.getAccessionAdherent(), {params : {id : $routeParams.idAdherent}})
 		.then(function(response) {
@@ -43,6 +44,19 @@ angular.module('bibliApp').controller('AdherentVisualisationCtrl', function($sco
 		} while (tri == true);
 	};
 
+	$scope.rechercheMedias = function() {
+		
+		if ($scope.newTitre != undefined) {
+			$http.get(UrlService.getRechercheMedia(), {params : {titre : $scope.newTitre}})
+				.then(function(response) {
+					$scope.listeTypes = [];
+					$scope.newTitre = response.data[0].titre;
+					for( var i = 0; i< response.data.length; i++)
+						$scope.listeTypes.push(response.data[i].type);
+				});
+		}
+	};
+
 	$scope.ajouterEmprunt = function() {
 
 		var id_media_fetch = undefined;
@@ -55,7 +69,7 @@ angular.module('bibliApp').controller('AdherentVisualisationCtrl', function($sco
 				type : $scope.newType,
 				tri : undefined
 			}
-		}).then(function(response) {console.log(response);
+		}).then(function(response) {
 			if (response.data.length == 0){
 				$scope.mediaNotFound = true;
 			}

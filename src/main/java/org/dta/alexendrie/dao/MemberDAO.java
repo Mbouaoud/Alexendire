@@ -4,25 +4,23 @@ import java.util.Date;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
-
 import org.dta.alexendrie.core.DatabaseHelper;
 import org.dta.alexendrie.model.Member;
 import org.dta.alexendrie.model.Subscription;
 
 public class MemberDAO {
 	public static Member consulterMember(int id_member) {
-		EntityManager em = DatabaseHelper.createEntityManager();
 		
+		EntityManager em = DatabaseHelper.createEntityManager();
 		Member result = em.find(Member.class, id_member);
-
 		em.close();
 		
 		return result;
 	}
 
 	public static Member creationMember(String lastname, String firstname, String mail, Date birthday, String address, Date cotisation, float amount) {
+		
 		EntityManager em = DatabaseHelper.createEntityManager();
-
 		DatabaseHelper.beginTx(em);
 		
 		Subscription subscription = new Subscription(cotisation,amount);

@@ -31,4 +31,5 @@ public class MemberRepositoryImpl extends JpaRepositoryImpl<Member> implements M
 		}
 		return findBy(str);
 	}
+
 }

@@ -9,8 +9,8 @@ import org.dta.alexendrie.repository.MediaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class MediaRepositoryImpl extends JpaRepositoryImpl<Media> implements MediaRepository{
-	
+public class MediaRepositoryImpl extends JpaRepositoryImpl<Media>implements MediaRepository {
+
 	@Override
 	protected Class<Media> getEntityClass() {
 		return Media.class;
@@ -38,5 +38,11 @@ public class MediaRepositoryImpl extends JpaRepositoryImpl<Media> implements Med
 			str = str + "m.type='"+type+"'";
 		}
 		return findBy(str);
+	}
+	
+	@Override
+	public List<Media> findUsrByLogin() {
+
+		return null;
 	}
 }

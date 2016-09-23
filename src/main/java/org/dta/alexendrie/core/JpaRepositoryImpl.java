@@ -9,69 +9,70 @@ import javax.transaction.Transactional;
 
 import org.hibernate.Session;
 
-public abstract class JpaRepositoryImpl<T extends Model> implements JpaRepository<T>{
+public abstract class JpaRepositoryImpl<T extends Model> implements JpaRepository<T> {
 	protected Class<T> entityClass;
-	
-	@PersistenceContext EntityManager em;
-	
-	@PostConstruct    public void init() {        
-		entityClass = getEntityClass();    
+
+	@PersistenceContext
+	EntityManager em;
+
+	@PostConstruct
+	public void init() {
+		entityClass = getEntityClass();
 	}
-	
+
 	protected abstract Class<T> getEntityClass();
-	
+
 	@Transactional
-	public Session getSession() {		
-		return em.unwrap(Session.class);	
+	public Session getSession() {
+		return em.unwrap(Session.class);
 	}
 
 	@Transactional
-    public T save(T entity) {
-        if (isNew(entity)) {
-            em.persist(entity);
-            return entity;
-        } else if (!em.contains(entity)) {
-            return em.merge(entity);
-        }
+	public T save(T entity) {
+		if (isNew(entity)) {
+			em.persist(entity);
+			return entity;
+		} else if (!em.contains(entity)) {
+			return em.merge(entity);
+		}
 
-        return entity;
-    }
+		return entity;
+	}
 
 	@Transactional
-    public T findOne(int id) {
-        return em.find(entityClass, id);
-    }
-	
-    @Transactional
-    public List<T> findAll() {
-        return getSession().createCriteria(entityClass).list();
-    }
+	public T findOne(long id) {
+		return em.find(entityClass, id);
+	}
+
+	@Transactional
+	public List<T> findAll() {
+		return getSession().createCriteria(entityClass).list();
+	}
+
+	public List<T> findBy(String query) {
+		return em.createQuery(query).getResultList();
+	}
+
+	public T findFirst(String query) {
+		List<T> l = findBy(query);
+
+		if (l == null || l.size() == 0) {
+			return null;
+		}
+		return l.get(0);
+	}
+
+	@Transactional
+	public void delete(T entity) {
+		if (!getSession().contains(entity)) {
+			em.remove(getSession().merge(entity));
+		} else {
+			em.remove(entity);
+		}
+	} 	
     
     @Transactional
-    public List<T> findBy(String query){
-    	return em.createQuery(query).getResultList();
-    }
-    
-    protected T findFirst(String query){
-    	List<T> l = findBy(query);
-    	
-    	if(l==null || l.size()==0){
-    		return null;
-    	}
-    	return l.get(0);
-    }
-	
-    @Transactional
-    public void delete(T entity) {
-        if (!getSession().contains(entity)) {
-            em.remove(getSession().merge(entity));
-        } else {
-            em.remove(entity);
-        }
-    }
-    
-    @Transactional
-    public void delete(int id) {
+    public void delete(long id) {
     	T t = findOne(id);
     	if(t==null) return;
     	
