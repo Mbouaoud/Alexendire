@@ -2,6 +2,7 @@ package org.dta.alexendrie.controller;
 
 import java.util.List;
 
+
 import org.dta.alexendrie.model.Media;
 import org.dta.alexendrie.model.MediaType;
 import org.dta.alexendrie.service.MediaService;
@@ -22,5 +23,10 @@ public class MediaControllerRest {
 		List<Media> mediaAll= mediaService.getMediaAll();
 		return mediaAll;
 	}
-	
+
+	@RequestMapping(value = "/resource/media.accession", method = RequestMethod.GET)
+	public Media accessionMedia(@RequestParam("id") long id) {
+		return mediaService.getMediaById(id);
+	}
+
 }

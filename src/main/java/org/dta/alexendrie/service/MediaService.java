@@ -7,4 +7,5 @@ public interface MediaService {
 
 	public List<Media> getMediaAll();
 	public List<Media> getMediaByTitle();
+	public Media getMediaById(long id);
 }

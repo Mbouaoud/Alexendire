@@ -23,6 +23,11 @@ public class MediaServiceImpl implements MediaService{
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	@Override
+	public Media getMediaById(long id) {
+		return mediaRepository.findOne(id);
+	}
 	
 	
 }
