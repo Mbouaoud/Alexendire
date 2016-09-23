@@ -16,7 +16,7 @@ public class MediaControllerRest {
 	@Autowired
 	private MediaService mediaService;
 	
-	@RequestMapping(value="/media_recherche", method= RequestMethod.GET)
+	@RequestMapping(value="/media", method= RequestMethod.GET)
 	public List<Media> rechercheMedia(@RequestParam("titre") String titre, @RequestParam("auteur") String auteur, @RequestParam("type") MediaType type){
 		List<Media> media = null; 
 		

@@ -12,6 +12,8 @@ import javax.persistence.OneToOne;
 import javax.validation.constraints.NotNull;
 import org.dta.alexendrie.core.Model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Media implements Model{
 
@@ -34,7 +36,8 @@ public class Media implements Model{
 
 	@OneToOne
 	private Loan currentLoan;
-
+	
+	@JsonIgnore
 	@OneToMany(mappedBy="media")
 	private List<Loan> loans;
 
