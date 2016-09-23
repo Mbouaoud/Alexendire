@@ -20,14 +20,14 @@ public class MediaRepositoryImpl extends JpaRepositoryImpl<Media>implements Medi
 		String str = "select m from Media m where ";
 		boolean et = false;
 		if (!(titre.equals(""))){
-			str = str + "lower(m.title)='"+titre.toLowerCase()+"'";
+			str = str + "lower(m.title) like '%"+titre.toLowerCase()+"%'";
 			et = true;
 		}
 		if(!(auteur.equals(""))){
 			if (et){
 				str = str+" and ";
 			}
-			str = str + "lower(m.author)='"+auteur.toLowerCase()+"'";
+			str = str + "lower(m.author) like '%"+auteur.toLowerCase()+"%'";
 			et = true;
 		}
 		if(type!=null){
