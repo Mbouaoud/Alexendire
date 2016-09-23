@@ -13,8 +13,8 @@ public class AuthentificationControllerRest {
 	@Autowired
 	private AuthentificationService authentificationService;
 
-	@RequestMapping(value = "/resource/connexion.rights", method = RequestMethod.GET)
-	public Boolean Authentification(@RequestParam("login") String login, @RequestParam("password") String password) {
+	@RequestMapping(value = "/resource/connexion.rights", method = RequestMethod.POST)
+	public Boolean Authentification(@RequestParam String login, @RequestParam String password) {
 
 		boolean usrFind = false;
 		if (login != null && password != null) {

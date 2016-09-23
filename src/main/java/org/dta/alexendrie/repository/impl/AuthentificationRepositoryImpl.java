@@ -18,9 +18,14 @@ public class AuthentificationRepositoryImpl extends JpaRepositoryImpl<Usr>implem
 
 		Boolean usrFind = false;
 		String query = "Select u from Usr u where login='" + login + "'";
-		Usr usrResearch = findFirst(query);
-		if (usrResearch.getPassword().equals(password)) {
-			usrFind = true;
+		try {
+			Usr usrResearch = findFirst(query);
+			if (usrResearch.getPassword().equals(password)) {
+				usrFind = true;
+			} else
+				usrFind = false;
+		} catch (NullPointerException e) {
+			usrFind = false;
 		}
 
 		return usrFind;
