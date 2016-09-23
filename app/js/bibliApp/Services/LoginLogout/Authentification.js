@@ -24,7 +24,6 @@ angular.module('bibliApp').factory('Authentification', function($http, $rootScop
 //			return $http.get('http://192.168.10.41:1977/resource/connexion.rights', config).then(function(){
 //			console.log(UrlService.getRightConnexion());
 			return $http.get(UrlService.getRightConnexion(), config, {'login':login,'password':password}).then(function(){
-				console.log(login)
 				// connexion ok
 				$http.defaults.headers.common['Authorization'] = 'Basic ' + authdata;
 				// Setting a cookie
