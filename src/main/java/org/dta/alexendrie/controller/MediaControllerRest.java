@@ -17,10 +17,15 @@ public class MediaControllerRest {
 	@Autowired
 	private MediaService mediaService;
 	
-	@RequestMapping(value="/resource/media.recherche", method= RequestMethod.GET)
+	@RequestMapping(value="/media_recherche", method= RequestMethod.GET)
 	public List<Media> rechercheMedia(@RequestParam("titre") String titre, @RequestParam("auteur") String auteur, @RequestParam("type") MediaType type){
-		List<Media> mediaAll= mediaService.getMediaAll();
-		return mediaAll;
+		List<Media> media = null; 
+		if(titre.equals("") && auteur.equals("") && type==null){
+			media = mediaService.getMediaAll();
+		} else {
+			media = mediaService.getMediaBy(titre, auteur, type);
+		}
+		return media;
 	}
 	
 }

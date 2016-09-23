@@ -13,4 +13,5 @@ public interface JpaRepository<T extends Model> {
     public void delete(T entity);
     public void delete(int id);
 	public boolean isNew(T entity);
+	public List<T> findBy(String query);
 }

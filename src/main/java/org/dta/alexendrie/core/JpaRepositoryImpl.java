@@ -47,7 +47,8 @@ public abstract class JpaRepositoryImpl<T extends Model> implements JpaRepositor
         return getSession().createCriteria(entityClass).list();
     }
     
-    protected List<T> findBy(String query){
+    @Transactional
+    public List<T> findBy(String query){
     	return em.createQuery(query).getResultList();
     }
     
