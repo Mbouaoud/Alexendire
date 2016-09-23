@@ -12,7 +12,7 @@ public class SubscriptionServiceImpl implements SubscriptionService{
 	
 	@Autowired private SubscriptionRepository subscriptionRepository;
 	
-@Autowired private LoanRepository loanRepository;
+	@Autowired private LoanRepository loanRepository;
 	
 	@Override	
 	public JpaRepository getRepository() {

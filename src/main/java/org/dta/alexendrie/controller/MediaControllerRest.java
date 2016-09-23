@@ -16,10 +16,16 @@ public class MediaControllerRest {
 	@Autowired
 	private MediaService mediaService;
 	
-	@RequestMapping(value="/resource/media.recherche", method= RequestMethod.GET)
+	@RequestMapping(value="/media_recherche", method= RequestMethod.GET)
 	public List<Media> rechercheMedia(@RequestParam("titre") String titre, @RequestParam("auteur") String auteur, @RequestParam("type") MediaType type){
-		List<Media> mediaAll= mediaService.getMediaAll();
-		return mediaAll;
+		List<Media> media = null; 
+		if(titre.equals("") && auteur.equals("") && type==null){
+			media = mediaService.getMediaAll();
+		} else {
+			media = mediaService.getMediaBy(titre, auteur, type);
+		}
+		
+		return media;
 	}
 	
 	@RequestMapping(value = "/media_creation", method = RequestMethod.POST)
@@ -55,5 +61,10 @@ public class MediaControllerRest {
 		}else{
 			return false;
 		}
+	}
+
+	@RequestMapping(value = "/resource/media.accession", method = RequestMethod.GET)
+	public Media accessionMedia(@RequestParam("id") long id) {
+		return mediaService.getMediaById(id);
 	}
 }

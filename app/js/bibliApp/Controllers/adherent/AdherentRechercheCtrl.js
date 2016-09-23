@@ -48,5 +48,4 @@ angular.module('bibliApp').controller('AdherentRechercheCtrl', function($scope,$
 			}
 		} while (tri == true);
 	};
-	
 })

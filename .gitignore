@@ -4,6 +4,12 @@ app/bower_components/
 src/main/resources/META-INF/persistence.xml
 src/main/resources/application.properties
 
+src/main/resources/application.properties
+
+<<<<<<< HEAD
+=======
+
+>>>>>>> 49c394159c4836052f2c72f0bb1074be3c9aad7c
 .project
 /bin/
 /target/

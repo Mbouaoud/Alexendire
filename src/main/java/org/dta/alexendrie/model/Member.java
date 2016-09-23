@@ -12,7 +12,6 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import org.dta.alexendrie.core.Model;
 import org.hibernate.validator.constraints.NotBlank;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="member")
