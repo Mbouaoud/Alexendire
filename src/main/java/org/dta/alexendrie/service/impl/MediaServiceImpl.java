@@ -9,25 +9,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service("mediaService")
-public class MediaServiceImpl implements MediaService{
-	
-	@Autowired private MediaRepository mediaRepository;
+public class MediaServiceImpl implements MediaService {
 
-	@Override
+	@Autowired
+	private MediaRepository mediaRepository;
+
 	public List<Media> getMediaAll() {
 		return mediaRepository.findAll();
+
 	}
 
-	@Override
 	public List<Media> getMediaByTitle() {
-		// TODO Auto-generated method stub
-		return null;
+		return mediaRepository.findUsrByLogin();
 	}
 
 	@Override
 	public Media getMediaById(long id) {
 		return mediaRepository.findOne(id);
 	}
-	
-	
+
 }
