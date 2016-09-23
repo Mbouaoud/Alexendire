@@ -19,6 +19,7 @@ public class MediaControllerRest {
 	@RequestMapping(value="/media_recherche", method= RequestMethod.GET)
 	public List<Media> rechercheMedia(@RequestParam("titre") String titre, @RequestParam("auteur") String auteur, @RequestParam("type") MediaType type){
 		List<Media> media = null; 
+		
 		if(titre.equals("") && auteur.equals("") && type==null){
 			media = mediaService.getMediaAll();
 		} else {
@@ -28,11 +29,11 @@ public class MediaControllerRest {
 		return media;
 	}
 	
-	@RequestMapping(value = "/media_creation", method = RequestMethod.POST)
+	@RequestMapping(value = "/media", method = RequestMethod.POST)
 	public boolean ajoutMedia(@RequestParam String titre, @RequestParam String auteur, @RequestParam String type){
 		Media media = new Media();
 		
-		media.setId(1);
+		media.setId(0);
 		media.setAuthor(auteur);
 		media.setTitle(titre);
 		media.setType(MediaType.valueOf(type));
@@ -46,7 +47,7 @@ public class MediaControllerRest {
 		}
 	}
 	
-	@RequestMapping(value = "/media_modification", method = RequestMethod.POST)
+	@RequestMapping(value = "/media", method = RequestMethod.PUT)
 	public boolean modificationMedia(@RequestParam long id, @RequestParam String titre, @RequestParam String auteur, @RequestParam String type){
 		Media media = mediaService.getById(id);
 		
@@ -63,7 +64,7 @@ public class MediaControllerRest {
 		}
 	}
 
-	@RequestMapping(value = "/resource/media.accession", method = RequestMethod.GET)
+	@RequestMapping(value = "/media_accession", method = RequestMethod.GET)
 	public Media accessionMedia(@RequestParam("id") long id) {
 		return mediaService.getMediaById(id);
 	}
