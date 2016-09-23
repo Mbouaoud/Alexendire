@@ -5,6 +5,7 @@ import org.dta.alexendrie.model.Media;
 import org.dta.alexendrie.model.MediaType;
 import org.dta.alexendrie.service.MediaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,7 +17,7 @@ public class MediaControllerRest {
 	@Autowired
 	private MediaService mediaService;
 	
-	@RequestMapping(value="/media", method= RequestMethod.GET)
+	@RequestMapping(value="/media_recherche", method= RequestMethod.GET)
 	public List<Media> rechercheMedia(@RequestParam("titre") String titre, @RequestParam("auteur") String auteur, @RequestParam("type") MediaType type){
 		List<Media> media = null; 
 		
@@ -29,7 +30,7 @@ public class MediaControllerRest {
 		return media;
 	}
 	
-	@RequestMapping(value = "/media", method = RequestMethod.POST)
+	@RequestMapping(value = "/media_creation", method = RequestMethod.POST)
 	public boolean ajoutMedia(@RequestParam String titre, @RequestParam String auteur, @RequestParam String type){
 		Media media = new Media();
 		
@@ -47,7 +48,7 @@ public class MediaControllerRest {
 		}
 	}
 	
-	@RequestMapping(value = "/media", method = RequestMethod.PUT)
+	@RequestMapping(value = "/media_modification", method = RequestMethod.POST)
 	public boolean modificationMedia(@RequestParam long id, @RequestParam String titre, @RequestParam String auteur, @RequestParam String type){
 		Media media = mediaService.getById(id);
 		
