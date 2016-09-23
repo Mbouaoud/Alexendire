@@ -34,4 +34,10 @@ public class AuthentificationIT extends IntegrationTest {
 				.andDo(MockMvcResultHandlers.print()).andExpect(status().isOk()).andExpect(content().string("true"));
 	}
 
+	@Test
+	public void testAuthentificationNoOK() throws Exception {
+		this.mockMvc.perform(post("/resource/connexion.rights").param("login", "").param("password", "admin"))
+				.andDo(MockMvcResultHandlers.print()).andExpect(status().isOk()).andExpect(content().string("false"));
+	}
+
 }
