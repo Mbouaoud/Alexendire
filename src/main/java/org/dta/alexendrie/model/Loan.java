@@ -44,10 +44,12 @@ public class Loan implements Model{
 		return this.member;
 	}
 	
+	@Override
 	public long getId() {
 		return id;
 	}
 
+	@Override
 	public void setId(long id) {
 		this.id = id;
 	}

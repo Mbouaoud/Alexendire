@@ -8,7 +8,6 @@ import org.dta.alexendrie.model.Media;
 import org.dta.alexendrie.model.Member;
 
 public class LoanDAO {
-
 	public static Loan creationEmprunt(Member member, Media media, Date dateEmprunt) {
 
 		EntityManager em = DatabaseHelper.createEntityManager();

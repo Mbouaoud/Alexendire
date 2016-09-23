@@ -17,9 +17,8 @@ public class Subscription implements Model{
 	
 	@Id
 	@GeneratedValue
-	private Long id;
+	private long id;
 	
-	@NotNull
 	@Temporal(TemporalType.DATE)
 	private Date paymentDate;
 	
@@ -34,10 +33,12 @@ public class Subscription implements Model{
 	public Subscription() {
 	}
 
+	@Override
 	public long getId() {
 		return id;
 	}
 
+	@Override
 	public void setId(long id) {
 		this.id = id;
 	}

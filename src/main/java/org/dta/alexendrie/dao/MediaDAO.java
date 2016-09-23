@@ -13,6 +13,7 @@ public class MediaDAO {
 
 		Media retour = em.find(Media.class, id_media);
 		em.close();
+		
 		return retour;
 	}
 

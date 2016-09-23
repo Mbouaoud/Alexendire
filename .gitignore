@@ -1,5 +1,8 @@
 node_modules/
+
 app/bower_components/
+
+
 
 src/main/resources/META-INF/persistence.xml
 
@@ -7,5 +10,7 @@ src/main/resources/application.properties
 
 
 .project
+
 /bin/
+
 /target/

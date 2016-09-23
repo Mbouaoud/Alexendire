@@ -28,8 +28,7 @@ angular.module('bibliApp').controller('AdherentCreationCtrl', function($scope, $
 				
 				$scope.makeModif = true;
 		});
-	}
-	else
+	}else
 		$rootScope.typePage='AC';
 	
 	$scope.FinAbonnement = function(dateAbo){
@@ -142,6 +141,4 @@ angular.module('bibliApp').controller('AdherentCreationCtrl', function($scope, $
 	$scope.validationForm = function(){
 		if(click==true) return true;
 	}
-	
-	
 });

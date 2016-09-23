@@ -3,7 +3,6 @@ package org.dta.alexendrie.controller;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 import org.dta.alexendrie.model.Loan;
 import org.dta.alexendrie.model.Member;
 import org.dta.alexendrie.model.Media;
@@ -21,14 +20,15 @@ public class LoanControllerRest {
 
 	@Autowired
 	private LoanService loanService;
+	
 	@Autowired
 	private MemberService memberService;
+	
 	@Autowired
 	private MediaService mediaService;
 
 	@RequestMapping(value = "/resource/loan.ajout", method = RequestMethod.GET)
-	public Loan rechercheLoan(@RequestParam("id_media") long id_media, @RequestParam("id_adherent") long id_member,
-			@RequestParam("depart") String depart) {
+	public Loan rechercheLoan(@RequestParam("id_media") long id_media, @RequestParam("id_adherent") long id_member,@RequestParam("depart") String depart) {
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
@@ -42,7 +42,7 @@ public class LoanControllerRest {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
+		
 		return null;
 	}
-
 }

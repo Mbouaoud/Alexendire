@@ -8,7 +8,6 @@ angular.module('bibliApp').controller('MediaCreationCtrl', function($scope, $roo
 	$scope.fail = false;
 	$scope.up = false;
 	
-	
 	if($scope.idMedia != undefined){
 		$rootScope.typePage='MV';
 		MediaCreationService.getMedia($scope.idMedia).then(function(result){
@@ -18,8 +17,7 @@ angular.module('bibliApp').controller('MediaCreationCtrl', function($scope, $roo
 			id = result.data.id;
 		},function(error){
 		});
-	}
-	else
+	}else
 		$rootScope.typePage='MC';
 	
 	$scope.mediaTypes = [
@@ -31,6 +29,7 @@ angular.module('bibliApp').controller('MediaCreationCtrl', function($scope, $roo
 	$scope.addMedia = function(){
 
 		click=true;
+		
 		if($scope.mdcrForm.$valid) {
 			if($scope.idMedia != undefined){
 				media = {
@@ -71,6 +70,7 @@ angular.module('bibliApp').controller('MediaCreationCtrl', function($scope, $roo
 			}
 		}
 	};
+	
 	$scope.validationFormMedia = function(){
 		if(click==true) return true;
 	}

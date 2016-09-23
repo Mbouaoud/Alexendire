@@ -1,12 +1,10 @@
 package org.dta.alexendrie.core;
 
 import java.util.List;
-
 import javax.annotation.PostConstruct;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
-
 import org.hibernate.Session;
 
 public abstract class JpaRepositoryImpl<T extends Model> implements JpaRepository<T> {
@@ -40,53 +38,51 @@ public abstract class JpaRepositoryImpl<T extends Model> implements JpaRepositor
 	}
 
 	@Transactional
+    public T findOne(long id) {
+        return em.find(entityClass, id);
+    }
+	
+    @Transactional
+    public List<T> findAll() {
+        return getSession().createCriteria(entityClass).list();
+    }
+    
+    public List<T> findBy(String query){
+    	return em.createQuery(query).getResultList();
+    }
+    
+    public T findFirst(String query){
+    	List<T> l = findBy(query);
+    	
+    	if(l==null || l.size()==0){
+    		return null;
+    	}
+    	
+    	return l.get(0);
+    }
+	
+    @Transactional
+    public void delete(T entity) {
+        if (!getSession().contains(entity)) {
+            em.remove(getSession().merge(entity));
+        } else {
+            em.remove(entity);
+        }
+    }
+    
+    @Transactional
+    public void delete(long id) {
+    	T t = findOne(id);
+    	if(t==null) return;
+    	
+        if (!getSession().contains(t)) {
+            em.remove(getSession().merge(t));
+        } else {
+            em.remove(t);
+        }
+    }
 
-	public T findOne(long id) {
-		return em.find(entityClass, id);
-	}
-
-	@Transactional
-	public List<T> findAll() {
-		return getSession().createCriteria(entityClass).list();
-	}
-
-	public List<T> findBy(String query) {
-		return em.createQuery(query).getResultList();
-	}
-
-	public T findFirst(String query) {
-		List<T> l = findBy(query);
-
-		if (l == null || l.size() == 0) {
-			return null;
-		}
-		return l.get(0);
-	}
-
-	@Transactional
-	public void delete(T entity) {
-		if (!getSession().contains(entity)) {
-			em.remove(getSession().merge(entity));
-		} else {
-			em.remove(entity);
-		}
-	}
-
-	@Transactional
-	public void delete(int id) {
-		T t = findOne(id);
-
-		if (t == null)
-			return;
-
-		if (!getSession().contains(t)) {
-			em.remove(getSession().merge(t));
-		} else {
-			em.remove(t);
-		}
-	}
-
-	public boolean isNew(T entity) {
-		return entity.getId() == 0;
+	public boolean isNew(T entity) {       
+		return entity.getId() == 0;    
 	}
 }
