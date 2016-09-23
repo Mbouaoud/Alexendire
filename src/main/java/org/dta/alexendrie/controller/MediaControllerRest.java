@@ -16,7 +16,7 @@ public class MediaControllerRest {
 	@Autowired
 	private MediaService mediaService;
 	
-	@RequestMapping(value="/media_recherche", method= RequestMethod.GET)
+	@RequestMapping(value="/media", method= RequestMethod.GET)
 	public List<Media> rechercheMedia(@RequestParam("titre") String titre, @RequestParam("auteur") String auteur, @RequestParam("type") MediaType type){
 		List<Media> media = null; 
 		if(titre.equals("") && auteur.equals("") && type==null){
@@ -28,7 +28,7 @@ public class MediaControllerRest {
 		return media;
 	}
 	
-	@RequestMapping(value = "/media_creation", method = RequestMethod.POST)
+	@RequestMapping(value = "/media", method = RequestMethod.POST)
 	public boolean ajoutMedia(@RequestParam String titre, @RequestParam String auteur, @RequestParam String type){
 		Media media = new Media();
 		
@@ -46,7 +46,7 @@ public class MediaControllerRest {
 		}
 	}
 	
-	@RequestMapping(value = "/media_modification", method = RequestMethod.POST)
+	@RequestMapping(value = "/media", method = RequestMethod.PUT)
 	public boolean modificationMedia(@RequestParam long id, @RequestParam String titre, @RequestParam String auteur, @RequestParam String type){
 		Media media = mediaService.getById(id);
 		
