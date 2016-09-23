@@ -17,6 +17,7 @@ public class AuthentificationControllerRest {
 	public Boolean Authentification(@RequestParam String login, @RequestParam String password) {
 
 		boolean usrFind = false;
+		
 		if (login != null && password != null) {
 			usrFind = authentificationService.getLoginConnexion(login, password);
 		}

@@ -43,6 +43,10 @@ public class Loan implements Model{
 	public Member getMember(){
 		return this.member;
 	}
+
+	public Media getMedia(){
+		return this.media;
+	}
 	
 	@Override
 	public long getId() {
