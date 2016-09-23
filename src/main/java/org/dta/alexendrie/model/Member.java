@@ -12,6 +12,7 @@ import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
 import org.dta.alexendrie.core.Model;
 import org.hibernate.validator.constraints.NotBlank;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @Table(name="member")
@@ -19,7 +20,7 @@ public class Member implements Model{
 	
 	@Id
 	@GeneratedValue
-	private Long id;
+	private long id;
 	
 	@NotBlank
 	private String lastname;
@@ -37,7 +38,7 @@ public class Member implements Model{
 	@Column
 	private String address;
 	
-	@OneToOne
+	@OneToOne 
 	private Subscription subscription;
 	
 	public Member(String lastname, String firstname, String mail, Date birthday, String address, Subscription subscription) {
@@ -60,10 +61,12 @@ public class Member implements Model{
 	public Member() {
 	}
 
+	@Override
 	public long getId() {
 		return id;
 	}
 
+	@Override
 	public void setId(long id) {
 		this.id = id;
 	}

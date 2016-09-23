@@ -1,6 +1,7 @@
 package org.dta.alexendrie.model;
 
 import java.util.Date;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +10,7 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.NotNull;
+
 import org.dta.alexendrie.core.Model;
 
 @Entity
@@ -17,9 +19,8 @@ public class Subscription implements Model{
 	
 	@Id
 	@GeneratedValue
-	private Long id;
+	private long id;
 	
-	@NotNull
 	@Temporal(TemporalType.DATE)
 	private Date paymentDate;
 	
@@ -34,10 +35,12 @@ public class Subscription implements Model{
 	public Subscription() {
 	}
 
+	@Override
 	public long getId() {
 		return id;
 	}
 
+	@Override
 	public void setId(long id) {
 		this.id = id;
 	}

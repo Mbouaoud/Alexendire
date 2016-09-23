@@ -1,4 +1,6 @@
 package org.dta.alexendrie.service;
 
-public interface LoanService {
+import org.dta.alexendrie.model.Loan;
+
+public interface LoanService extends GenericService<Loan>{
 }

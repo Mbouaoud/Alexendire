@@ -1,5 +1,6 @@
 package org.dta.alexendrie.service.impl;
 
+import org.dta.alexendrie.core.JpaRepository;
 import org.dta.alexendrie.repository.MemberRepository;
 import org.dta.alexendrie.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,4 +10,9 @@ import org.springframework.stereotype.Service;
 public class MemberServiceImpl implements MemberService{
 	
 	@Autowired private MemberRepository memberRepository;
+	
+	@Override	
+	public JpaRepository getRepository() {
+		return memberRepository;
+	}
 }

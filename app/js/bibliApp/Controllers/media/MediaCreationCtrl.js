@@ -31,6 +31,7 @@ angular.module('bibliApp').controller('MediaCreationCtrl', function($scope, $roo
 	$scope.addMedia = function(){
 
 		click=true;
+		
 		if($scope.mdcrForm.$valid) {
 			if($scope.idMedia != undefined){
 				media = {
@@ -71,6 +72,7 @@ angular.module('bibliApp').controller('MediaCreationCtrl', function($scope, $roo
 			}
 		}
 	};
+	
 	$scope.validationFormMedia = function(){
 		if(click==true) return true;
 	}

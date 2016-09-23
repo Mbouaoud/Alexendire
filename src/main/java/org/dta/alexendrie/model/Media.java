@@ -17,7 +17,7 @@ public class Media implements Model{
 
 	@Id
 	@GeneratedValue
-	private Long id;
+	private long id;
 
 	@Column
 	@NotNull
@@ -64,11 +64,37 @@ public class Media implements Model{
 		return this.currentLoan;
 	}
 
+	@Override
 	public long getId() {
 		return id;
 	}
 
+	@Override
 	public void setId(long id) {
 		this.id = id;
+	}
+
+	public List<Loan> getLoans() {
+		return loans;
+	}
+
+	public void setLoans(List<Loan> loans) {
+		this.loans = loans;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public void setType(MediaType type) {
+		this.type = type;
+	}
+
+	public void setCurrentLoan(Loan currentLoan) {
+		this.currentLoan = currentLoan;
 	}
 }

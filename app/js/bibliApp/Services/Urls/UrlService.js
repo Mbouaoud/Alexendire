@@ -20,6 +20,7 @@ angular.module('bibliApp').provider('UrlService',function(){
 				getAccessionAdherent : function(){
 					return getFullUrl('/resource/adherent.accession');
 				},
+				
 				getAccessionMedia : function(){
 					return getFullUrl('/resource/media.accession');
 				},
@@ -27,6 +28,7 @@ angular.module('bibliApp').provider('UrlService',function(){
 				getRechercheMedia : function(){
 					return getFullUrl('/resource/media.recherche');
 				},
+				
 				getRechercheAdherent : function(){
 					return getFullUrl('/resource/adherent.recherche');
 				},
@@ -34,6 +36,7 @@ angular.module('bibliApp').provider('UrlService',function(){
 				getCreationMedia : function(){
 					return getFullUrl('/resource/media.creation');
 				},
+				
 				getCreationAdherent : function(){
 					return getFullUrl('/resource/adherent.creation');
 				},
@@ -41,6 +44,7 @@ angular.module('bibliApp').provider('UrlService',function(){
 				getModificationMedia : function(){
 					return getFullUrl('/resource/media.modification');
 				},
+				
 				getModificationAdherent : function(){
 					return getFullUrl('/resource/adherent.modification');
 				},

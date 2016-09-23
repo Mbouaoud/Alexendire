@@ -36,7 +36,7 @@ public abstract class JpaRepositoryImpl<T extends Model> implements JpaRepositor
     }
 
 	@Transactional
-    public T findOne(int id) {
+    public T findOne(long id) {
         return em.find(entityClass, id);
     }
 	
