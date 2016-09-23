@@ -10,7 +10,7 @@ public interface JpaRepository<T extends Model> {
 
 	public T save(T entity);
 
-	public T findOne(int id);
+	public T findOne(long id);
 
 	public List<T> findAll();
 

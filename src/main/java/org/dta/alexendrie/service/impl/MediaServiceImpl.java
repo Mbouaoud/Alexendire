@@ -23,4 +23,9 @@ public class MediaServiceImpl implements MediaService {
 		return mediaRepository.findUsrByLogin();
 	}
 
+	@Override
+	public Media getMediaById(long id) {
+		return mediaRepository.findOne(id);
+	}
+
 }
