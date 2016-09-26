@@ -1,0 +1,1 @@
+insert into media(id, author, title, type) values (1, 'demoi','monlivre', 'Livre');
