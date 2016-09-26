@@ -52,9 +52,9 @@
 		<tbody>
 			<tr class="row" ng-repeat="resultat in resultats">
 				<td>{{resultat.id}}</td>
-				<td>{{resultat.nom}} {{resultat.prenom}}</td>
-				<td>{{resultat.date_naissance}}</td>
-				<td>{{resultat.cotisation.fin}}</td>
+				<td>{{resultat.lastname}} {{resultat.firstname}}</td>
+				<td>{{resultat.birthday}}</td>
+				<td>{{resultat.subscription.paymentDate}}</td>
 				<td>{{resultat.nombre_media}}</td>
 				<td><a ng-click="adherentVisualisation(resultat.id)"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a></td>
 			</tr>

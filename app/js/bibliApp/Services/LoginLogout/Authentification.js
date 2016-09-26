@@ -5,6 +5,7 @@ angular.module('bibliApp').factory('Authentification', function($http, $rootScop
 		
 		// On vérifie si la personne n'était pas déjà connectée à xce PC avant :
 		var cookie = $cookies.get('bibliAppCookie');
+		$http.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
 		
 		if(cookie != null){
 			connexion = true;
@@ -15,26 +16,37 @@ angular.module('bibliApp').factory('Authentification', function($http, $rootScop
 		}
 
 		service.connexion = function(login, password) {
-			var authdata = Base64Service.encode(login + ':' + password);
+			var authdata = window.btoa(login + ':' + password);
+			
+			console.log("FN: "+login+"  "+password+"   "+authdata);
+			
 			var config = {
 				headers : {
 					'Authorization' : 'Basic ' + authdata
+				},
+				params : {
+					'login':login,
+					'password':password
 				}
 			};
 //			return $http.get('http://192.168.10.41:1977/resource/connexion.rights', config).then(function(){
 //			console.log(UrlService.getRightConnexion());
-			return $http.get(UrlService.getRightConnexion(), config, {'login':login,'password':password}).then(function(){
+			console.log("connection en cours... !")
+			return $http.post(UrlService.getRightConnexion(), {}, config).then(function(){
+				console.log("connection ok !")
 				// connexion ok
 				$http.defaults.headers.common['Authorization'] = 'Basic ' + authdata;
 				// Setting a cookie
 				$cookies.put('bibliAppCookie',  'Basic ' + authdata);
 				connexion = true;
+				
 				return true;
 				
-			}, function(){
+			}, function(response){
 				// connexion ko
-				service.deconnexion();
-				return false;
+				console.log("connection KO !")
+				//service.deconnexion();
+				//return false;
 			});
 		}
 		
@@ -88,6 +100,7 @@ angular.module('bibliApp').factory('Authentification', function($http, $rootScop
 	}).value('Base64Service',{
 		keyStr : 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=',
 		encode : function(input) {
+			console.log('base 64 fn');
 			return btoa(input);
 		}
 });

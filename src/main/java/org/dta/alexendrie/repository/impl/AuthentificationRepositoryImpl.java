@@ -9,10 +9,7 @@ import org.springframework.stereotype.Repository;
 public class AuthentificationRepositoryImpl extends JpaRepositoryImpl<Usr>implements AuthentificationRepository {
 
 	@Override
-	protected Class<Usr> getEntityClass() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	protected Class<Usr> getEntityClass() {		return Usr.class;	}
 
 	public Boolean findUsrbyLogin(String login, String password) {
 

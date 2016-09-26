@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/rest/")
 public class LoanControllerRest {
 
 	@Autowired
@@ -32,9 +33,8 @@ public class LoanControllerRest {
 	@Autowired
 	private SubscriptionService subscriptionService;
 
-	@RequestMapping(value = "/resource/loan.ajout", method = RequestMethod.GET)
-	public Loan ajoutLoan(@RequestParam("id_media") long id_media, @RequestParam("id_adherent") long id_member,
-			@RequestParam("depart") String depart) {
+	@RequestMapping(value = "loan_ajout", method = RequestMethod.GET)
+	public Loan ajoutLoan(@RequestParam("id_media") long id_media, @RequestParam("id_adherent") long id_member, @RequestParam("depart") String depart) {
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 

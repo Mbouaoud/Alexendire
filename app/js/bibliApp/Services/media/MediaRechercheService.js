@@ -2,8 +2,10 @@ angular.module('bibliApp').factory('MediaRechercheService',function($http, UrlSe
 		
 	return {
 		get: function(titre,auteur,type){
+			
 			 return $http({method:'GET',url:UrlService.getRechercheMedia(),params:{'titre':titre,'auteur':auteur,'type':type}}).success(function(data){
 				console.log('Je fais la recherche media');
+				console.log(data);
 			}).error(function(){
 				console.log('Erreur lors du chargement du fichier media recherche');
 			})

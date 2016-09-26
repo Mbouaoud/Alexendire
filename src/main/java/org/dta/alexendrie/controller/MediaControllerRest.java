@@ -5,26 +5,30 @@ import org.dta.alexendrie.model.Media;
 import org.dta.alexendrie.model.MediaType;
 import org.dta.alexendrie.service.MediaService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/rest/")
 public class MediaControllerRest {
 
 	@Autowired
 	private MediaService mediaService;
 	
 	@RequestMapping(value="/media_recherche", method= RequestMethod.GET)
-	public List<Media> rechercheMedia(@RequestParam("titre") String titre, @RequestParam("auteur") String auteur, @RequestParam("type") MediaType type){
-		List<Media> media = null; 
+	public List<Media> rechercheMedia(@RequestParam(name="titre", required=false) String titre, @RequestParam(name="auteur", required=false) String auteur, @RequestParam(name="type", required=false) String type){
 		
-		if(titre.equals("") && auteur.equals("") && type==null){
+		List<Media> media = null;
+		if(titre == null) titre = "";
+		if(auteur == null) auteur = "";
+		
+		if("".equals(titre) && "".equals(auteur) && type==null){
 			media = mediaService.getMediaAll();
 		} else {
-			media = mediaService.getMediaBy(titre, auteur, type);
+			MediaType t = MediaType.valueOf(type);
+			media = mediaService.getMediaBy(titre, auteur, t);
 		}
 		
 		return media;

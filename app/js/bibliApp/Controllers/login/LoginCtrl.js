@@ -7,7 +7,7 @@ angular.module('bibliApp').controller('LoginCtrl', function($scope, $location, A
 				if (response===true) {
 					$location.url("/home/" ); 
 				}else {
-					console.log('Connexion invalide !!!')
+					console.log('Connexion invalide !!!');
 					req = "1";
 				}
 			});

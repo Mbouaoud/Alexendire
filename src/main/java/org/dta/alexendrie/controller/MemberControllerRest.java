@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/rest/")
 public class MemberControllerRest {
 	
 	@Autowired
@@ -63,8 +64,12 @@ public class MemberControllerRest {
 	}
 	
 	@RequestMapping(value="/member_recherche", method=RequestMethod.GET)
-	public List<Member> rechercheMember(@RequestParam("id") String id, @RequestParam("nom") String nom){
+	public List<Member> rechercheMember(@RequestParam(name="id", required=false) String id, @RequestParam(name="nom", required=false) String nom){
 		List<Member> member= null;
+		
+		if(id == null) id = "";
+		if(nom == null) nom = "";
+		
 		if(id.equals("") && nom.equals("")){
 			member = memberService.getMemberAll();
 		} else {
@@ -74,7 +79,7 @@ public class MemberControllerRest {
 		return member;		
 	}
 
-	@RequestMapping(value = "/resource/member.accession", method = RequestMethod.GET)
+	@RequestMapping(value = "member_accession", method = RequestMethod.GET)
 	public Member rechercheMember(@RequestParam("id") long id) {
 		return memberService.getMemberById(id);
 	}

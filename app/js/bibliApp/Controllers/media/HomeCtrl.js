@@ -27,7 +27,8 @@ angular.module('bibliApp').controller('HomeCtrl', function($scope,$location,Medi
 			$scope.resultats=recherche.slice((page-1)*$scope.nbElmtByPage,page*$scope.nbElmtByPage);
 			$scope.pageMax = Math.ceil(recherche.length/$scope.nbElmtByPage);
 			$scope.pageActuelle = page;
-		},function(error){
+		},
+		function(error){
 			this.error=error;
 		});
 
