@@ -34,6 +34,12 @@ angular.module('bibliApp').factory('Authentification', function($http, $rootScop
 			console.log("connection en cours... !")
 			return $http.post(UrlService.getRightConnexion(), {}, config).then(function(){
 				console.log("connection ok !")
+			
+//			$http.get(  URL , CONFIG, body ) => erreur : un get n'a pas de body 
+//			$http.get(  URL ,        CONFIG ) => oui, mais notre service est en POST
+//			$http.post( URL , BODY , CONFIG ) => post prend en param2 un BODY et en param3 les config
+//			$http.post( URL , BODY , CONFIG ) => post prend en param2 un BODY et en param3 les config
+//			$http.post( URL , {}   , CONFIG ) => dans notre cas, les parametre LOGIN et PASSWORD sont des @RequestParam et pas de @BodyParam, donc le body est vide, mais l'attribut params de CONFIG ne l'ai pas...
 				// connexion ok
 				$http.defaults.headers.common['Authorization'] = 'Basic ' + authdata;
 				// Setting a cookie

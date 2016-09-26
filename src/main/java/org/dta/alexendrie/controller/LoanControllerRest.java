@@ -33,7 +33,8 @@ public class LoanControllerRest {
 	@Autowired
 	private SubscriptionService subscriptionService;
 
-	@RequestMapping(value = "loan_ajout", method = RequestMethod.GET)
+
+	@RequestMapping(value = "loan_ajout", method = RequestMethod.POST)
 	public Loan ajoutLoan(@RequestParam("id_media") long id_media, @RequestParam("id_adherent") long id_member, @RequestParam("depart") String depart) {
 
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
@@ -51,12 +52,6 @@ public class LoanControllerRest {
 			loan = loanService.addLoan(loan);
 			media.setCurrentLoan(loan);
 			mediaService.save(media);
-			
-			//long idRetour = loan.getId();
-			//loan = null;
-			member = null;
-			media = null;
-			subscription = null;
 			
 			return loan;
 			
